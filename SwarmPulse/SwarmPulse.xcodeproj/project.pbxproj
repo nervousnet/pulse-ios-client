@@ -164,6 +164,14 @@
 			path = SwarmPulseUITests;
 			sourceTree = "<group>";
 		};
+		1F39F1B21BD8D87400B365E8 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				1F39F1B31BD8D88400B365E8 /* Visual.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -538,6 +546,7 @@
 				07CB96F31BD8D5B600A58733 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		07CB96F41BD8D5B600A58733 /* Build configuration list for PBXNativeTarget "SwarmPulseTests" */ = {
 			isa = XCConfigurationList;
@@ -546,6 +555,7 @@
 				07CB96F61BD8D5B600A58733 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		07CB96F71BD8D5B600A58733 /* Build configuration list for PBXNativeTarget "SwarmPulseUITests" */ = {
 			isa = XCConfigurationList;
@@ -554,6 +564,7 @@
 				07CB96F91BD8D5B600A58733 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
