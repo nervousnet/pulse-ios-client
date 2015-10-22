@@ -33,6 +33,9 @@
 		07CB97131BD902FC00A58733 /* icon_about.png in Resources */ = {isa = PBXBuildFile; fileRef = 07CB970F1BD902FC00A58733 /* icon_about.png */; settings = {ASSET_TAGS = (); }; };
 		07CB97151BD9070E00A58733 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CB97141BD9070E00A58733 /* ViewController2.swift */; settings = {ASSET_TAGS = (); }; };
 		07CB97171BD90B6100A58733 /* Visual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CB97161BD90B6100A58733 /* Visual.swift */; settings = {ASSET_TAGS = (); }; };
+		1F0310DA1BD93A0200E10714 /* TextVisual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0310D91BD93A0200E10714 /* TextVisual.swift */; settings = {ASSET_TAGS = (); }; };
+		1F0310DC1BD93A7200E10714 /* LightReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0310DB1BD93A7200E10714 /* LightReading.swift */; settings = {ASSET_TAGS = (); }; };
+		1F0310DE1BD93AAB00E10714 /* NoiseReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0310DD1BD93AAB00E10714 /* NoiseReading.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +112,9 @@
 		07CB970F1BD902FC00A58733 /* icon_about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_about.png; sourceTree = "<group>"; };
 		07CB97141BD9070E00A58733 /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		07CB97161BD90B6100A58733 /* Visual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visual.swift; sourceTree = "<group>"; };
+		1F0310D91BD93A0200E10714 /* TextVisual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextVisual.swift; sourceTree = "<group>"; };
+		1F0310DB1BD93A7200E10714 /* LightReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightReading.swift; sourceTree = "<group>"; };
+		1F0310DD1BD93AAB00E10714 /* NoiseReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoiseReading.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +242,9 @@
 			isa = PBXGroup;
 			children = (
 				07CB97161BD90B6100A58733 /* Visual.swift */,
+				1F0310D91BD93A0200E10714 /* TextVisual.swift */,
+				1F0310DB1BD93A7200E10714 /* LightReading.swift */,
+				1F0310DD1BD93AAB00E10714 /* NoiseReading.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -435,9 +444,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				07CB96CF1BD8D5B500A58733 /* ViewController.swift in Sources */,
+				1F0310DC1BD93A7200E10714 /* LightReading.swift in Sources */,
 				07CB97071BD8EFAE00A58733 /* WebViewController.swift in Sources */,
 				07CB97151BD9070E00A58733 /* ViewController2.swift in Sources */,
 				07CB96CD1BD8D5B500A58733 /* AppDelegate.swift in Sources */,
+				1F0310DE1BD93AAB00E10714 /* NoiseReading.swift in Sources */,
+				1F0310DA1BD93A0200E10714 /* TextVisual.swift in Sources */,
 				07CB97171BD90B6100A58733 /* Visual.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
