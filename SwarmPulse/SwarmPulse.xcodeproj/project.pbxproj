@@ -36,6 +36,7 @@
 		1F0310DA1BD93A0200E10714 /* TextVisual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0310D91BD93A0200E10714 /* TextVisual.swift */; settings = {ASSET_TAGS = (); }; };
 		1F0310DC1BD93A7200E10714 /* LightReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0310DB1BD93A7200E10714 /* LightReading.swift */; settings = {ASSET_TAGS = (); }; };
 		1F0310DE1BD93AAB00E10714 /* NoiseReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0310DD1BD93AAB00E10714 /* NoiseReading.swift */; settings = {ASSET_TAGS = (); }; };
+		1F0310E11BD978E700E10714 /* PulseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0310E01BD978E700E10714 /* PulseVM.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		1F0310D91BD93A0200E10714 /* TextVisual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextVisual.swift; sourceTree = "<group>"; };
 		1F0310DB1BD93A7200E10714 /* LightReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightReading.swift; sourceTree = "<group>"; };
 		1F0310DD1BD93AAB00E10714 /* NoiseReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoiseReading.swift; sourceTree = "<group>"; };
+		1F0310E01BD978E700E10714 /* PulseVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 		07CB96CB1BD8D5B500A58733 /* SwarmPulse */ = {
 			isa = PBXGroup;
 			children = (
+				1F0310DF1BD978B900E10714 /* PulseVM */,
 				07B861AA1BD92C5B00641165 /* SwarmPulse.entitlements */,
 				07CB97181BD90B8900A58733 /* Images */,
 				1F39F1B21BD8D87400B365E8 /* model */,
@@ -236,6 +239,14 @@
 				07CB96FB1BD8D69100A58733 /* speaker-820005.jpg */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		1F0310DF1BD978B900E10714 /* PulseVM */ = {
+			isa = PBXGroup;
+			children = (
+				1F0310E01BD978E700E10714 /* PulseVM.swift */,
+			);
+			name = PulseVM;
 			sourceTree = "<group>";
 		};
 		1F39F1B21BD8D87400B365E8 /* model */ = {
@@ -443,6 +454,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F0310E11BD978E700E10714 /* PulseVM.swift in Sources */,
 				07CB96CF1BD8D5B500A58733 /* ViewController.swift in Sources */,
 				1F0310DC1BD93A7200E10714 /* LightReading.swift in Sources */,
 				07CB97071BD8EFAE00A58733 /* WebViewController.swift in Sources */,
