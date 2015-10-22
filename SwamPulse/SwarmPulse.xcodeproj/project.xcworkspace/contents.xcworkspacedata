@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:SwamPulse.xcodeproj">
+      location = "self:/Users/sid/Documents/pulse-ios-client/SwamPulse/SwarmPulse.xcodeproj">
    </FileRef>
 </Workspace>
