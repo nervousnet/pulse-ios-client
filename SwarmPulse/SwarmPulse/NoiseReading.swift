@@ -11,14 +11,14 @@ import CoreLocation
 
 class NoiseReading : Visual {
     
-    var soundVal : Double
+    var soundVal : Float
     var type : Int
     var timestamp : UInt64
     var UUID : String
     var location : CLLocation
     
     
-    init(uuid : String, soundVal : Double, timestamp : UInt64, location : CLLocation) {
+    init(uuid : String, soundVal : Float, timestamp : UInt64, location : CLLocation) {
         
         self.type = 1
         self.UUID = uuid

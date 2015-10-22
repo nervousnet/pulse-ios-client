@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import CoreLocation
+import AVFoundation
 
 // instantiate the pulse vm for use as a singleton
 private let _VM = PulseVM()
@@ -17,12 +18,15 @@ class PulseVM : NSObject {
     
     let defaults :NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
-    let manager : CLLocationManager! = CLLocationManager()
+    let locManager = CLLocationManager()
+    
+    let noiseManager = AVAudioRecorder()
     
     // initializer
     override init(){
         super.init()
         _ = self.generateUUID()
+        locManager.requestWhenInUseAuthorization()
     }
     
     // create the share instance function
@@ -102,6 +106,23 @@ class PulseVM : NSObject {
             
             return true
         }
+    }
+    
+    func noiseCollection() {
+        noiseManager.meteringEnabled = true
+        let noiseLevel = noiseManager.peakPowerForChannel(1)
+        let currentTime :NSDate = NSDate()
+        locManager.startUpdatingLocation()
+        
+        _ = NoiseReading(
+            uuid: defaults.stringForKey("generatedUUID")!,
+            soundVal: noiseLevel,
+            timestamp: UInt64(currentTime.timeIntervalSince1970*1000),
+            location: locManager.location!
+        )
+        
+        noiseManager.meteringEnabled = false
+        locManager.stopUpdatingLocation()
     }
 }
 
