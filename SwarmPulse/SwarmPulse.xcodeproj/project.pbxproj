@@ -1,0 +1,753 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07B8618F1BD9184100641165 /* Background_Graph_Mockup.png in Resources */ = {isa = PBXBuildFile; fileRef = 07B8618E1BD9184100641165 /* Background_Graph_Mockup.png */; settings = {ASSET_TAGS = (); }; };
+		07B861951BD9229500641165 /* Orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 07B861941BD9229500641165 /* Orange.png */; settings = {ASSET_TAGS = (); }; };
+		07B8619D1BD9293400641165 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B8619C1BD9293400641165 /* ShareViewController.swift */; };
+		07B861A01BD9293400641165 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07B8619E1BD9293400641165 /* MainInterface.storyboard */; };
+		07B861A41BD9293400641165 /* SwarmPulseMessaging.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 07B8619A1BD9293400641165 /* SwarmPulseMessaging.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		07CB96CD1BD8D5B500A58733 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CB96CC1BD8D5B500A58733 /* AppDelegate.swift */; };
+		07CB96CF1BD8D5B500A58733 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CB96CE1BD8D5B500A58733 /* ViewController.swift */; };
+		07CB96D21BD8D5B500A58733 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07CB96D01BD8D5B500A58733 /* Main.storyboard */; };
+		07CB96D41BD8D5B500A58733 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07CB96D31BD8D5B500A58733 /* Assets.xcassets */; };
+		07CB96D71BD8D5B500A58733 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07CB96D51BD8D5B500A58733 /* LaunchScreen.storyboard */; };
+		07CB96E21BD8D5B600A58733 /* SwarmPulseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CB96E11BD8D5B600A58733 /* SwarmPulseTests.swift */; };
+		07CB96ED1BD8D5B600A58733 /* SwarmPulseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CB96EC1BD8D5B600A58733 /* SwarmPulseUITests.swift */; };
+		07CB96FC1BD8D69100A58733 /* sparkler-918836.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 07CB96FA1BD8D69100A58733 /* sparkler-918836.jpg */; settings = {ASSET_TAGS = (); }; };
+		07CB96FD1BD8D69100A58733 /* speaker-820005.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 07CB96FB1BD8D69100A58733 /* speaker-820005.jpg */; settings = {ASSET_TAGS = (); }; };
+		07CB96FF1BD8DAE100A58733 /* mailbox-959299.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 07CB96FE1BD8DAE100A58733 /* mailbox-959299.jpg */; settings = {ASSET_TAGS = (); }; };
+		07CB97011BD8DB2100A58733 /* world-549425_1920.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 07CB97001BD8DB2100A58733 /* world-549425_1920.jpg */; settings = {ASSET_TAGS = (); }; };
+		07CB97031BD8DB7E00A58733 /* spiderweb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 07CB97021BD8DB7E00A58733 /* spiderweb.jpg */; settings = {ASSET_TAGS = (); }; };
+		07CB97051BD8E56C00A58733 /* head-776681_1920.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 07CB97041BD8E56C00A58733 /* head-776681_1920.jpg */; settings = {ASSET_TAGS = (); }; };
+		07CB97071BD8EFAE00A58733 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CB97061BD8EFAE00A58733 /* WebViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		07CB970B1BD8FFA000A58733 /* icon_light_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 07CB970A1BD8FFA000A58733 /* icon_light_frame.png */; settings = {ASSET_TAGS = (); }; };
+		07CB97101BD902FC00A58733 /* icon_message.png in Resources */ = {isa = PBXBuildFile; fileRef = 07CB970C1BD902FC00A58733 /* icon_message.png */; settings = {ASSET_TAGS = (); }; };
+		07CB97111BD902FC00A58733 /* icon_noise_msg_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 07CB970D1BD902FC00A58733 /* icon_noise_msg_frame.png */; settings = {ASSET_TAGS = (); }; };
+		07CB97121BD902FC00A58733 /* icon_visual.png in Resources */ = {isa = PBXBuildFile; fileRef = 07CB970E1BD902FC00A58733 /* icon_visual.png */; settings = {ASSET_TAGS = (); }; };
+		07CB97131BD902FC00A58733 /* icon_about.png in Resources */ = {isa = PBXBuildFile; fileRef = 07CB970F1BD902FC00A58733 /* icon_about.png */; settings = {ASSET_TAGS = (); }; };
+		07CB97151BD9070E00A58733 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CB97141BD9070E00A58733 /* ViewController2.swift */; settings = {ASSET_TAGS = (); }; };
+		07CB97171BD90B6100A58733 /* Visual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CB97161BD90B6100A58733 /* Visual.swift */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		07B861A21BD9293400641165 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07CB96C11BD8D5B500A58733 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07B861991BD9293400641165;
+			remoteInfo = SwarmPulseMessaging;
+		};
+		07CB96DE1BD8D5B600A58733 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07CB96C11BD8D5B500A58733 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07CB96C81BD8D5B500A58733;
+			remoteInfo = SwarmPulse;
+		};
+		07CB96E91BD8D5B600A58733 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07CB96C11BD8D5B500A58733 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07CB96C81BD8D5B500A58733;
+			remoteInfo = SwarmPulse;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		07B861A81BD9293400641165 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				07B861A41BD9293400641165 /* SwarmPulseMessaging.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		07B8618E1BD9184100641165 /* Background_Graph_Mockup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background_Graph_Mockup.png; sourceTree = "<group>"; };
+		07B861941BD9229500641165 /* Orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Orange.png; sourceTree = "<group>"; };
+		07B8619A1BD9293400641165 /* SwarmPulseMessaging.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SwarmPulseMessaging.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		07B8619C1BD9293400641165 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		07B8619F1BD9293400641165 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		07B861A11BD9293400641165 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07B861A91BD92B4000641165 /* SwarmPulseMessaging.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SwarmPulseMessaging.entitlements; sourceTree = "<group>"; };
+		07B861AA1BD92C5B00641165 /* SwarmPulse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SwarmPulse.entitlements; sourceTree = "<group>"; };
+		07CB96C91BD8D5B500A58733 /* SwarmPulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwarmPulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		07CB96CC1BD8D5B500A58733 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		07CB96CE1BD8D5B500A58733 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		07CB96D11BD8D5B500A58733 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		07CB96D31BD8D5B500A58733 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		07CB96D61BD8D5B500A58733 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		07CB96D81BD8D5B500A58733 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07CB96DD1BD8D5B600A58733 /* SwarmPulseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwarmPulseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		07CB96E11BD8D5B600A58733 /* SwarmPulseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwarmPulseTests.swift; sourceTree = "<group>"; };
+		07CB96E31BD8D5B600A58733 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07CB96E81BD8D5B600A58733 /* SwarmPulseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwarmPulseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		07CB96EC1BD8D5B600A58733 /* SwarmPulseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwarmPulseUITests.swift; sourceTree = "<group>"; };
+		07CB96EE1BD8D5B600A58733 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07CB96FA1BD8D69100A58733 /* sparkler-918836.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "sparkler-918836.jpg"; sourceTree = "<group>"; };
+		07CB96FB1BD8D69100A58733 /* speaker-820005.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "speaker-820005.jpg"; sourceTree = "<group>"; };
+		07CB96FE1BD8DAE100A58733 /* mailbox-959299.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mailbox-959299.jpg"; sourceTree = "<group>"; };
+		07CB97001BD8DB2100A58733 /* world-549425_1920.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "world-549425_1920.jpg"; sourceTree = "<group>"; };
+		07CB97021BD8DB7E00A58733 /* spiderweb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spiderweb.jpg; sourceTree = "<group>"; };
+		07CB97041BD8E56C00A58733 /* head-776681_1920.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "head-776681_1920.jpg"; sourceTree = "<group>"; };
+		07CB97061BD8EFAE00A58733 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		07CB970A1BD8FFA000A58733 /* icon_light_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_light_frame.png; sourceTree = "<group>"; };
+		07CB970C1BD902FC00A58733 /* icon_message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_message.png; sourceTree = "<group>"; };
+		07CB970D1BD902FC00A58733 /* icon_noise_msg_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_noise_msg_frame.png; sourceTree = "<group>"; };
+		07CB970E1BD902FC00A58733 /* icon_visual.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_visual.png; sourceTree = "<group>"; };
+		07CB970F1BD902FC00A58733 /* icon_about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_about.png; sourceTree = "<group>"; };
+		07CB97141BD9070E00A58733 /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		07CB97161BD90B6100A58733 /* Visual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visual.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		07B861971BD9293400641165 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07CB96C61BD8D5B500A58733 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07CB96DA1BD8D5B600A58733 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07CB96E51BD8D5B600A58733 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07B8619B1BD9293400641165 /* SwarmPulseMessaging */ = {
+			isa = PBXGroup;
+			children = (
+				07B861A91BD92B4000641165 /* SwarmPulseMessaging.entitlements */,
+				07B8619C1BD9293400641165 /* ShareViewController.swift */,
+				07B8619E1BD9293400641165 /* MainInterface.storyboard */,
+				07B861A11BD9293400641165 /* Info.plist */,
+			);
+			path = SwarmPulseMessaging;
+			sourceTree = "<group>";
+		};
+		07CB96C01BD8D5B500A58733 = {
+			isa = PBXGroup;
+			children = (
+				07CB96CB1BD8D5B500A58733 /* SwarmPulse */,
+				07CB96E01BD8D5B600A58733 /* SwarmPulseTests */,
+				07CB96EB1BD8D5B600A58733 /* SwarmPulseUITests */,
+				07B8619B1BD9293400641165 /* SwarmPulseMessaging */,
+				07CB96CA1BD8D5B500A58733 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		07CB96CA1BD8D5B500A58733 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				07CB96C91BD8D5B500A58733 /* SwarmPulse.app */,
+				07CB96DD1BD8D5B600A58733 /* SwarmPulseTests.xctest */,
+				07CB96E81BD8D5B600A58733 /* SwarmPulseUITests.xctest */,
+				07B8619A1BD9293400641165 /* SwarmPulseMessaging.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		07CB96CB1BD8D5B500A58733 /* SwarmPulse */ = {
+			isa = PBXGroup;
+			children = (
+				07B861AA1BD92C5B00641165 /* SwarmPulse.entitlements */,
+				07CB97181BD90B8900A58733 /* Images */,
+				1F39F1B21BD8D87400B365E8 /* model */,
+				07CB96CC1BD8D5B500A58733 /* AppDelegate.swift */,
+				07CB96CE1BD8D5B500A58733 /* ViewController.swift */,
+				07CB97141BD9070E00A58733 /* ViewController2.swift */,
+				07CB97061BD8EFAE00A58733 /* WebViewController.swift */,
+				07CB96D01BD8D5B500A58733 /* Main.storyboard */,
+				07CB96D31BD8D5B500A58733 /* Assets.xcassets */,
+				07CB96D51BD8D5B500A58733 /* LaunchScreen.storyboard */,
+				07CB96D81BD8D5B500A58733 /* Info.plist */,
+			);
+			path = SwarmPulse;
+			sourceTree = "<group>";
+		};
+		07CB96E01BD8D5B600A58733 /* SwarmPulseTests */ = {
+			isa = PBXGroup;
+			children = (
+				07CB96E11BD8D5B600A58733 /* SwarmPulseTests.swift */,
+				07CB96E31BD8D5B600A58733 /* Info.plist */,
+			);
+			path = SwarmPulseTests;
+			sourceTree = "<group>";
+		};
+		07CB96EB1BD8D5B600A58733 /* SwarmPulseUITests */ = {
+			isa = PBXGroup;
+			children = (
+				07CB96EC1BD8D5B600A58733 /* SwarmPulseUITests.swift */,
+				07CB96EE1BD8D5B600A58733 /* Info.plist */,
+			);
+			path = SwarmPulseUITests;
+			sourceTree = "<group>";
+		};
+		07CB97181BD90B8900A58733 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				07B8618E1BD9184100641165 /* Background_Graph_Mockup.png */,
+				07CB96FA1BD8D69100A58733 /* sparkler-918836.jpg */,
+				07CB97001BD8DB2100A58733 /* world-549425_1920.jpg */,
+				07CB97041BD8E56C00A58733 /* head-776681_1920.jpg */,
+				07B861941BD9229500641165 /* Orange.png */,
+				07CB97021BD8DB7E00A58733 /* spiderweb.jpg */,
+				07CB970A1BD8FFA000A58733 /* icon_light_frame.png */,
+				07CB96FE1BD8DAE100A58733 /* mailbox-959299.jpg */,
+				07CB970C1BD902FC00A58733 /* icon_message.png */,
+				07CB970D1BD902FC00A58733 /* icon_noise_msg_frame.png */,
+				07CB970E1BD902FC00A58733 /* icon_visual.png */,
+				07CB970F1BD902FC00A58733 /* icon_about.png */,
+				07CB96FB1BD8D69100A58733 /* speaker-820005.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		1F39F1B21BD8D87400B365E8 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				07CB97161BD90B6100A58733 /* Visual.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		07B861991BD9293400641165 /* SwarmPulseMessaging */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07B861A51BD9293400641165 /* Build configuration list for PBXNativeTarget "SwarmPulseMessaging" */;
+			buildPhases = (
+				07B861961BD9293400641165 /* Sources */,
+				07B861971BD9293400641165 /* Frameworks */,
+				07B861981BD9293400641165 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwarmPulseMessaging;
+			productName = SwarmPulseMessaging;
+			productReference = 07B8619A1BD9293400641165 /* SwarmPulseMessaging.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		07CB96C81BD8D5B500A58733 /* SwarmPulse */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07CB96F11BD8D5B600A58733 /* Build configuration list for PBXNativeTarget "SwarmPulse" */;
+			buildPhases = (
+				07CB96C51BD8D5B500A58733 /* Sources */,
+				07CB96C61BD8D5B500A58733 /* Frameworks */,
+				07CB96C71BD8D5B500A58733 /* Resources */,
+				07B861A81BD9293400641165 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				07B861A31BD9293400641165 /* PBXTargetDependency */,
+			);
+			name = SwarmPulse;
+			productName = SwarmPulse;
+			productReference = 07CB96C91BD8D5B500A58733 /* SwarmPulse.app */;
+			productType = "com.apple.product-type.application";
+		};
+		07CB96DC1BD8D5B600A58733 /* SwarmPulseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07CB96F41BD8D5B600A58733 /* Build configuration list for PBXNativeTarget "SwarmPulseTests" */;
+			buildPhases = (
+				07CB96D91BD8D5B600A58733 /* Sources */,
+				07CB96DA1BD8D5B600A58733 /* Frameworks */,
+				07CB96DB1BD8D5B600A58733 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				07CB96DF1BD8D5B600A58733 /* PBXTargetDependency */,
+			);
+			name = SwarmPulseTests;
+			productName = SwarmPulseTests;
+			productReference = 07CB96DD1BD8D5B600A58733 /* SwarmPulseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		07CB96E71BD8D5B600A58733 /* SwarmPulseUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07CB96F71BD8D5B600A58733 /* Build configuration list for PBXNativeTarget "SwarmPulseUITests" */;
+			buildPhases = (
+				07CB96E41BD8D5B600A58733 /* Sources */,
+				07CB96E51BD8D5B600A58733 /* Frameworks */,
+				07CB96E61BD8D5B600A58733 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				07CB96EA1BD8D5B600A58733 /* PBXTargetDependency */,
+			);
+			name = SwarmPulseUITests;
+			productName = SwarmPulseUITests;
+			productReference = 07CB96E81BD8D5B600A58733 /* SwarmPulseUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		07CB96C11BD8D5B500A58733 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = coss.ethz.ch;
+				TargetAttributes = {
+					07B861991BD9293400641165 = {
+						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 5R8S596684;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					07CB96C81BD8D5B500A58733 = {
+						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 5R8S596684;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					07CB96DC1BD8D5B600A58733 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 07CB96C81BD8D5B500A58733;
+					};
+					07CB96E71BD8D5B600A58733 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 07CB96C81BD8D5B500A58733;
+					};
+				};
+			};
+			buildConfigurationList = 07CB96C41BD8D5B500A58733 /* Build configuration list for PBXProject "SwarmPulse" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 07CB96C01BD8D5B500A58733;
+			productRefGroup = 07CB96CA1BD8D5B500A58733 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				07CB96C81BD8D5B500A58733 /* SwarmPulse */,
+				07CB96DC1BD8D5B600A58733 /* SwarmPulseTests */,
+				07CB96E71BD8D5B600A58733 /* SwarmPulseUITests */,
+				07B861991BD9293400641165 /* SwarmPulseMessaging */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		07B861981BD9293400641165 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07B861A01BD9293400641165 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07CB96C71BD8D5B500A58733 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07CB97031BD8DB7E00A58733 /* spiderweb.jpg in Resources */,
+				07CB97111BD902FC00A58733 /* icon_noise_msg_frame.png in Resources */,
+				07CB97131BD902FC00A58733 /* icon_about.png in Resources */,
+				07CB97011BD8DB2100A58733 /* world-549425_1920.jpg in Resources */,
+				07CB96D71BD8D5B500A58733 /* LaunchScreen.storyboard in Resources */,
+				07CB970B1BD8FFA000A58733 /* icon_light_frame.png in Resources */,
+				07CB97101BD902FC00A58733 /* icon_message.png in Resources */,
+				07CB97121BD902FC00A58733 /* icon_visual.png in Resources */,
+				07CB96FD1BD8D69100A58733 /* speaker-820005.jpg in Resources */,
+				07B861951BD9229500641165 /* Orange.png in Resources */,
+				07CB96D41BD8D5B500A58733 /* Assets.xcassets in Resources */,
+				07B8618F1BD9184100641165 /* Background_Graph_Mockup.png in Resources */,
+				07CB96FC1BD8D69100A58733 /* sparkler-918836.jpg in Resources */,
+				07CB96D21BD8D5B500A58733 /* Main.storyboard in Resources */,
+				07CB96FF1BD8DAE100A58733 /* mailbox-959299.jpg in Resources */,
+				07CB97051BD8E56C00A58733 /* head-776681_1920.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07CB96DB1BD8D5B600A58733 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07CB96E61BD8D5B600A58733 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		07B861961BD9293400641165 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07B8619D1BD9293400641165 /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07CB96C51BD8D5B500A58733 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07CB96CF1BD8D5B500A58733 /* ViewController.swift in Sources */,
+				07CB97071BD8EFAE00A58733 /* WebViewController.swift in Sources */,
+				07CB97151BD9070E00A58733 /* ViewController2.swift in Sources */,
+				07CB96CD1BD8D5B500A58733 /* AppDelegate.swift in Sources */,
+				07CB97171BD90B6100A58733 /* Visual.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07CB96D91BD8D5B600A58733 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07CB96E21BD8D5B600A58733 /* SwarmPulseTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07CB96E41BD8D5B600A58733 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07CB96ED1BD8D5B600A58733 /* SwarmPulseUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		07B861A31BD9293400641165 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07B861991BD9293400641165 /* SwarmPulseMessaging */;
+			targetProxy = 07B861A21BD9293400641165 /* PBXContainerItemProxy */;
+		};
+		07CB96DF1BD8D5B600A58733 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07CB96C81BD8D5B500A58733 /* SwarmPulse */;
+			targetProxy = 07CB96DE1BD8D5B600A58733 /* PBXContainerItemProxy */;
+		};
+		07CB96EA1BD8D5B600A58733 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07CB96C81BD8D5B500A58733 /* SwarmPulse */;
+			targetProxy = 07CB96E91BD8D5B600A58733 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		07B8619E1BD9293400641165 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07B8619F1BD9293400641165 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		07CB96D01BD8D5B500A58733 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07CB96D11BD8D5B500A58733 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		07CB96D51BD8D5B500A58733 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07CB96D61BD8D5B500A58733 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		07B861A61BD9293400641165 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SwarmPulseMessaging/SwarmPulseMessaging.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = SwarmPulseMessaging/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.ethz.coss.nervous.SwarmPulse.SwarmPulseMessaging;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		07B861A71BD9293400641165 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SwarmPulseMessaging/SwarmPulseMessaging.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = SwarmPulseMessaging/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.ethz.coss.nervous.SwarmPulse.SwarmPulseMessaging;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		07CB96EF1BD8D5B600A58733 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		07CB96F01BD8D5B600A58733 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		07CB96F21BD8D5B600A58733 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SwarmPulse/SwarmPulse.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = SwarmPulse/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.ethz.coss.nervous.SwarmPulse;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		07CB96F31BD8D5B600A58733 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SwarmPulse/SwarmPulse.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = SwarmPulse/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.ethz.coss.nervous.SwarmPulse;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		07CB96F51BD8D5B600A58733 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SwarmPulseTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.ethz.coss.nervous.SwarmPulseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwarmPulse.app/SwarmPulse";
+			};
+			name = Debug;
+		};
+		07CB96F61BD8D5B600A58733 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SwarmPulseTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.ethz.coss.nervous.SwarmPulseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwarmPulse.app/SwarmPulse";
+			};
+			name = Release;
+		};
+		07CB96F81BD8D5B600A58733 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SwarmPulseUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.ethz.coss.nervous.SwarmPulseUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SwarmPulse;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		07CB96F91BD8D5B600A58733 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SwarmPulseUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.ethz.coss.nervous.SwarmPulseUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SwarmPulse;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		07B861A51BD9293400641165 /* Build configuration list for PBXNativeTarget "SwarmPulseMessaging" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07B861A61BD9293400641165 /* Debug */,
+				07B861A71BD9293400641165 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07CB96C41BD8D5B500A58733 /* Build configuration list for PBXProject "SwarmPulse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07CB96EF1BD8D5B600A58733 /* Debug */,
+				07CB96F01BD8D5B600A58733 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07CB96F11BD8D5B600A58733 /* Build configuration list for PBXNativeTarget "SwarmPulse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07CB96F21BD8D5B600A58733 /* Debug */,
+				07CB96F31BD8D5B600A58733 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07CB96F41BD8D5B600A58733 /* Build configuration list for PBXNativeTarget "SwarmPulseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07CB96F51BD8D5B600A58733 /* Debug */,
+				07CB96F61BD8D5B600A58733 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07CB96F71BD8D5B600A58733 /* Build configuration list for PBXNativeTarget "SwarmPulseUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07CB96F81BD8D5B600A58733 /* Debug */,
+				07CB96F91BD8D5B600A58733 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 07CB96C11BD8D5B500A58733 /* Project object */;
+}
