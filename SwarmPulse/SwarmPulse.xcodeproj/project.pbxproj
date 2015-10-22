@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07B8618F1BD9184100641165 /* Background_Graph_Mockup.png in Resources */ = {isa = PBXBuildFile; fileRef = 07B8618E1BD9184100641165 /* Background_Graph_Mockup.png */; settings = {ASSET_TAGS = (); }; };
 		07CB96CD1BD8D5B500A58733 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CB96CC1BD8D5B500A58733 /* AppDelegate.swift */; };
 		07CB96CF1BD8D5B500A58733 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CB96CE1BD8D5B500A58733 /* ViewController.swift */; };
 		07CB96D21BD8D5B500A58733 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07CB96D01BD8D5B500A58733 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		07CB97121BD902FC00A58733 /* icon_visual.png in Resources */ = {isa = PBXBuildFile; fileRef = 07CB970E1BD902FC00A58733 /* icon_visual.png */; settings = {ASSET_TAGS = (); }; };
 		07CB97131BD902FC00A58733 /* icon_about.png in Resources */ = {isa = PBXBuildFile; fileRef = 07CB970F1BD902FC00A58733 /* icon_about.png */; settings = {ASSET_TAGS = (); }; };
 		07CB97151BD9070E00A58733 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CB97141BD9070E00A58733 /* ViewController2.swift */; settings = {ASSET_TAGS = (); }; };
+		07CB97171BD90B6100A58733 /* Visual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CB97161BD90B6100A58733 /* Visual.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07B8618E1BD9184100641165 /* Background_Graph_Mockup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background_Graph_Mockup.png; sourceTree = "<group>"; };
 		07CB96C91BD8D5B500A58733 /* SwarmPulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwarmPulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07CB96CC1BD8D5B500A58733 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07CB96CE1BD8D5B500A58733 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +76,7 @@
 		07CB970E1BD902FC00A58733 /* icon_visual.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_visual.png; sourceTree = "<group>"; };
 		07CB970F1BD902FC00A58733 /* icon_about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_about.png; sourceTree = "<group>"; };
 		07CB97141BD9070E00A58733 /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		07CB97161BD90B6100A58733 /* Visual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visual.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,17 +127,8 @@
 		07CB96CB1BD8D5B500A58733 /* SwarmPulse */ = {
 			isa = PBXGroup;
 			children = (
-				07CB96FA1BD8D69100A58733 /* sparkler-918836.jpg */,
-				07CB97001BD8DB2100A58733 /* world-549425_1920.jpg */,
-				07CB97041BD8E56C00A58733 /* head-776681_1920.jpg */,
-				07CB97021BD8DB7E00A58733 /* spiderweb.jpg */,
-				07CB970A1BD8FFA000A58733 /* icon_light_frame.png */,
-				07CB96FE1BD8DAE100A58733 /* mailbox-959299.jpg */,
-				07CB970C1BD902FC00A58733 /* icon_message.png */,
-				07CB970D1BD902FC00A58733 /* icon_noise_msg_frame.png */,
-				07CB970E1BD902FC00A58733 /* icon_visual.png */,
-				07CB970F1BD902FC00A58733 /* icon_about.png */,
-				07CB96FB1BD8D69100A58733 /* speaker-820005.jpg */,
+				07CB97181BD90B8900A58733 /* Images */,
+				1F39F1B21BD8D87400B365E8 /* model */,
 				07CB96CC1BD8D5B500A58733 /* AppDelegate.swift */,
 				07CB96CE1BD8D5B500A58733 /* ViewController.swift */,
 				07CB97141BD9070E00A58733 /* ViewController2.swift */,
@@ -164,10 +159,29 @@
 			path = SwarmPulseUITests;
 			sourceTree = "<group>";
 		};
+		07CB97181BD90B8900A58733 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				07B8618E1BD9184100641165 /* Background_Graph_Mockup.png */,
+				07CB96FA1BD8D69100A58733 /* sparkler-918836.jpg */,
+				07CB97001BD8DB2100A58733 /* world-549425_1920.jpg */,
+				07CB97041BD8E56C00A58733 /* head-776681_1920.jpg */,
+				07CB97021BD8DB7E00A58733 /* spiderweb.jpg */,
+				07CB970A1BD8FFA000A58733 /* icon_light_frame.png */,
+				07CB96FE1BD8DAE100A58733 /* mailbox-959299.jpg */,
+				07CB970C1BD902FC00A58733 /* icon_message.png */,
+				07CB970D1BD902FC00A58733 /* icon_noise_msg_frame.png */,
+				07CB970E1BD902FC00A58733 /* icon_visual.png */,
+				07CB970F1BD902FC00A58733 /* icon_about.png */,
+				07CB96FB1BD8D69100A58733 /* speaker-820005.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		1F39F1B21BD8D87400B365E8 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				1F39F1B31BD8D88400B365E8 /* Visual.swift */,
+				07CB97161BD90B6100A58733 /* Visual.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -286,6 +300,7 @@
 				07CB97121BD902FC00A58733 /* icon_visual.png in Resources */,
 				07CB96FD1BD8D69100A58733 /* speaker-820005.jpg in Resources */,
 				07CB96D41BD8D5B500A58733 /* Assets.xcassets in Resources */,
+				07B8618F1BD9184100641165 /* Background_Graph_Mockup.png in Resources */,
 				07CB96FC1BD8D69100A58733 /* sparkler-918836.jpg in Resources */,
 				07CB96D21BD8D5B500A58733 /* Main.storyboard in Resources */,
 				07CB96FF1BD8DAE100A58733 /* mailbox-959299.jpg in Resources */,
@@ -318,6 +333,7 @@
 				07CB97071BD8EFAE00A58733 /* WebViewController.swift in Sources */,
 				07CB97151BD9070E00A58733 /* ViewController2.swift in Sources */,
 				07CB96CD1BD8D5B500A58733 /* AppDelegate.swift in Sources */,
+				07CB97171BD90B6100A58733 /* Visual.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

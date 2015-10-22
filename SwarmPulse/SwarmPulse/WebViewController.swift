@@ -24,6 +24,7 @@ class WebViewController: UIViewController {
         let requestURL = NSURL(string:url)
         let request = NSURLRequest(URL: requestURL!)
         webView.loadRequest(request)
+//        UIApplication.sharedApplication().openURL(NSURL(string: "http://pulse.inn.ac/")!)
         
     }
 
