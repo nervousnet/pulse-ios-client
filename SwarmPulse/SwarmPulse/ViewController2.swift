@@ -25,6 +25,16 @@ class ViewController2: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        //this is how to access the shared text
+        let sharedDefaults = NSUserDefaults(suiteName: "group.ch.ethz.coss.nervous")
+        lightLabel.text = sharedDefaults?.objectForKey("stringKey") as? String
+        
+        
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -33,7 +43,7 @@ class ViewController2: UIViewController {
     func updateLabel()
     {
         noiseLabel.text = String(arc4random_uniform(49)+1) + " dB"
-        lightLabel.text = String(arc4random_uniform(150)+1) + " lux"
+        //lightLabel.text = String(arc4random_uniform(150)+1) + " lux"
 
     }
 
