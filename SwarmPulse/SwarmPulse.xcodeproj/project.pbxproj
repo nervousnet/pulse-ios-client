@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		077522941BDA68EC003222CF /* HomeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077522931BDA68EC003222CF /* HomeTable.swift */; settings = {ASSET_TAGS = (); }; };
+		077522961BDA6925003222CF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077522951BDA6925003222CF /* HomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		07B8618F1BD9184100641165 /* Background_Graph_Mockup.png in Resources */ = {isa = PBXBuildFile; fileRef = 07B8618E1BD9184100641165 /* Background_Graph_Mockup.png */; settings = {ASSET_TAGS = (); }; };
 		07B861951BD9229500641165 /* Orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 07B861941BD9229500641165 /* Orange.png */; settings = {ASSET_TAGS = (); }; };
 		07B8619D1BD9293400641165 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B8619C1BD9293400641165 /* ShareViewController.swift */; };
@@ -74,6 +76,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		077522931BDA68EC003222CF /* HomeTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTable.swift; sourceTree = "<group>"; };
+		077522951BDA6925003222CF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		07B8618E1BD9184100641165 /* Background_Graph_Mockup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background_Graph_Mockup.png; sourceTree = "<group>"; };
 		07B861941BD9229500641165 /* Orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Orange.png; sourceTree = "<group>"; };
 		07B8619A1BD9293400641165 /* SwarmPulseMessaging.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SwarmPulseMessaging.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,8 +187,10 @@
 				07CB97181BD90B8900A58733 /* Images */,
 				1F39F1B21BD8D87400B365E8 /* model */,
 				07CB96CC1BD8D5B500A58733 /* AppDelegate.swift */,
+				077522931BDA68EC003222CF /* HomeTable.swift */,
 				07CB96CE1BD8D5B500A58733 /* ViewController.swift */,
 				07CB97141BD9070E00A58733 /* ViewController2.swift */,
+				077522951BDA6925003222CF /* HomeViewController.swift */,
 				07CB97061BD8EFAE00A58733 /* WebViewController.swift */,
 				07CB96D01BD8D5B500A58733 /* Main.storyboard */,
 				07CB96D31BD8D5B500A58733 /* Assets.xcassets */,
@@ -439,6 +445,8 @@
 				07CB97151BD9070E00A58733 /* ViewController2.swift in Sources */,
 				07CB96CD1BD8D5B500A58733 /* AppDelegate.swift in Sources */,
 				07CB97171BD90B6100A58733 /* Visual.swift in Sources */,
+				077522961BDA6925003222CF /* HomeViewController.swift in Sources */,
+				077522941BDA68EC003222CF /* HomeTable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
