@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-class TextReading : Visual {
+class TextVisual : Visual {
     
     var txtMsg : String
     var type : Int
