@@ -14,6 +14,8 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet var bigButton: UIButton!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var infoLabel: UILabel!
+    let VM = PulseVM.sharedInstance
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +30,11 @@ class HomeTableViewCell: UITableViewCell {
     }
 
     @IBAction func bigButtonPressed(sender: UIButton) {
-        
+        if (nameLabel.text == "Noise"){
+            VM.noiseCollection()
+        }
+        if (nameLabel.text == "Light"){
+            
+        }
     }
 }

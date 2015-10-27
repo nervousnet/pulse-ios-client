@@ -20,6 +20,7 @@ class ShareViewController: SLComposeServiceViewController {
         // This is called after the user selects Post. Do the upload of contentText and/or NSExtensionContext attachments.
     
         let sharedDefaults = NSUserDefaults(suiteName: "group.ch.ethz.coss.nervous")
+        sharedDefaults?.setBool(false, forKey: "hasBeenPushed")
         sharedDefaults?.setObject(self.contentText, forKey: "stringKey")
         sharedDefaults?.synchronize()
         

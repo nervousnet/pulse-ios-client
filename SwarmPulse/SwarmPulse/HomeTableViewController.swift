@@ -9,6 +9,8 @@
 import UIKit
 
 class HomeTableViewController: UITableViewController {
+    
+    let VM = PulseVM.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,26 @@ class HomeTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+//        let textcell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! HomeTableViewCell
+        
+//        _ = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: Selector("sendPendingMessages"), userInfo: nil, repeats: true)
+        
+    }
+    
+    func sendPendingMessages (){
+        let sharedDefaults = NSUserDefaults(suiteName: "group.ch.ethz.coss.nervous")
+        if (sharedDefaults?.boolForKey("hasBeenPushed") == false){
+            let sharedText = sharedDefaults?.objectForKey("stringKey") as? String
+            VM.textCollection(sharedText!)
+            sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
+            sharedDefaults?.synchronize()
+        }
+
+    }
 
     // MARK: - Table view data source
 
@@ -48,9 +70,10 @@ class HomeTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
-
+    
+    //Change return divisor in order to adjust number of rows shown at one time
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return (tableView.frame.height/5)
+        return (tableView.frame.height/4)
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if (indexPath.row == 0){
