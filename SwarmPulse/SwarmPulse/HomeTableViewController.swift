@@ -19,7 +19,7 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        //create and set tableview background
         let backgroundImageView = UIImageView()
         backgroundImageView.image = UIImage(named: "Background_Graph_Mockup")
         backgroundImageView.contentMode = UIViewContentMode.ScaleAspectFill
@@ -43,14 +43,15 @@ class HomeTableViewController: UITableViewController {
         super.viewDidAppear(animated)
         
 //        let textcell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! HomeTableViewCell
-        
+        //Regularly check whether there are new messages pending
         _ = NSTimer.scheduledTimerWithTimeInterval(20, target: self, selector: Selector("sendPendingMessages"), userInfo: nil, repeats: true)
         
       
         
         
     }
-    
+    //Get the message from the NSUserDefaults and send it to the VM
+    //Update the bool
     func sendPendingMessages (){
         let sharedDefaults = NSUserDefaults(suiteName: "group.ch.ethz.coss.nervous")
         if (sharedDefaults?.boolForKey("hasBeenPushed") == false){
@@ -65,11 +66,11 @@ class HomeTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
+    //Only one section, might add more later
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-
+    //The number of rows. Columns are achieved to the hometableviewcelldouble
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
@@ -78,6 +79,7 @@ class HomeTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return (tableView.frame.height/4)
     }
+    //initialize the cells with names and icons, also pass a reference to self in order to allow segues
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if (indexPath.row == 0){
             
