@@ -9,17 +9,13 @@
 import UIKit
 
 class HomeTableViewController: UITableViewController {
+    
+    let VM = PulseVM.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        
-//        UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TableViewBackground.png"]];
-//        [tempImageView setFrame:self.tableView.frame];
-//        
-//        self.tableView.backgroundView = tempImageView;
-//        [tempImageView release];
-        
+
         let backgroundImageView = UIImageView()
         backgroundImageView.image = UIImage(named: "Background_Graph_Mockup")
         backgroundImageView.contentMode = UIViewContentMode.ScaleAspectFill
@@ -38,6 +34,30 @@ class HomeTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+//        let textcell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! HomeTableViewCell
+        
+        _ = NSTimer.scheduledTimerWithTimeInterval(20, target: self, selector: Selector("sendPendingMessages"), userInfo: nil, repeats: true)
+        
+      
+        
+        
+    }
+    
+    func sendPendingMessages (){
+        let sharedDefaults = NSUserDefaults(suiteName: "group.ch.ethz.coss.nervous")
+        if (sharedDefaults?.boolForKey("hasBeenPushed") == false){
+            let sharedText = sharedDefaults?.objectForKey("stringKey") as? String
+            VM.textCollection(sharedText!)
+            sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
+            sharedDefaults?.synchronize()
+        }
+        NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
+
+    }
 
     // MARK: - Table view data source
 
@@ -48,9 +68,10 @@ class HomeTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
-
+    
+    //Change return divisor in order to adjust number of rows shown at one time
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return (tableView.frame.height/5)
+        return (tableView.frame.height/4)
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if (indexPath.row == 0){
@@ -58,12 +79,15 @@ class HomeTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("FullWidthLeftIcon", forIndexPath: indexPath) as! HomeTableViewCell
             cell.nameLabel.text = "Noise"
             cell.iconImage.image = UIImage(named: "icon_noise_msg_frame")
+            cell.homeTableViewcontroller = self
             return cell
         }
         if (indexPath.row == 1){
             let cell = tableView.dequeueReusableCellWithIdentifier("FullWidthRightIcon", forIndexPath: indexPath) as! HomeTableViewCell
             cell.nameLabel.text  = "Light"
             cell.iconImage.image = UIImage(named: "icon_light")
+            cell.homeTableViewcontroller = self
+
             return cell
             
         }
@@ -74,7 +98,7 @@ class HomeTableViewController: UITableViewController {
             cell.rightImage.image = UIImage(named: "icon_about")
             cell.rightImage.image = UIImage(named: "icon_visual")
             cell.rightTarget = "Visualise"
-            cell.parentViewController = self
+            cell.homeTableViewcontroller = self
             
             return cell
 
@@ -86,13 +110,16 @@ class HomeTableViewController: UITableViewController {
             cell.iconImage.image = UIImage(named: "icon_message")
         
             cell.bigButton.backgroundColor = UIColor(red: (1/3), green: (1/3), blue: (1/3), alpha: 0.59)
-            
+            cell.homeTableViewcontroller = self
+
             return cell
         
         }
         else {
             let cell = tableView.dequeueReusableCellWithIdentifier("FullWidthRightIcon", forIndexPath: indexPath) as! HomeTableViewCell
             cell.nameLabel.text  = "Please specify this cell"
+            cell.homeTableViewcontroller = self
+
             return cell
             
         }

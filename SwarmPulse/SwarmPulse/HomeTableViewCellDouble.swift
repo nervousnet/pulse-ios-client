@@ -16,7 +16,7 @@ class HomeTableViewCellDouble: UITableViewCell {
     @IBOutlet var rightImage: UIImageView!
     @IBOutlet var leftButton: UIButton!
     @IBOutlet var rightButton: UIButton!
-    var parentViewController: UIViewController = UIViewController()
+    var homeTableViewcontroller: HomeTableViewController = HomeTableViewController()
     
     var leftTarget : String = ""
     var rightTarget : String = ""
