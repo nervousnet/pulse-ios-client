@@ -15,13 +15,7 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        
-//        UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TableViewBackground.png"]];
-//        [tempImageView setFrame:self.tableView.frame];
-//        
-//        self.tableView.backgroundView = tempImageView;
-//        [tempImageView release];
-        
+
         let backgroundImageView = UIImageView()
         backgroundImageView.image = UIImage(named: "Background_Graph_Mockup")
         backgroundImageView.contentMode = UIViewContentMode.ScaleAspectFill
@@ -48,16 +42,20 @@ class HomeTableViewController: UITableViewController {
         
 //        _ = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: Selector("sendPendingMessages"), userInfo: nil, repeats: true)
         
+      
+        
+        
     }
     
     func sendPendingMessages (){
         let sharedDefaults = NSUserDefaults(suiteName: "group.ch.ethz.coss.nervous")
         if (sharedDefaults?.boolForKey("hasBeenPushed") == false){
             let sharedText = sharedDefaults?.objectForKey("stringKey") as? String
-            VM.textCollection(sharedText!)
+            //VM.textCollection(sharedText!)
             sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
             sharedDefaults?.synchronize()
         }
+        NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
 
     }
 
@@ -81,12 +79,15 @@ class HomeTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("FullWidthLeftIcon", forIndexPath: indexPath) as! HomeTableViewCell
             cell.nameLabel.text = "Noise"
             cell.iconImage.image = UIImage(named: "icon_noise_msg_frame")
+            cell.homeTableViewcontroller = self
             return cell
         }
         if (indexPath.row == 1){
             let cell = tableView.dequeueReusableCellWithIdentifier("FullWidthRightIcon", forIndexPath: indexPath) as! HomeTableViewCell
             cell.nameLabel.text  = "Light"
             cell.iconImage.image = UIImage(named: "icon_light")
+            cell.homeTableViewcontroller = self
+
             return cell
             
         }
@@ -97,7 +98,7 @@ class HomeTableViewController: UITableViewController {
             cell.rightImage.image = UIImage(named: "icon_about")
             cell.rightImage.image = UIImage(named: "icon_visual")
             cell.rightTarget = "Visualise"
-            cell.parentViewController = self
+            cell.homeTableViewcontroller = self
             
             return cell
 
@@ -109,13 +110,16 @@ class HomeTableViewController: UITableViewController {
             cell.iconImage.image = UIImage(named: "icon_message")
         
             cell.bigButton.backgroundColor = UIColor(red: (1/3), green: (1/3), blue: (1/3), alpha: 0.59)
-            
+            cell.homeTableViewcontroller = self
+
             return cell
         
         }
         else {
             let cell = tableView.dequeueReusableCellWithIdentifier("FullWidthRightIcon", forIndexPath: indexPath) as! HomeTableViewCell
             cell.nameLabel.text  = "Please specify this cell"
+            cell.homeTableViewcontroller = self
+
             return cell
             
         }
