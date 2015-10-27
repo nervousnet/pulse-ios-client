@@ -11,6 +11,10 @@ import UIKit
 class HomeTableViewController: UITableViewController {
     
     let VM = PulseVM.sharedInstance
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,11 +55,12 @@ class HomeTableViewController: UITableViewController {
         let sharedDefaults = NSUserDefaults(suiteName: "group.ch.ethz.coss.nervous")
         if (sharedDefaults?.boolForKey("hasBeenPushed") == false){
             let sharedText = sharedDefaults?.objectForKey("stringKey") as? String
-            VM.textCollection(sharedText!)
+            //VM.textCollection(sharedText!)
             sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
             sharedDefaults?.synchronize()
+            NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
+
         }
-        NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
 
     }
 
@@ -78,6 +83,7 @@ class HomeTableViewController: UITableViewController {
             
             let cell = tableView.dequeueReusableCellWithIdentifier("FullWidthLeftIcon", forIndexPath: indexPath) as! HomeTableViewCell
             cell.nameLabel.text = "Noise"
+            cell.infoLabel.text = "42dB"
             cell.iconImage.image = UIImage(named: "icon_noise_msg_frame")
             cell.homeTableViewcontroller = self
             return cell
@@ -85,6 +91,7 @@ class HomeTableViewController: UITableViewController {
         if (indexPath.row == 1){
             let cell = tableView.dequeueReusableCellWithIdentifier("FullWidthRightIcon", forIndexPath: indexPath) as! HomeTableViewCell
             cell.nameLabel.text  = "Light"
+            cell.infoLabel.text = "211 lux"
             cell.iconImage.image = UIImage(named: "icon_light")
             cell.homeTableViewcontroller = self
 
