@@ -56,7 +56,7 @@ class HomeTableViewCell: UITableViewCell {
             }
             alertController.addAction(cancelAction)
             
-            let SendAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+            let SendAction = UIAlertAction(title: "Send", style: .Default) { (action) in
                 self.infoLabel.text = alertController.textFields![0].text
                 let sharedDefaults = NSUserDefaults(suiteName: "group.ch.ethz.coss.nervous")
                 sharedDefaults?.setObject(alertController.textFields![0].text, forKey: "stringKey")

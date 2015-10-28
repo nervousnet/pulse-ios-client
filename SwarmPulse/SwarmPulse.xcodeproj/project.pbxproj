@@ -11,6 +11,7 @@
 		0775229A1BDA6F55003222CF /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077522991BDA6F55003222CF /* HomeTableViewController.swift */; };
 		0775229C1BDA8443003222CF /* HomeTableViewCellDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0775229B1BDA8443003222CF /* HomeTableViewCellDouble.swift */; };
 		0775229E1BDA9B62003222CF /* icon_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 0775229D1BDA9B62003222CF /* icon_light.png */; };
+		077824AC1BDFD26B00BD7F85 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077824AB1BDFD26B00BD7F85 /* AboutViewController.swift */; };
 		07B8618F1BD9184100641165 /* Background_Graph_Mockup.png in Resources */ = {isa = PBXBuildFile; fileRef = 07B8618E1BD9184100641165 /* Background_Graph_Mockup.png */; };
 		07B861951BD9229500641165 /* Orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 07B861941BD9229500641165 /* Orange.png */; };
 		07B8619D1BD9293400641165 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B8619C1BD9293400641165 /* ShareViewController.swift */; };
@@ -85,6 +86,7 @@
 		077522991BDA6F55003222CF /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		0775229B1BDA8443003222CF /* HomeTableViewCellDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCellDouble.swift; sourceTree = "<group>"; };
 		0775229D1BDA9B62003222CF /* icon_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_light.png; sourceTree = "<group>"; };
+		077824AB1BDFD26B00BD7F85 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		07B8618E1BD9184100641165 /* Background_Graph_Mockup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background_Graph_Mockup.png; sourceTree = "<group>"; };
 		07B861941BD9229500641165 /* Orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Orange.png; sourceTree = "<group>"; };
 		07B8619A1BD9293400641165 /* SwarmPulseMessaging.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SwarmPulseMessaging.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +208,7 @@
 				077522971BDA6BC5003222CF /* HomeTableViewCell.swift */,
 				0775229B1BDA8443003222CF /* HomeTableViewCellDouble.swift */,
 				07CB96D01BD8D5B500A58733 /* Main.storyboard */,
+				077824AB1BDFD26B00BD7F85 /* AboutViewController.swift */,
 				07CB96D51BD8D5B500A58733 /* LaunchScreen.storyboard */,
 				07CB96D81BD8D5B500A58733 /* Info.plist */,
 			);
@@ -478,6 +481,7 @@
 				077522981BDA6BC5003222CF /* HomeTableViewCell.swift in Sources */,
 				1F0310DE1BD93AAB00E10714 /* NoiseReading.swift in Sources */,
 				1F0310DA1BD93A0200E10714 /* TextVisual.swift in Sources */,
+				077824AC1BDFD26B00BD7F85 /* AboutViewController.swift in Sources */,
 				07CB97171BD90B6100A58733 /* Visual.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

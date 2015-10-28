@@ -11,11 +11,15 @@ import UIKit
 class HomeTableViewController: UITableViewController {
     
     let VM = PulseVM.sharedInstance
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        //create and set tableview background
         let backgroundImageView = UIImageView()
         backgroundImageView.image = UIImage(named: "Background_Graph_Mockup")
         backgroundImageView.contentMode = UIViewContentMode.ScaleAspectFill
@@ -39,33 +43,43 @@ class HomeTableViewController: UITableViewController {
         super.viewDidAppear(animated)
         
 //        let textcell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! HomeTableViewCell
-        
+        //Regularly check whether there are new messages pending
         _ = NSTimer.scheduledTimerWithTimeInterval(20, target: self, selector: Selector("sendPendingMessages"), userInfo: nil, repeats: true)
         
       
         
         
     }
-    
+    //Get the message from the NSUserDefaults and send it to the VM
+    //Update the bool
     func sendPendingMessages (){
         let sharedDefaults = NSUserDefaults(suiteName: "group.ch.ethz.coss.nervous")
         if (sharedDefaults?.boolForKey("hasBeenPushed") == false){
             let sharedText = sharedDefaults?.objectForKey("stringKey") as? String
+<<<<<<< HEAD
             VM.initLocationManager()
             VM.textCollection(sharedText!)
+=======
+            //VM.textCollection(sharedText!)
+>>>>>>> ebadb334e3358402f12173f879a4174fbfdb4c47
             sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
             sharedDefaults?.synchronize()
+            NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
+
         }
+<<<<<<< HEAD
         //NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
+=======
+>>>>>>> ebadb334e3358402f12173f879a4174fbfdb4c47
 
     }
 
     // MARK: - Table view data source
-
+    //Only one section, might add more later
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-
+    //The number of rows. Columns are achieved to the hometableviewcelldouble
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
@@ -74,11 +88,13 @@ class HomeTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return (tableView.frame.height/4)
     }
+    //initialize the cells with names and icons, also pass a reference to self in order to allow segues
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if (indexPath.row == 0){
             
             let cell = tableView.dequeueReusableCellWithIdentifier("FullWidthLeftIcon", forIndexPath: indexPath) as! HomeTableViewCell
             cell.nameLabel.text = "Noise"
+            cell.infoLabel.text = "42dB"
             cell.iconImage.image = UIImage(named: "icon_noise_msg_frame")
             cell.homeTableViewcontroller = self
             return cell
@@ -86,6 +102,7 @@ class HomeTableViewController: UITableViewController {
         if (indexPath.row == 1){
             let cell = tableView.dequeueReusableCellWithIdentifier("FullWidthRightIcon", forIndexPath: indexPath) as! HomeTableViewCell
             cell.nameLabel.text  = "Light"
+            cell.infoLabel.text = "211 lux"
             cell.iconImage.image = UIImage(named: "icon_light")
             cell.homeTableViewcontroller = self
 
