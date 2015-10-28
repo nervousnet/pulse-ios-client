@@ -56,22 +56,15 @@ class HomeTableViewController: UITableViewController {
         let sharedDefaults = NSUserDefaults(suiteName: "group.ch.ethz.coss.nervous")
         if (sharedDefaults?.boolForKey("hasBeenPushed") == false){
             let sharedText = sharedDefaults?.objectForKey("stringKey") as? String
-<<<<<<< HEAD
             VM.initLocationManager()
             VM.textCollection(sharedText!)
-=======
             //VM.textCollection(sharedText!)
->>>>>>> ebadb334e3358402f12173f879a4174fbfdb4c47
             sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
             sharedDefaults?.synchronize()
             NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
 
         }
-<<<<<<< HEAD
         //NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
-=======
->>>>>>> ebadb334e3358402f12173f879a4174fbfdb4c47
-
     }
 
     // MARK: - Table view data source
