@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A282b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3dZ-v4-XLN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A282b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sSi-qB-qtI">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
@@ -215,7 +215,6 @@
                                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <action selector="rightPress:" destination="Pnk-TH-gnj" eventType="touchUpInside" id="exK-i3-XsU"/>
-                                                <segue destination="gjn-be-Hwf" kind="show" id="VH6-z4-0yu"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cxe-eJ-hxo">
@@ -308,12 +307,12 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1315" y="-1626"/>
+            <point key="canvasLocation" x="1179" y="-658"/>
         </scene>
-        <!--Web View Controller-->
+        <!--Visualise-->
         <scene sceneID="pcu-TH-mGg">
             <objects>
-                <viewController storyboardIdentifier="Visualise" id="gjn-be-Hwf" customClass="WebViewController" customModule="SwarmPulse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Visualise" title="Visualise" id="gjn-be-Hwf" customClass="WebViewController" customModule="SwarmPulse" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ebK-Ms-Lav"/>
                         <viewControllerLayoutGuide type="bottom" id="6OQ-lr-ecY"/>
@@ -377,12 +376,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IzB-tS-fDr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="617" y="-1626"/>
+            <point key="canvasLocation" x="1843" y="-554"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="2V2-s4-z6J">
             <objects>
-                <viewController id="3dZ-v4-XLN" customClass="AboutViewController" customModule="SwarmPulse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="About" id="3dZ-v4-XLN" customClass="AboutViewController" customModule="SwarmPulse" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jOy-R0-Fvy"/>
                         <viewControllerLayoutGuide type="bottom" id="vyN-16-VoB"/>
@@ -465,37 +464,86 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3lA-s6-c0J">
                                         <rect key="frame" x="0.0" y="134" width="600" height="268"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8VL-Hu-Rrb">
-                                                <rect key="frame" x="0.0" y="-198" width="1422.5" height="20"/>
-                                                <animations/>
-                                                <string key="text">Labelahlskdhlahdhlasdjahsdljahdjhaldhaljhdahdjhadhaljdhahdladkahdkahdkahdlahdkahdhadshakdhaljdshalhdahdkahdakhdladhkhljaksdhahdkadhjalsdhalsdhalsdhaldjshakhdlahsdalsdhahl</string>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textView autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQd-80-F0a">
+                                            <textView autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uQd-80-F0a">
                                                 <rect key="frame" x="0.0" y="10" width="600" height="248"/>
                                                 <animations/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <string key="text">ETH Zurich \n Department of Humanities and Social Sciences\nProfessorship of Computational Social Science\nClausiusstrasse 50,\n8092 Zurich,\nSwitzerland</string>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
+                                                <dataDetectorType key="dataDetectorTypes" address="YES"/>
                                             </textView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find us at:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mea-Lq-GKJ">
+                                                <rect key="frame" x="266.5" y="243" width="67" height="17"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <animations/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.1087151605" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="Mea-Lq-GKJ" firstAttribute="centerX" secondItem="uQd-80-F0a" secondAttribute="centerX" id="96a-dl-m7y"/>
                                             <constraint firstItem="uQd-80-F0a" firstAttribute="width" secondItem="3lA-s6-c0J" secondAttribute="width" id="DEE-NN-UE6"/>
                                             <constraint firstAttribute="bottom" secondItem="uQd-80-F0a" secondAttribute="bottom" constant="10" id="PNy-VQ-F36"/>
                                             <constraint firstItem="uQd-80-F0a" firstAttribute="centerX" secondItem="3lA-s6-c0J" secondAttribute="centerX" id="TnV-gO-LBJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="Mea-Lq-GKJ" secondAttribute="bottom" constant="8" id="bOz-Hh-wyH"/>
                                             <constraint firstItem="uQd-80-F0a" firstAttribute="top" secondItem="3lA-s6-c0J" secondAttribute="top" constant="10" id="gGq-hm-j32"/>
                                             <constraint firstItem="uQd-80-F0a" firstAttribute="centerY" secondItem="3lA-s6-c0J" secondAttribute="centerY" id="zFp-af-iXg"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Cd-zx-u4v">
                                         <rect key="frame" x="0.0" y="402" width="600" height="134"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXm-Wi-9wX">
+                                                <rect key="frame" x="0.0" y="67" width="600" height="67"/>
+                                                <animations/>
+                                                <color key="backgroundColor" red="1" green="0.46841417959999998" blue="0.05112755595" alpha="0.89788323479999999" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Rate this App!">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="rateThisApp:" destination="3dZ-v4-XLN" eventType="touchUpInside" id="kS3-kf-at3"/>
+                                                </connections>
+                                            </button>
+                                            <textView clipsSubviews="YES" contentMode="center" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" bouncesZoom="NO" editable="NO" text="www.swarmpulse.net" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="e4Z-Bi-fsp">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="67"/>
+                                                <animations/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" contentMode="center" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" bouncesZoom="NO" editable="NO" text="nervousnet.ethz.ch" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="S1Y-de-oxq">
+                                                <rect key="frame" x="300" y="0.0" width="300" height="67"/>
+                                                <animations/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                            </textView>
+                                        </subviews>
                                         <animations/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.1087151605" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="cXm-Wi-9wX" firstAttribute="width" secondItem="3Cd-zx-u4v" secondAttribute="width" id="80Y-Ay-w07"/>
+                                            <constraint firstAttribute="bottom" secondItem="cXm-Wi-9wX" secondAttribute="bottom" id="9Dc-dZ-1Ip"/>
+                                            <constraint firstItem="cXm-Wi-9wX" firstAttribute="centerX" secondItem="3Cd-zx-u4v" secondAttribute="centerX" id="APo-aL-94u"/>
+                                            <constraint firstItem="S1Y-de-oxq" firstAttribute="height" secondItem="3Cd-zx-u4v" secondAttribute="height" multiplier="1/2" id="Asw-hl-2Kn"/>
+                                            <constraint firstItem="cXm-Wi-9wX" firstAttribute="height" secondItem="3Cd-zx-u4v" secondAttribute="height" multiplier="1/2" id="Bh4-Rk-dw6"/>
+                                            <constraint firstItem="e4Z-Bi-fsp" firstAttribute="height" secondItem="3Cd-zx-u4v" secondAttribute="height" multiplier="1/2" id="DHE-6X-dly"/>
+                                            <constraint firstAttribute="trailing" secondItem="S1Y-de-oxq" secondAttribute="trailing" id="aTO-FJ-wZD"/>
+                                            <constraint firstItem="S1Y-de-oxq" firstAttribute="top" secondItem="3Cd-zx-u4v" secondAttribute="top" id="apX-De-PCk"/>
+                                            <constraint firstItem="e4Z-Bi-fsp" firstAttribute="width" secondItem="3Cd-zx-u4v" secondAttribute="width" multiplier="1/2" id="bEq-33-xck"/>
+                                            <constraint firstItem="e4Z-Bi-fsp" firstAttribute="leading" secondItem="3Cd-zx-u4v" secondAttribute="leading" id="lUU-qw-45m"/>
+                                            <constraint firstItem="S1Y-de-oxq" firstAttribute="width" secondItem="3Cd-zx-u4v" secondAttribute="width" multiplier="1/2" id="yu9-Ge-1UT"/>
+                                            <constraint firstItem="e4Z-Bi-fsp" firstAttribute="top" secondItem="3Cd-zx-u4v" secondAttribute="top" id="zij-cZ-uBG"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <animations/>
@@ -541,7 +589,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m1e-Y3-4nt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="713" y="-651"/>
+            <point key="canvasLocation" x="433" y="-683"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -1026,8 +1074,8 @@
         <image name="spiderweb.jpg" width="640" height="640"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Q1n-ui-nS0"/>
         <segue reference="KRu-Ug-5Yc"/>
-        <segue reference="VH6-z4-0yu"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
 </document>

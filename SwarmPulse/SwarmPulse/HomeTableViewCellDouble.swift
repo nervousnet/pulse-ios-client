@@ -31,12 +31,14 @@ class HomeTableViewCellDouble: UITableViewCell {
         // Configure the view for the selected state
     }
     @IBAction func leftPress(sender: UIButton) {
+        let  targetVC : UIViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier(leftLabel.text!)
+        homeTableViewcontroller.presentViewController(targetVC, animated: true, completion: nil)
+        
     }
 
     @IBAction func rightPress(sender: UIButton) {
-//        let secondViewController:WebViewController = WebViewController()
-//        
-//        parentViewController.presentViewController(secondViewController, animated: true, completion: nil)
+            let  targetVC : UIViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier(rightLabel.text!)
+            homeTableViewcontroller.presentViewController(targetVC, animated: true, completion: nil)
         
     }
 }
