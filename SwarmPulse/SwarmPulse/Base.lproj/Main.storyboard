@@ -62,6 +62,16 @@
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <progressView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="0.20000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="qtb-I5-1ei">
+                                            <rect key="frame" x="20" y="53" width="150" height="15"/>
+                                            <animations/>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="15" id="2vv-gk-ogO"/>
+                                            </constraints>
+                                            <color key="progressTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="trackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </progressView>
                                     </subviews>
                                     <animations/>
                                     <constraints>
@@ -73,6 +83,7 @@
                                         <constraint firstItem="vcc-yh-DIn" firstAttribute="centerY" secondItem="pRC-q5-v2t" secondAttribute="centerY" id="JRw-9d-xJa"/>
                                         <constraint firstItem="pRC-q5-v2t" firstAttribute="centerY" secondItem="5k8-0P-LW8" secondAttribute="centerY" id="MdF-Yb-3Jv"/>
                                         <constraint firstItem="Ato-pb-5N4" firstAttribute="top" secondItem="5k8-0P-LW8" secondAttribute="topMargin" constant="68" id="Nix-Il-nT0"/>
+                                        <constraint firstItem="qtb-I5-1ei" firstAttribute="leading" secondItem="Ato-pb-5N4" secondAttribute="leading" id="PkB-RC-clK"/>
                                         <constraint firstItem="pRC-q5-v2t" firstAttribute="width" secondItem="5k8-0P-LW8" secondAttribute="width" id="XfB-N7-Ldo"/>
                                         <constraint firstItem="HTL-IO-BVn" firstAttribute="top" secondItem="Ato-pb-5N4" secondAttribute="bottom" constant="8" symbolic="YES" id="YbG-Nk-8xi"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="pRC-q5-v2t" secondAttribute="trailing" constant="366" id="acf-Wc-vaS"/>
@@ -83,6 +94,7 @@
                                         <constraint firstItem="pRC-q5-v2t" firstAttribute="height" secondItem="5k8-0P-LW8" secondAttribute="height" id="o0e-8b-ttH"/>
                                         <constraint firstItem="HTL-IO-BVn" firstAttribute="top" secondItem="pRC-q5-v2t" secondAttribute="bottom" constant="-20" id="oAW-0B-5cv"/>
                                         <constraint firstItem="HTL-IO-BVn" firstAttribute="top" secondItem="Ato-pb-5N4" secondAttribute="bottom" constant="8" id="oji-Zf-OCz"/>
+                                        <constraint firstItem="Ato-pb-5N4" firstAttribute="top" secondItem="qtb-I5-1ei" secondAttribute="bottom" constant="8" id="sUN-f7-y5T"/>
                                         <constraint firstItem="pRC-q5-v2t" firstAttribute="centerX" secondItem="5k8-0P-LW8" secondAttribute="centerX" id="tjU-Ts-bAf"/>
                                         <constraint firstItem="pRC-q5-v2t" firstAttribute="height" secondItem="5k8-0P-LW8" secondAttribute="height" id="wrA-0v-qqu"/>
                                         <constraint firstItem="HTL-IO-BVn" firstAttribute="leading" secondItem="pRC-q5-v2t" secondAttribute="leading" constant="20" id="zJV-Jd-y9f"/>
@@ -104,7 +116,19 @@
                                 </tableViewCellContentView>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="qtb-I5-1ei" firstAttribute="centerX" secondItem="QFU-Vc-9Wc" secondAttribute="centerX" id="0CU-Hc-INH"/>
+                                    <constraint firstItem="qtb-I5-1ei" firstAttribute="centerY" secondItem="QFU-Vc-9Wc" secondAttribute="centerY" id="1Pl-xb-CDE"/>
+                                    <constraint firstItem="qtb-I5-1ei" firstAttribute="width" secondItem="QFU-Vc-9Wc" secondAttribute="width" multiplier="1/4" id="yPu-A4-ByR"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="0CU-Hc-INH"/>
+                                        <exclude reference="1Pl-xb-CDE"/>
+                                    </mask>
+                                </variation>
                                 <connections>
+                                    <outlet property="bar" destination="qtb-I5-1ei" id="B0U-pj-fsv"/>
                                     <outlet property="bigButton" destination="pRC-q5-v2t" id="aoA-4i-xuP"/>
                                     <outlet property="iconImage" destination="vcc-yh-DIn" id="8CY-UW-VDF"/>
                                     <outlet property="infoLabel" destination="Ato-pb-5N4" id="Zau-cS-YH9"/>
@@ -121,7 +145,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9d1-Pv-I9N">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="144.5"/>
                                             <animations/>
-                                            <color key="backgroundColor" red="1" green="0.46841417959999998" blue="0.05112755595" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="1" green="0.46841417959999998" blue="0.05112755595" alpha="0.9043760557432432" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="9d1-Pv-I9N" secondAttribute="height" id="peM-jT-QfY"/>
                                             </constraints>
@@ -204,7 +228,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAH-yu-Mch">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="144.5"/>
                                             <animations/>
-                                            <color key="backgroundColor" red="1" green="0.46841417959999998" blue="0.05112755595" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="1" green="0.46841417959999998" blue="0.05112755595" alpha="0.8979096283783784" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="leftPress:" destination="Pnk-TH-gnj" eventType="touchUpInside" id="l9q-oQ-ZTW"/>
                                             </connections>
@@ -994,10 +1018,10 @@
             </objects>
             <point key="canvasLocation" x="-1447" y="485"/>
         </scene>
-        <!--View Controller-->
+        <!--Template-->
         <scene sceneID="VmW-12-bZh">
             <objects>
-                <viewController id="Rij-hU-d3J" sceneMemberID="viewController">
+                <viewController title="Template" id="Rij-hU-d3J" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="143-az-Dxe"/>
                         <viewControllerLayoutGuide type="bottom" id="wB8-nL-tvP"/>

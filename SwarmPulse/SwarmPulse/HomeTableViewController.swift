@@ -44,7 +44,12 @@ class HomeTableViewController: UITableViewController {
         
 //        let textcell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! HomeTableViewCell
         //Regularly check whether there are new messages pending
-        _ = NSTimer.scheduledTimerWithTimeInterval(20, target: self, selector: Selector("sendPendingMessages"), userInfo: nil, repeats: true)
+        let sharedDefaults = NSUserDefaults(suiteName: "group.ch.ethz.coss.nervous")
+        if (sharedDefaults?.objectForKey("stringKey") == nil){
+            sharedDefaults?.setObject(" ", forKey: "stringKey")
+            sharedDefaults?.synchronize()
+        }
+        _ = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("sendPendingMessages"), userInfo: nil, repeats: true)
         
       
         
@@ -96,7 +101,7 @@ class HomeTableViewController: UITableViewController {
             cell.infoLabel.text = "211 lux"
             cell.iconImage.image = UIImage(named: "icon_light")
             cell.homeTableViewcontroller = self
-
+            cell.startBar()
             return cell
             
         }
