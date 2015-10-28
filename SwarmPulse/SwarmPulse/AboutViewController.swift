@@ -24,13 +24,14 @@ class AboutViewController: UIViewController {
         longText.attributedText = attrString
         
         longText.textAlignment = NSTextAlignment.Center
-        longText.font = UIFont.systemFontOfSize(10)
+        longText.font = UIFont.systemFontOfSize(14)
         
         if #available(iOS 8.2, *) {
-            longText.font = UIFont.systemFontOfSize(10, weight: UIFontWeightLight)
+            longText.font = UIFont.systemFontOfSize(14, weight: UIFontWeightLight)
         } else {
             // Fallback on earlier versions
         }
+        
         // Do any additional setup after loading the view.
     }
 
@@ -49,5 +50,8 @@ class AboutViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func rateThisApp(sender: UIButton) {
+        
+    }
 
 }

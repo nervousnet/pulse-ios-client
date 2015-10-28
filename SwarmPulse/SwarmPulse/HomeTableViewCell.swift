@@ -14,12 +14,14 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet var bigButton: UIButton!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var infoLabel: UILabel!
+    @IBOutlet var bar: UIProgressView!
     let VM = PulseVM.sharedInstance
     var homeTableViewcontroller: HomeTableViewController = HomeTableViewController()
 
     
     override func awakeFromNib() {
         super.awakeFromNib()
+<<<<<<< HEAD
 //        let sharedDefaults = NSUserDefaults(suiteName: "group.ch.ethz.coss.nervous")
 //        if (true){
 //            let sharedText = sharedDefaults?.objectForKey("stringKey") as? String
@@ -31,6 +33,9 @@ class HomeTableViewCell: UITableViewCell {
 //        }
 //        NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
         // Initialization code
+=======
+        
+>>>>>>> babea4f3772fbf3268ff6d58d105350694f4f3f5
     }
     
 
@@ -39,6 +44,19 @@ class HomeTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func setBarTo(){
+        bar.progress = Float(arc4random_uniform(50)+50)*0.01
+    }
+    
+    func setBarTo(value:Float){
+        //Set progressbar to value between 0 and 1
+        bar.progress = value
+    }
+    
+    func startBar(){
+        _ = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("setBarTo"), userInfo: nil, repeats: true)
+    }
 
     @IBAction func bigButtonPressed(sender: UIButton) {
         if (nameLabel.text == "Noise"){
@@ -46,7 +64,7 @@ class HomeTableViewCell: UITableViewCell {
             VM.noiseCollection()
         }
         if (nameLabel.text == "Light"){
-            
+//            setBarTo()
         }
         if (nameLabel.text == "Send Message"){
             let alertController = UIAlertController(title: "Message", message: "to the Pulse Network", preferredStyle: .Alert)
