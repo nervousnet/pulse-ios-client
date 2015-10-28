@@ -21,7 +21,6 @@ class HomeTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-<<<<<<< HEAD
 //        let sharedDefaults = NSUserDefaults(suiteName: "group.ch.ethz.coss.nervous")
 //        if (true){
 //            let sharedText = sharedDefaults?.objectForKey("stringKey") as? String
@@ -33,9 +32,6 @@ class HomeTableViewCell: UITableViewCell {
 //        }
 //        NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
         // Initialization code
-=======
-        
->>>>>>> babea4f3772fbf3268ff6d58d105350694f4f3f5
     }
     
 
