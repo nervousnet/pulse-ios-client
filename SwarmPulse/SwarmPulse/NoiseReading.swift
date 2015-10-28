@@ -15,10 +15,10 @@ class NoiseReading : Visual {
     var type : Int
     var timestamp : UInt64
     var UUID : String
-    var location : CLLocation
+    var location : [Double]
     
     
-    init(uuid : String, soundVal : Float, timestamp : UInt64, location : CLLocation) {
+    init(uuid : String, soundVal : Float, timestamp : UInt64, location : [Double]) {
         
         self.type = 1
         self.UUID = uuid
@@ -26,5 +26,29 @@ class NoiseReading : Visual {
         self.timestamp = timestamp
         self.location = location
     }
+    
+    func getJSON() -> String {
+        let lat = self.location[0]
+        let long = self.location[1]
+        
+        let string1 = "\"class\"" + ":" + "\"" + "ch.ethz.coss.nervous.pulse.model.NoiseReading" + "\""
+        
+        let string21 = "\"location\"" + ":" + "{" + "\"class\"" + ":" + "\"ch.ethz.coss.nervous.pulse.model.VisualLocation\"" + ","
+        let string22 = "\"latnLong\"" + ":" + "["
+        let string23 = (NSString(format: "%f", lat) as String) + ","
+        let string24 = (NSString(format: "%f", long) as String) + "]" + "}"
+        let string2 = string21 + string22 + string23 + string24
+        
+        let string3 = "\"" + "soundVal" + "\"" + ":" + "\"" + (NSString(format: "%f", soundVal) as String) + "\""
+        
+        let string4 = "\"timestamp\"" + ":" + (NSString(format: "%d", timestamp) as String)
+        
+        let string5 = "\"type\"" + ":" + (NSString(format: "%d", type) as String)
+        
+        let string6 = "\"uuid\"" + ":" + "\"" + UUID + "\""
+        
+        return "{" + string1 + "," + string2 + "," + string3 + "," + string4 + "," + string5 + "," + string6 + "}"
+    }
+
     
 }

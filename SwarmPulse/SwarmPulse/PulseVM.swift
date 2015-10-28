@@ -23,21 +23,29 @@ class PulseVM : NSObject {
     let noiseManager = AVAudioRecorder()
     
     let url = NSURL(string: "129.132.255.27:8445")
-    
-    
-    
+    //let url : String = "129.132.255.27:8445"
+    //let socketJSON = SocketIOClient(socketURL: "129.132.255.27:8445")
+    let addr = "129.132.255.27"
+    let port = 8445
+
     
     
     // initializer
     override init(){
         super.init()
         _ = self.generateUUID()
-        locManager.requestWhenInUseAuthorization()
     }
     
     // create the share instance function
     class var sharedInstance: PulseVM {
         return _VM
+    }
+    
+    // initialize the location Manager
+    func initLocationManager() {
+        //locManager.delegate = self
+        locManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locManager.requestWhenInUseAuthorization()
     }
     
     func pad(string : String, toSize: Int) -> String {
@@ -115,76 +123,38 @@ class PulseVM : NSObject {
     }
     
     
-    // JSON format for pushing text-based content
-    func getJSON(cl: String, lat: Double,long: Double,txtMsg: String,timestamp: UInt64,uuid: String,typeN: String,type: Int) -> String {
-        let string1 = "\"class\"" + ":" + "\"" + cl + "\""
-        
-        let string21 = "\"location\"" + ":" + "{" + "\"class\"" + ":" + "\"ch.ethz.coss.nervous.pulse.model.VisualLocation\"" + ","
-        let string22 = "\"latnLong\"" + ":" + "["
-        let string23 = (NSString(format: "%f", lat) as String) + ","
-        let string24 = (NSString(format: "%f", long) as String) + "]" + "}"
-        let string2 = string21 + string22 + string23 + string24
-        
-        let string3 = "\"" + typeN + "\"" + ":" + "\"" + txtMsg + "\""
-        
-        let string4 = "\"timestamp\"" + ":" + (NSString(format: "%d", timestamp) as String)
-        
-        let string5 = "\"type\"" + ":" + (NSString(format: "%d", type) as String)
-        
-        let string6 = "\"uuid\"" + ":" + "\"" + uuid + "\""
-        
-        return "{" + string1 + "," + string2 + "," + string3 + "," + string4 + "," + string5 + "," + string6 + "}"
-     }
-    // different signature - to be used for non-text mode
-    func getJSON(cl: String, lat: Double,long: Double,val: Float,timestamp: UInt64,uuid: String,typeN: String,type: Int) -> String {
-        let string1 = "\"class\"" + ":" + "\"" + cl + "\""
-        
-        let string21 = "\"location\"" + ":" + "{" + "\"class\"" + ":" + "\"ch.ethz.coss.nervous.pulse.model.VisualLocation\"" + ","
-        let string22 = "\"latnLong\"" + ":" + "["
-        let string23 = (NSString(format: "%f", lat) as String) + ","
-        let string24 = (NSString(format: "%f", long) as String) + "]" + "}"
-        let string2 = string21 + string22 + string23 + string24
-        
-        let string3 = "\"" + typeN + "\"" + ":" + (NSString(format: "%f", val) as String)
-        
-        let string4 = "\"timestamp\"" + ":" + (NSString(format: "%d", timestamp) as String)
-        
-        let string5 = "\"type\"" + ":" + (NSString(format: "%d", type) as String)
-        
-        let string6 = "\"uuid\"" + ":" + "\"" + uuid + "\""
-        
-        return "{" + string1 + "," + string2 + "," + string3 + "," + string4 + "," + string5 + "," + string6 + "}"
-    }
-    
     
     // push a text to the server (messages, links etc.)
-    func pushText(cl: String, lat: Double,long: Double,txtMsg: String,timestamp: UInt64,uuid: String,type: Int) {
-        let request = NSMutableURLRequest(URL: url!)
-        let session = NSURLSession.sharedSession()
-        request.HTTPMethod = "POST"
+    func pushText(txtObj: TextVisual) {
+        let jsonString = txtObj.getJSON()
+        print(jsonString)
         
-        let jsonBody = getJSON(cl, lat: lat,long: long,txtMsg: txtMsg,timestamp: timestamp,uuid: uuid,typeN: "textMsg",type: type)
-        
-        request.HTTPBody = jsonBody.dataUsingEncoding(NSUTF8StringEncoding)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        _ = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-            print("Response: \(response)")
-            let strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print("Body: \(strData)")
-            //let err: NSError?
-            do {
-                if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
-                    print(json)
-                }
-            } catch {
-                print("Error in JSON - text message")
-            }
-        })
+        let jsonLen = jsonString.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
+        var string1 : String = ""
+        var string2 : String = ""
+        let buffer = [(0xff & (jsonLen >> 8)),(0xff & jsonLen)]
+        if(NSString(format: "%d", buffer[0]).length == 1) {
+            string1 = (NSString(format: "0x0%d", buffer[0]) as String)
+        }
+        else {
+            string1 = (NSString(format: "0x%d", buffer[0]) as String)
+        }
+        if(NSString(format: "%d", buffer[1]).length == 1) {
+            string2 = (NSString(format: "0x0%d", buffer[1]) as String)
+        }
+        else {
+            string2 = (NSString(format: "0x%d", buffer[1]) as String)
+        }
+        let stringToSend = string1 + string2 + jsonString
+        print(stringToSend)
+        var out :NSOutputStream?
+        NSStream.getStreamsToHostWithName(addr, port: port, inputStream: nil, outputStream: &out)
+        let outputStream = out!
+        outputStream.open()
+        outputStream.write(stringToSend, maxLength: stringToSend.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
     }
     // push noise values to the server
-    func pushNoise(cl: String, lat: Double,long: Double,val: Float,timestamp: UInt64,uuid: String,type: Int) {
+    /*func pushNoise(cl: String, lat: Double,long: Double,val: Float,timestamp: UInt64,uuid: String,type: Int) {
         let request = NSMutableURLRequest(URL: url!)
         let session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
@@ -208,12 +178,12 @@ class PulseVM : NSObject {
                 print("Error in JSON - noise value")
             }
         })
-    }
+    }*/
     
     // generate noise values using the function
     // the function should be called everytime a button is pressed
     // the function will generate the data dand push it to to the server
-    func noiseCollection() {
+    /*func noiseCollection() {
         noiseManager.meteringEnabled = true
         let noiseLevel = noiseManager.peakPowerForChannel(1)
         let currentTime :NSDate = NSDate()
@@ -230,25 +200,30 @@ class PulseVM : NSObject {
         locManager.stopUpdatingLocation()
         
         pushNoise("ch.ethz.coss.nervous.pulse.model.NoiseReading", lat: noise.location.coordinate.latitude, long: noise.location.coordinate.longitude, val: noise.soundVal, timestamp: noise.timestamp, uuid: noise.UUID, type: noise.type)
-    }
+    }*/
     // the function is same as noiseCollection()
     // but to push text messages on the server instead
     func textCollection(txtMsg: String) {
+        //print(txtMsg)
         let currentTime :NSDate = NSDate()
-        locManager.startUpdatingLocation()
         
+        //locManager.startUpdatingLocation()
+        //let loc : [Double] = [locManager.location!.coordinate.latitude,locManager.location!.coordinate.longitude]
+        //locManager.stopUpdatingLocation()
+        let loc : [Double] = [51.0,-0.12]
+        print(loc)
+        print(UInt64(currentTime.timeIntervalSince1970*1000))
+        
+        //print(defaults.stringForKey("uuidString")!)
         let text = TextVisual(
-            uuid: defaults.stringForKey("generatedUUID")!,
+            uuid: defaults.stringForKey("uuidString")!,
             txtMsg: txtMsg,
             timestamp: UInt64(currentTime.timeIntervalSince1970*1000),
-            location: locManager.location!
+            location: loc
         )
         
-        locManager.stopUpdatingLocation()
-        
-        pushText("ch.ethz.coss.nervous.pulse.model.NoiseReading", lat: text.location.coordinate.latitude, long: text.location.coordinate.longitude, txtMsg: text.txtMsg, timestamp: text.timestamp, uuid: text.UUID, type: text.type)
+        pushText(text)
     }
-
 
 
 }

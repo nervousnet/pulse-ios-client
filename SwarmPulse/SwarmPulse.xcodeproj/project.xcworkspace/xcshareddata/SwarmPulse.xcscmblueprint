@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "741573DD0FC11FE7FF35C0D6A2969FA587144B02",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "01C4019DAB2F13C7FB458F088D0A991884C46F1A" : 0,
+    "741573DD0FC11FE7FF35C0D6A2969FA587144B02" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9AD1D014-B6BE-49C6-8069-C0B9521AD2C0",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "01C4019DAB2F13C7FB458F088D0A991884C46F1A" : "socket.io-client-swift\/",
+    "741573DD0FC11FE7FF35C0D6A2969FA587144B02" : "pulse-ios-client\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SwarmPulse",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SwarmPulse\/SwarmPulse.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/socketio\/socket.io-client-swift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "01C4019DAB2F13C7FB458F088D0A991884C46F1A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/sid027\/pulse-ios-client.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "741573DD0FC11FE7FF35C0D6A2969FA587144B02"
+    }
+  ]
+}

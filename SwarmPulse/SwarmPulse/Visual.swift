@@ -11,7 +11,7 @@ import CoreLocation
 
 protocol Visual {
     var type : Int { get set } // 0 - light, 1 - sound, 2 - text
-    var location : CLLocation { get }
+    var location : [Double]    { get }
     var timestamp : UInt64 { get set }
     var UUID : String {get set}
 }

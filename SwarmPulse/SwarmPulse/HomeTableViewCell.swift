@@ -46,7 +46,7 @@ class HomeTableViewCell: UITableViewCell {
 
     @IBAction func bigButtonPressed(sender: UIButton) {
         if (nameLabel.text == "Noise"){
-            VM.noiseCollection()
+            //VM.noiseCollection()
         }
         if (nameLabel.text == "Light"){
 //            setBarTo()
