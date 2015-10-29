@@ -179,18 +179,33 @@
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <progressView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="ezk-PQ-TKQ">
+                                            <rect key="frame" x="380" y="107" width="150" height="15"/>
+                                            <animations/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="15" id="nNV-C4-QDu"/>
+                                            </constraints>
+                                            <color key="progressTintColor" white="1" alpha="0.38793285472972971" colorSpace="calibratedWhite"/>
+                                            <color key="trackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </progressView>
                                     </subviews>
                                     <animations/>
                                     <constraints>
                                         <constraint firstItem="6hc-m5-qq8" firstAttribute="top" secondItem="0qk-oB-rWf" secondAttribute="bottom" constant="8.5" id="1Hf-0w-Liy"/>
                                         <constraint firstItem="9d1-Pv-I9N" firstAttribute="width" secondItem="gdQ-n4-Uik" secondAttribute="height" multiplier="113:72" id="2Ra-5y-fpa"/>
                                         <constraint firstItem="0qk-oB-rWf" firstAttribute="centerX" secondItem="6hc-m5-qq8" secondAttribute="centerX" id="3VO-9i-Ggb"/>
+                                        <constraint firstItem="ezk-PQ-TKQ" firstAttribute="centerY" secondItem="6hc-m5-qq8" secondAttribute="centerY" id="80w-21-DTJ"/>
                                         <constraint firstItem="9d1-Pv-I9N" firstAttribute="centerY" secondItem="gdQ-n4-Uik" secondAttribute="centerY" id="Co3-WT-gu5"/>
+                                        <constraint firstItem="ezk-PQ-TKQ" firstAttribute="trailing" secondItem="0qk-oB-rWf" secondAttribute="trailing" id="CxH-RM-v8d"/>
+                                        <constraint firstItem="0qk-oB-rWf" firstAttribute="top" secondItem="ezk-PQ-TKQ" secondAttribute="bottom" constant="8" id="Kb2-kg-Scd"/>
                                         <constraint firstItem="vyL-L4-Iuq" firstAttribute="centerY" secondItem="9d1-Pv-I9N" secondAttribute="centerY" id="Ksd-Qr-SCy"/>
                                         <constraint firstItem="6hc-m5-qq8" firstAttribute="top" secondItem="9d1-Pv-I9N" secondAttribute="bottom" constant="-40" id="LFH-z0-yQ9"/>
                                         <constraint firstItem="9d1-Pv-I9N" firstAttribute="width" secondItem="gdQ-n4-Uik" secondAttribute="width" id="RaW-mh-1Ys"/>
                                         <constraint firstItem="9d1-Pv-I9N" firstAttribute="centerY" secondItem="gdQ-n4-Uik" secondAttribute="centerY" id="RpI-2U-DMp"/>
                                         <constraint firstItem="6hc-m5-qq8" firstAttribute="trailing" secondItem="9d1-Pv-I9N" secondAttribute="trailing" constant="-20" id="ZWn-3Q-VsQ"/>
+                                        <constraint firstItem="6hc-m5-qq8" firstAttribute="leading" secondItem="ezk-PQ-TKQ" secondAttribute="trailing" constant="8" id="ciT-n1-gLh"/>
                                         <constraint firstItem="vyL-L4-Iuq" firstAttribute="height" secondItem="9d1-Pv-I9N" secondAttribute="height" multiplier="3/4" id="crG-rW-TXp"/>
                                         <constraint firstItem="9d1-Pv-I9N" firstAttribute="height" secondItem="gdQ-n4-Uik" secondAttribute="height" id="hHp-xa-vfu"/>
                                         <constraint firstItem="9d1-Pv-I9N" firstAttribute="leading" secondItem="gdQ-n4-Uik" secondAttribute="leadingMargin" constant="20" id="kQO-sI-gsg"/>
@@ -206,12 +221,18 @@
                                             <exclude reference="kQO-sI-gsg"/>
                                             <exclude reference="mFs-08-CGY"/>
                                             <exclude reference="uy7-Ux-Sxf"/>
+                                            <exclude reference="CxH-RM-v8d"/>
+                                            <exclude reference="Kb2-kg-Scd"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="ezk-PQ-TKQ" firstAttribute="width" secondItem="4vw-Nm-eBR" secondAttribute="width" multiplier="1/4" id="TLH-xb-HjT"/>
+                                </constraints>
                                 <connections>
+                                    <outlet property="bar" destination="ezk-PQ-TKQ" id="ucS-av-vAM"/>
                                     <outlet property="bigButton" destination="9d1-Pv-I9N" id="r5o-6V-JNS"/>
                                     <outlet property="iconImage" destination="vyL-L4-Iuq" id="HB5-n4-m2L"/>
                                     <outlet property="infoLabel" destination="0qk-oB-rWf" id="uD1-wN-HWq"/>
