@@ -42,17 +42,20 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     func setBarTo(){
-        bar.progress = Float(arc4random_uniform(50)+50)*0.01
+        bar.setProgress((Float(arc4random_uniform(50)+50)*0.01), animated: true)
     }
+    
     
     func setBarTo(value:Float){
         //Set progressbar to value between 0 and 1
-        bar.progress = value
+        //bar.progress = value
+        bar.setProgress(value, animated: true)
     }
     
     func startBar(){
         _ = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("setBarTo"), userInfo: nil, repeats: true)
     }
+    
 
     @IBAction func bigButtonPressed(sender: UIButton) {
         if (nameLabel.text == "Noise"){

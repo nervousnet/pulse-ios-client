@@ -94,6 +94,7 @@ class HomeTableViewController: UITableViewController {
             cell.infoLabel.text = "42dB"
             cell.iconImage.image = UIImage(named: "icon_noise_msg_frame")
             cell.homeTableViewcontroller = self
+            cell.startBar()
             return cell
         }
         if (indexPath.row == 1){
@@ -126,6 +127,7 @@ class HomeTableViewController: UITableViewController {
         
             cell.bigButton.backgroundColor = UIColor(red: (1/3), green: (1/3), blue: (1/3), alpha: 0.59)
             cell.homeTableViewcontroller = self
+            cell.bar.removeFromSuperview()
 
             return cell
         
@@ -134,6 +136,7 @@ class HomeTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("FullWidthRightIcon", forIndexPath: indexPath) as! HomeTableViewCell
             cell.nameLabel.text  = "Please specify this cell"
             cell.homeTableViewcontroller = self
+            cell.bar.removeFromSuperview()
 
             return cell
             
