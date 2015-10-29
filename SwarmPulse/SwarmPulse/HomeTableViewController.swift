@@ -103,7 +103,7 @@ class HomeTableViewController: UITableViewController {
             cell.infoLabel.text = "211 lux"
             cell.iconImage.image = UIImage(named: "icon_light")
             cell.homeTableViewcontroller = self
-            cell.startBar()
+            cell.bar.removeFromSuperview()
             return cell
             
         }

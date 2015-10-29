@@ -180,7 +180,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <progressView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="ezk-PQ-TKQ">
-                                            <rect key="frame" x="430" y="52" width="150" height="15"/>
+                                            <rect key="frame" x="380" y="107" width="150" height="15"/>
                                             <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -196,6 +196,7 @@
                                         <constraint firstItem="6hc-m5-qq8" firstAttribute="top" secondItem="0qk-oB-rWf" secondAttribute="bottom" constant="8.5" id="1Hf-0w-Liy"/>
                                         <constraint firstItem="9d1-Pv-I9N" firstAttribute="width" secondItem="gdQ-n4-Uik" secondAttribute="height" multiplier="113:72" id="2Ra-5y-fpa"/>
                                         <constraint firstItem="0qk-oB-rWf" firstAttribute="centerX" secondItem="6hc-m5-qq8" secondAttribute="centerX" id="3VO-9i-Ggb"/>
+                                        <constraint firstItem="ezk-PQ-TKQ" firstAttribute="centerY" secondItem="6hc-m5-qq8" secondAttribute="centerY" id="80w-21-DTJ"/>
                                         <constraint firstItem="9d1-Pv-I9N" firstAttribute="centerY" secondItem="gdQ-n4-Uik" secondAttribute="centerY" id="Co3-WT-gu5"/>
                                         <constraint firstItem="ezk-PQ-TKQ" firstAttribute="trailing" secondItem="0qk-oB-rWf" secondAttribute="trailing" id="CxH-RM-v8d"/>
                                         <constraint firstItem="0qk-oB-rWf" firstAttribute="top" secondItem="ezk-PQ-TKQ" secondAttribute="bottom" constant="8" id="Kb2-kg-Scd"/>
@@ -204,6 +205,7 @@
                                         <constraint firstItem="9d1-Pv-I9N" firstAttribute="width" secondItem="gdQ-n4-Uik" secondAttribute="width" id="RaW-mh-1Ys"/>
                                         <constraint firstItem="9d1-Pv-I9N" firstAttribute="centerY" secondItem="gdQ-n4-Uik" secondAttribute="centerY" id="RpI-2U-DMp"/>
                                         <constraint firstItem="6hc-m5-qq8" firstAttribute="trailing" secondItem="9d1-Pv-I9N" secondAttribute="trailing" constant="-20" id="ZWn-3Q-VsQ"/>
+                                        <constraint firstItem="6hc-m5-qq8" firstAttribute="leading" secondItem="ezk-PQ-TKQ" secondAttribute="trailing" constant="8" id="ciT-n1-gLh"/>
                                         <constraint firstItem="vyL-L4-Iuq" firstAttribute="height" secondItem="9d1-Pv-I9N" secondAttribute="height" multiplier="3/4" id="crG-rW-TXp"/>
                                         <constraint firstItem="9d1-Pv-I9N" firstAttribute="height" secondItem="gdQ-n4-Uik" secondAttribute="height" id="hHp-xa-vfu"/>
                                         <constraint firstItem="9d1-Pv-I9N" firstAttribute="leading" secondItem="gdQ-n4-Uik" secondAttribute="leadingMargin" constant="20" id="kQO-sI-gsg"/>
@@ -219,6 +221,8 @@
                                             <exclude reference="kQO-sI-gsg"/>
                                             <exclude reference="mFs-08-CGY"/>
                                             <exclude reference="uy7-Ux-Sxf"/>
+                                            <exclude reference="CxH-RM-v8d"/>
+                                            <exclude reference="Kb2-kg-Scd"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
