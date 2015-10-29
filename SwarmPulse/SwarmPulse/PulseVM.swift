@@ -189,7 +189,7 @@ class PulseVM : NSObject {
     // push noise values to the server
     func push(noiseObj: NoiseReading) {
         let jsonString = noiseObj.getJSON()
-        //print(jsonString)
+        print(jsonString)
         var out :NSOutputStream?
         NSStream.getStreamsToHostWithName(addr, port: port, inputStream: nil, outputStream: &out)
         let outputStream = out!
@@ -207,22 +207,27 @@ class PulseVM : NSObject {
     // generate noise values using the function
     // the function should be called everytime a button is pressed
     // the function will generate the data dand push it to to the server
-    func noiseCollection() {
+    func noiseCollection(pushOrNot: Bool) -> Float {
         let currentTime :NSDate = NSDate()
         
         let noise = NoiseRecorder()
         noise.record()
-        print(noise.getDecibels())
+        //print(noise.getDecibels())
         let loc : [Double] = [47.0,8.3]
             
         let Noise = NoiseReading(
-            uuid: defaults.stringForKey("generatedUUID")!,
-            soundVal: noise.getDecibels(),
+            uuid: defaults.stringForKey("uuidString")!,
+            soundVal: (noise.getDecibels()+180),
             timestamp: UInt64(currentTime.timeIntervalSince1970*1000),
             location: loc
         )
         
-        push(Noise)
+        if pushOrNot {
+            print(noise.getDecibels()+180)
+            push(Noise)
+        }
+        
+        return noise.getDecibels()
     }
     // the function is same as noiseCollection()
     // but to push text messages on the server instead
