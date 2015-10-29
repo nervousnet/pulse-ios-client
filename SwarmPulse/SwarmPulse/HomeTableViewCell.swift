@@ -43,7 +43,7 @@ class HomeTableViewCell: UITableViewCell {
     
     func setBarTo(){
         bar.setProgress((Float(arc4random_uniform(50)+50)*0.01), animated: true)
-        infoLabel.text = String(bar.progress * 100) + " dB"
+        infoLabel.text = String(Int(bar.progress * 100)) + " dB"
     }
     
     
