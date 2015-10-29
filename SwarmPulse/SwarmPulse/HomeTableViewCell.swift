@@ -43,6 +43,7 @@ class HomeTableViewCell: UITableViewCell {
     
     func setBarTo(){
         bar.setProgress((Float(arc4random_uniform(50)+50)*0.01), animated: true)
+        infoLabel.text = String(bar.progress * 100) + " dB"
     }
     
     
@@ -74,7 +75,7 @@ class HomeTableViewCell: UITableViewCell {
             alertController.addAction(cancelAction)
             
             let SendAction = UIAlertAction(title: "Send", style: .Default) { (action) in
-                self.infoLabel.text = alertController.textFields![0].text
+                //self.infoLabel.text = alertController.textFields![0].text
                 let sharedDefaults = NSUserDefaults(suiteName: "group.ch.ethz.coss.nervous")
                 sharedDefaults?.setObject(alertController.textFields![0].text, forKey: "stringKey")
                     sharedDefaults?.setBool(false, forKey: "hasBeenPushed")
