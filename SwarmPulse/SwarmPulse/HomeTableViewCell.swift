@@ -21,7 +21,17 @@ class HomeTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+//        let sharedDefaults = NSUserDefaults(suiteName: "group.ch.ethz.coss.nervous")
+//        if (true){
+//            let sharedText = sharedDefaults?.objectForKey("stringKey") as? String
+//
+//            sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
+//            sharedDefaults?.synchronize()
+//            infoLabel.text = sharedText
+//            
+//        }
+//        NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
+        // Initialization code
     }
     
 
@@ -46,7 +56,8 @@ class HomeTableViewCell: UITableViewCell {
 
     @IBAction func bigButtonPressed(sender: UIButton) {
         if (nameLabel.text == "Noise"){
-            //VM.noiseCollection()
+            //VM.initNoiseManager()
+            VM.noiseCollection(true)
         }
         if (nameLabel.text == "Light"){
 //            setBarTo()

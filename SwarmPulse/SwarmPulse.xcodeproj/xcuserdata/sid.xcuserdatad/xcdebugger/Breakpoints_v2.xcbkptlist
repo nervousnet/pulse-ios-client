@@ -26,13 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SwarmPulse/PulseVM.swift"
-            timestampString = "467731357.477399"
+            timestampString = "467770011.838768"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
-            landmarkName = "PulseVM"
-            landmarkType = "3">
+            startingLineNumber = "237"
+            endingLineNumber = "237"
+            landmarkName = "textCollection(_:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -42,13 +42,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SwarmPulse/PulseVM.swift"
-            timestampString = "467731357.477399"
+            timestampString = "467769205.803438"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
-            landmarkName = "textCollection(_:)"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
+            landmarkName = "noiseCollection(_:)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwarmPulse.PulseVM.noiseCollection (SwarmPulse.PulseVM)() -&gt; ()"
+                  moduleName = "SwarmPulse"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sid/Documents/pulse-ios-client/SwarmPulse/SwarmPulse/PulseVM.swift"
+                  timestampString = "467761687.718449"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwarmPulse.PulseVM.(noiseCollection (SwarmPulse.PulseVM) -&gt; () -&gt; ()).(closure #1)"
+                  moduleName = "SwarmPulse"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sid/Documents/pulse-ios-client/SwarmPulse/SwarmPulse/PulseVM.swift"
+                  timestampString = "467761687.730643"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "205"
+                  endingLineNumber = "205"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwarmPulse/PulseVM.swift"
+            timestampString = "467765651.510055"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "PulseVM"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

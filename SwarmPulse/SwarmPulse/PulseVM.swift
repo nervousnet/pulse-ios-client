@@ -20,7 +20,7 @@ class PulseVM : NSObject {
     
     let locManager = CLLocationManager()
     
-    let noiseManager = AVAudioRecorder()
+    var noiseManager: AVAudioRecorder!
     
     let url = NSURL(string: "129.132.255.27:8445")
     //let url : String = "129.132.255.27:8445"
@@ -47,6 +47,52 @@ class PulseVM : NSObject {
         locManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locManager.requestWhenInUseAuthorization()
     }
+    
+    /*func directoryURL() -> NSURL? {
+        let fileManager = NSFileManager.defaultManager()
+        let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        let documentDirectory = urls[0] as NSURL
+        let soundURL = documentDirectory.URLByAppendingPathComponent("sound.m4a")
+        return soundURL
+    }
+    
+    var recordSettings = [
+        AVFormatIDKey: NSNumber(unsignedInt:kAudioFormatAppleLossless),
+        AVEncoderAudioQualityKey : AVAudioQuality.Max.rawValue,
+        AVEncoderBitRateKey : 320000,
+        AVNumberOfChannelsKey: 2,
+        AVSampleRateKey : 44100.0
+    ]
+    
+    func initNoiseManager() {
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            if (audioSession.respondsToSelector("requestRecordPermission:")) {
+            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try audioSession.setActive(true)
+            AVAudioSession.sharedInstance().requestRecordPermission({(granted: Bool)-> Void in
+                if granted {
+                    print("granted")
+                    self.noiseManager.record()
+                } else {
+                    print("Permission to record not granted")
+                }
+            })
+            }
+            try noiseManager = AVAudioRecorder(URL: self.directoryURL()!,settings: recordSettings)
+            //noiseManager.delegate = self
+            //let audioFilename = getDocumentsDirectory().stringByAppendingPathComponent("recording.m4a")
+            //let audioURL = NSURL(fileURLWithPath: audioFilename)
+            
+            noiseManager.meteringEnabled = true
+            noiseManager.prepareToRecord()
+            noiseManager.record()
+        } catch let error as NSError {
+            //noiseManager = nil
+            print(error.localizedDescription)
+        }
+    }*/
     
     func pad(string : String, toSize: Int) -> String {
         var padded = string
@@ -125,82 +171,64 @@ class PulseVM : NSObject {
     
     
     // push a text to the server (messages, links etc.)
-    func pushText(txtObj: TextVisual) {
+    func push(txtObj: TextVisual) {
         let jsonString = txtObj.getJSON()
-        print(jsonString)
-        
-        let jsonLen = jsonString.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
-        var string1 : String = ""
-        var string2 : String = ""
-        let buffer = [(0xff & (jsonLen >> 8)),(0xff & jsonLen)]
-        if(NSString(format: "%d", buffer[0]).length == 1) {
-            string1 = (NSString(format: "0x0%d", buffer[0]) as String)
-        }
-        else {
-            string1 = (NSString(format: "0x%d", buffer[0]) as String)
-        }
-        if(NSString(format: "%d", buffer[1]).length == 1) {
-            string2 = (NSString(format: "0x0%d", buffer[1]) as String)
-        }
-        else {
-            string2 = (NSString(format: "0x%d", buffer[1]) as String)
-        }
-        let stringToSend = string1 + string2 + jsonString
-        print(stringToSend)
+        //print(jsonString)
         var out :NSOutputStream?
         NSStream.getStreamsToHostWithName(addr, port: port, inputStream: nil, outputStream: &out)
         let outputStream = out!
         outputStream.open()
-        outputStream.write(stringToSend, maxLength: stringToSend.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
+        let data: NSData = jsonString.dataUsingEncoding(NSUTF8StringEncoding)!
+        var buffer = [UInt8](count:data.length, repeatedValue:0)
+        data.getBytes(&buffer);
+        
+        outputStream.write(&buffer, maxLength: data.length);
+        
+        outputStream.close()
     }
     // push noise values to the server
-    /*func pushNoise(cl: String, lat: Double,long: Double,val: Float,timestamp: UInt64,uuid: String,type: Int) {
-        let request = NSMutableURLRequest(URL: url!)
-        let session = NSURLSession.sharedSession()
-        request.HTTPMethod = "POST"
+    func push(noiseObj: NoiseReading) {
+        let jsonString = noiseObj.getJSON()
+        print(jsonString)
+        var out :NSOutputStream?
+        NSStream.getStreamsToHostWithName(addr, port: port, inputStream: nil, outputStream: &out)
+        let outputStream = out!
+        outputStream.open()
+        let data: NSData = jsonString.dataUsingEncoding(NSUTF8StringEncoding)!
+        var buffer = [UInt8](count:data.length, repeatedValue:0)
+        data.getBytes(&buffer);
         
-        let jsonBody = getJSON(cl, lat: lat,long: long,val: val,timestamp: timestamp,uuid: uuid,typeN: "noiseVal",type: type)
+        outputStream.write(&buffer, maxLength: data.length);
         
-        request.HTTPBody = jsonBody.dataUsingEncoding(NSUTF8StringEncoding)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        _ = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-            print("Response: \(response)")
-            let strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print("Body: \(strData)")
-            //let err: NSError?
-            do {
-                if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
-                    print(json)
-                }
-            } catch {
-                print("Error in JSON - noise value")
-            }
-        })
-    }*/
+        outputStream.close()
+    }
+    
     
     // generate noise values using the function
     // the function should be called everytime a button is pressed
     // the function will generate the data dand push it to to the server
-    /*func noiseCollection() {
-        noiseManager.meteringEnabled = true
-        let noiseLevel = noiseManager.peakPowerForChannel(1)
+    func noiseCollection(pushOrNot: Bool) -> Float {
         let currentTime :NSDate = NSDate()
-        locManager.startUpdatingLocation()
         
-        let noise = NoiseReading(
-            uuid: defaults.stringForKey("generatedUUID")!,
-            soundVal: noiseLevel,
+        let noise = NoiseRecorder()
+        noise.record()
+        //print(noise.getDecibels())
+        let loc : [Double] = [47.0,8.3]
+            
+        let Noise = NoiseReading(
+            uuid: defaults.stringForKey("uuidString")!,
+            soundVal: (noise.getDecibels()+180),
             timestamp: UInt64(currentTime.timeIntervalSince1970*1000),
-            location: locManager.location!
+            location: loc
         )
         
-        noiseManager.meteringEnabled = false
-        locManager.stopUpdatingLocation()
+        if pushOrNot {
+            print(noise.getDecibels()+180)
+            push(Noise)
+        }
         
-        pushNoise("ch.ethz.coss.nervous.pulse.model.NoiseReading", lat: noise.location.coordinate.latitude, long: noise.location.coordinate.longitude, val: noise.soundVal, timestamp: noise.timestamp, uuid: noise.UUID, type: noise.type)
-    }*/
+        return noise.getDecibels()
+    }
     // the function is same as noiseCollection()
     // but to push text messages on the server instead
     func textCollection(txtMsg: String) {
@@ -210,19 +238,16 @@ class PulseVM : NSObject {
         //locManager.startUpdatingLocation()
         //let loc : [Double] = [locManager.location!.coordinate.latitude,locManager.location!.coordinate.longitude]
         //locManager.stopUpdatingLocation()
-        let loc : [Double] = [51.0,-0.12]
-        print(loc)
-        print(UInt64(currentTime.timeIntervalSince1970*1000))
+        let loc : [Double] = [47.0,8.3]
         
-        //print(defaults.stringForKey("uuidString")!)
-        let text = TextVisual(
+        let Text = TextVisual(
             uuid: defaults.stringForKey("uuidString")!,
             txtMsg: txtMsg,
             timestamp: UInt64(currentTime.timeIntervalSince1970*1000),
             location: loc
         )
         
-        pushText(text)
+        push(Text)
     }
 
 

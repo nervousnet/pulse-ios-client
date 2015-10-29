@@ -39,9 +39,9 @@ class LightReading : Visual {
         let string24 = (NSString(format: "%f", long) as String) + "]" + "}"
         let string2 = string21 + string22 + string23 + string24
         
-        let string3 = "\"" + "lightVal" + "\"" + ":" + "\"" + (NSString(format: "%f", lightVal) as String) + "\""
+        let string3 = "\"" + "lightVal" + "\"" + ":" + (NSString(format: "%f", lightVal) as String)
         
-        let string4 = "\"timestamp\"" + ":" + (NSString(format: "%d", timestamp) as String)
+        let string4 = "\"timestamp\"" + ":" + String(self.timestamp)
         
         let string5 = "\"type\"" + ":" + (NSString(format: "%d", type) as String)
         
