@@ -65,7 +65,7 @@ class HomeTableViewController: UITableViewController {
             //VM.textCollection(sharedText!)
             sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
             sharedDefaults?.synchronize()
-            NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
+            //NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
 
         }
         //NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
