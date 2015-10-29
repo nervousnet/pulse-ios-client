@@ -42,8 +42,7 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     func setBarTo(){
-        bar.setProgress(NoiseRecorder().getDecibels(), animated: true)
-        NSLog(String(bar.progress))
+        bar.setProgress((Float(arc4random_uniform(50)+50)*0.01), animated: true)
     }
     
     
