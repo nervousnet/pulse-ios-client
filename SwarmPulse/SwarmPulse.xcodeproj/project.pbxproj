@@ -41,12 +41,9 @@
 		1F0310DC1BD93A7200E10714 /* LightReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0310DB1BD93A7200E10714 /* LightReading.swift */; };
 		1F0310DE1BD93AAB00E10714 /* NoiseReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0310DD1BD93AAB00E10714 /* NoiseReading.swift */; };
 		1F0310E11BD978E700E10714 /* PulseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0310E01BD978E700E10714 /* PulseVM.swift */; };
-<<<<<<< HEAD
 		1F3E480F1BE18C4B00CC973A /* NoiseRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E480E1BE18C4A00CC973A /* NoiseRecorder.swift */; settings = {ASSET_TAGS = (); }; };
 		1F3E48111BE2216D00CC973A /* LocationRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E48101BE2216D00CC973A /* LocationRecorder.swift */; settings = {ASSET_TAGS = (); }; };
-=======
 		1F3E480F1BE18C4B00CC973A /* NoiseRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E480E1BE18C4A00CC973A /* NoiseRecorder.swift */; };
->>>>>>> e1a410d0bfea2aae6e0c03e5611c2574fd2ce16e
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
