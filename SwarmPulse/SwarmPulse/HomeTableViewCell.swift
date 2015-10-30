@@ -16,21 +16,12 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet var infoLabel: UILabel!
     @IBOutlet var bar: UIProgressView!
     let VM = PulseVM.sharedInstance
+    let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var homeTableViewcontroller: HomeTableViewController = HomeTableViewController()
 
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        let sharedDefaults = NSUserDefaults(suiteName: "group.ch.ethz.coss.nervous")
-//        if (true){
-//            let sharedText = sharedDefaults?.objectForKey("stringKey") as? String
-//
-//            sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
-//            sharedDefaults?.synchronize()
-//            infoLabel.text = sharedText
-//            
-//        }
-//        NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
         // Initialization code
     }
     
@@ -42,8 +33,15 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     func setBarTo(){
-        bar.setProgress((Float(arc4random_uniform(50)+50)*0.01), animated: true)
-        infoLabel.text = String(Int(bar.progress * 100)) + " dB"
+        if (abs(VM.noiseCollection(false)) < 160){
+            bar.setProgress(abs(VM.noiseCollection(false)/Float(160.0)), animated: false)
+            infoLabel.text = String(Int(VM.noiseCollection(false))) + " dB"
+        }
+        else {
+            bar.setProgress(1, animated: true)
+            infoLabel.text = ">160 dB"
+        }
+        
     }
     
     
@@ -59,7 +57,12 @@ class HomeTableViewCell: UITableViewCell {
     
 
     @IBAction func bigButtonPressed(sender: UIButton) {
+<<<<<<< HEAD
         if (nameLabel.text == "Noise"){
+=======
+        if (nameLabel.text == "Sound"){
+            
+>>>>>>> 50ee06355fa60ceee490ba5b40e27ab4d9cef005
             VM.noiseCollection(true)
         }
         if (nameLabel.text == "Light"){
@@ -80,7 +83,10 @@ class HomeTableViewCell: UITableViewCell {
                     sharedDefaults?.setBool(false, forKey: "hasBeenPushed")
                     sharedDefaults?.synchronize()
                 
-                self.homeTableViewcontroller.sendPendingMessages()
+                //self.homeTableViewcontroller.sendPendingMessages()
+                
+                self.appdelegate.sendPendingMessages()
+                
             }
             alertController.addAction(SendAction)
             

@@ -95,6 +95,7 @@ class NoiseRecorder: NSObject, AVAudioRecorderDelegate {
                 if allowed {
                     self.audioRecorder.updateMeters()
                     self.soundVal = self.audioRecorder.peakPowerForChannel(0)
+                    //NSLog(String(self.soundVal))
                 } else {
                     self.soundVal = 0.0
                 }

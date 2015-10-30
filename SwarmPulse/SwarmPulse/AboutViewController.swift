@@ -31,6 +31,7 @@ class AboutViewController: UIViewController {
         } else {
             // Fallback on earlier versions
         }
+        longText.textColor = UIColor.whiteColor()
         
         // Do any additional setup after loading the view.
     }

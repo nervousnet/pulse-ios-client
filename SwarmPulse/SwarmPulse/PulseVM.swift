@@ -161,8 +161,17 @@ class PulseVM : NSObject {
         let loc : [Double] = [lat,long]
         
         let sound = noiseManager.getNoise()
+<<<<<<< HEAD
         print(sound)
         
+=======
+        //let sound: Float = 5.0
+//        print("-------")
+//        print(sound)
+//        print("=======")
+
+        //let loc : [Double] = [47.0,8.3]
+>>>>>>> 50ee06355fa60ceee490ba5b40e27ab4d9cef005
         let Noise = NoiseReading(
             uuid: self.defaults.stringForKey("uuidString")!,
             soundVal: sound,//(sound+180),
