@@ -18,9 +18,9 @@ class PulseVM : NSObject {
     
     let defaults :NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
-    var noiseManager = NoiseRecorder()
+    //var noiseManager = NoiseRecorder()
     
-    let loca = LocationRecorder()
+    //let loca = LocationRecorder()
     
     let addr = "129.132.255.27"
     let port = 8445
@@ -117,54 +117,52 @@ class PulseVM : NSObject {
     func push(txtObj: TextVisual) {
         let jsonString = txtObj.getJSON()
         //print(jsonString)
-        var out :NSOutputStream?
+        /*var out :NSOutputStream?
         NSStream.getStreamsToHostWithName(addr, port: port, inputStream: nil, outputStream: &out)
-        let outputStream = out!
-        outputStream.open()
-        let data: NSData = jsonString.dataUsingEncoding(NSUTF8StringEncoding)!
-        var buffer = [UInt8](count:data.length, repeatedValue:0)
-        data.getBytes(&buffer);
-        
-        outputStream.write(&buffer, maxLength: data.length);
-        
-        outputStream.close()
+        if out != nil {
+            let outputStream = out!
+            outputStream.open()
+            let data: NSData = jsonString.dataUsingEncoding(NSUTF8StringEncoding)!
+            var buffer = [UInt8](count:data.length, repeatedValue:0)
+            data.getBytes(&buffer);
+            
+            outputStream.write(&buffer, maxLength: data.length);
+            
+            outputStream.close()
+        }else {
+            print("Server Down!")
+        }*/
+        let conn = Connection.sharedInstance
+        conn.connect(self.addr, port: self.port)
+        conn.stringToWrite = jsonString
     }
     // push noise values to the server
     func push(noiseObj: NoiseReading) {
         let jsonString = noiseObj.getJSON()
-        //print(jsonString)
-        var out :NSOutputStream?
-        NSStream.getStreamsToHostWithName(addr, port: port, inputStream: nil, outputStream: &out)
-        let outputStream = out!
-        outputStream.open()
-        let data: NSData = jsonString.dataUsingEncoding(NSUTF8StringEncoding)!
-        var buffer = [UInt8](count:data.length, repeatedValue:0)
-        data.getBytes(&buffer);
-        
-        outputStream.write(&buffer, maxLength: data.length);
-        
-        outputStream.close()
+        let conn = Connection.sharedInstance
+        conn.connect(self.addr, port: self.port)
+        conn.stringToWrite = jsonString
     }
-    
     
     // generate noise values using the function
     // the function should be called everytime a button is pressed
     // the function will generate the data dand push it to to the server
     func noiseCollection(pushOrNot: Bool) -> Float {
         let currentTime :NSDate = NSDate()
+        let noiseManager = NoiseRecorder.sharedInstance
+        let loca = LocationRecorder.sharedInstance
         
-        self.loca.updateLocation()
+        let ifNotUpdated = loca.updateLocation()
+        if ifNotUpdated{
+            return 0.0
+        }
         let lat = round(10*loca.getLat())/10
         let long = round(10*loca.getLong())/10
         let loc : [Double] = [lat,long]
         
         let sound = noiseManager.getNoise()
-        //let sound: Float = 5.0
-        print("-------")
         print(sound)
-        print("=======")
-
-        //let loc : [Double] = [47.0,8.3]
+        
         let Noise = NoiseReading(
             uuid: self.defaults.stringForKey("uuidString")!,
             soundVal: sound,//(sound+180),
@@ -173,7 +171,9 @@ class PulseVM : NSObject {
         )
         
         if pushOrNot {
-            push(Noise)
+            dispatch_async(dispatch_get_main_queue()) {
+                self.push(Noise)
+            }
         }
         
         return sound
@@ -181,14 +181,16 @@ class PulseVM : NSObject {
     // the function is same as noiseCollection()
     // but to push text messages on the server instead
     func textCollection(txtMsg: String) {
-        print(txtMsg)
         let currentTime :NSDate = NSDate()
+        let loca = LocationRecorder.sharedInstance
         
-        self.loca.updateLocation()
+        let ifNotUpdated = loca.updateLocation()
+        if ifNotUpdated{
+            return
+        }
         let lat = round(10*loca.getLat())/10
         let long = round(10*loca.getLong())/10
         let loc : [Double] = [lat,long]
-        //print(loc)
         
         let Text = TextVisual(
             uuid: self.defaults.stringForKey("uuidString")!,
@@ -196,8 +198,9 @@ class PulseVM : NSObject {
             timestamp: UInt64(currentTime.timeIntervalSince1970*1000),
             location: loc
         )
-        
-        push(Text)
+        dispatch_async(dispatch_get_main_queue()) {
+            self.push(Text)
+        }
     }
 
 

@@ -9,6 +9,8 @@
 import Foundation
 import AVFoundation
 
+private let _NOISE = NoiseRecorder()
+
 class NoiseRecorder: NSObject, AVAudioRecorderDelegate {
     var audioRecorder: AVAudioRecorder!
     let audioSession = AVAudioSession.sharedInstance()
@@ -62,6 +64,10 @@ class NoiseRecorder: NSObject, AVAudioRecorderDelegate {
         }
     }
     
+    class var sharedInstance: NoiseRecorder {
+        return _NOISE
+    }
+    
     //func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
         /*print("stop")
         if flag{
@@ -83,16 +89,17 @@ class NoiseRecorder: NSObject, AVAudioRecorderDelegate {
     }
     
     func updateNoise(){
+        
+        //dispatch_sync(dispatch_get_main_queue()) {
         self.audioSession.requestRecordPermission({(allowed: Bool) -> Void in
-            dispatch_async(dispatch_get_main_queue()) {
                 if allowed {
                     self.audioRecorder.updateMeters()
                     self.soundVal = self.audioRecorder.peakPowerForChannel(0)
                 } else {
                     self.soundVal = 0.0
                 }
-            }
         })
+        //}
     }
     
     func getNoise() -> Float {
