@@ -11,6 +11,7 @@ import UIKit
 class HomeTableViewController: UITableViewController {
     
     let VM = PulseVM.sharedInstance
+    let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
@@ -49,7 +50,8 @@ class HomeTableViewController: UITableViewController {
             sharedDefaults?.setObject(" ", forKey: "stringKey")
             sharedDefaults?.synchronize()
         }
-        _ = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("sendPendingMessages"), userInfo: nil, repeats: true)
+        //appdelegate.continuousMessageScan(1)
+//        _ = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("sendPendingMessages"), userInfo: nil, repeats: true)
         
       
         
@@ -64,7 +66,7 @@ class HomeTableViewController: UITableViewController {
             VM.textCollection(sharedText!)
             sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
             sharedDefaults?.synchronize()
-            //NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
+            NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
 
         }
         //NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
@@ -89,7 +91,7 @@ class HomeTableViewController: UITableViewController {
         if (indexPath.row == 0){
             
             let cell = tableView.dequeueReusableCellWithIdentifier("FullWidthLeftIcon", forIndexPath: indexPath) as! HomeTableViewCell
-            cell.nameLabel.text = "Noise"
+            cell.nameLabel.text = "Sound"
             cell.infoLabel.text = "42dB"
             cell.iconImage.image = UIImage(named: "icon_noise_msg_frame")
             cell.homeTableViewcontroller = self
