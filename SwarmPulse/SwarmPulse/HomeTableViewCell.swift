@@ -16,6 +16,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet var infoLabel: UILabel!
     @IBOutlet var bar: UIProgressView!
     let VM = PulseVM.sharedInstance
+    let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var homeTableViewcontroller: HomeTableViewController = HomeTableViewController()
 
     
@@ -32,8 +33,15 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     func setBarTo(){
-        bar.setProgress((Float(arc4random_uniform(50)+50)*0.01), animated: true)
-        infoLabel.text = String(Int(bar.progress * 100)) + " dB"
+        if (abs(VM.noiseCollection(false)) < 160){
+            bar.setProgress(abs(VM.noiseCollection(false)/Float(160.0)), animated: false)
+            infoLabel.text = String(Int(VM.noiseCollection(false))) + " dB"
+        }
+        else {
+            bar.setProgress(1, animated: true)
+            infoLabel.text = ">160 dB"
+        }
+        
     }
     
     
@@ -71,7 +79,10 @@ class HomeTableViewCell: UITableViewCell {
                     sharedDefaults?.setBool(false, forKey: "hasBeenPushed")
                     sharedDefaults?.synchronize()
                 
-                self.homeTableViewcontroller.sendPendingMessages()
+                //self.homeTableViewcontroller.sendPendingMessages()
+                
+                self.appdelegate.sendPendingMessages()
+                
             }
             alertController.addAction(SendAction)
             
