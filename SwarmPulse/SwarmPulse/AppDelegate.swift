@@ -69,6 +69,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func sendPendingMessages (){
+        if (sharedDefaults?.boolForKey("hasBeenPushed") == nil){
+            sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
+        }
        
         if (sharedDefaults?.boolForKey("hasBeenPushed") == false){
             let sharedText = sharedDefaults?.objectForKey("stringKey") as? String
@@ -82,6 +85,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func sendPendingMessages (completionHandler: (UIBackgroundFetchResult) -> Void){
+        if (sharedDefaults?.boolForKey("hasBeenPushed") == nil){
+            sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
+        }
         if (sharedDefaults?.boolForKey("hasBeenPushed") == false){
             let sharedText = sharedDefaults?.objectForKey("stringKey") as? String
             VM.textCollection(sharedText!)
