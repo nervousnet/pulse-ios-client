@@ -41,9 +41,8 @@
 		1F0310DC1BD93A7200E10714 /* LightReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0310DB1BD93A7200E10714 /* LightReading.swift */; };
 		1F0310DE1BD93AAB00E10714 /* NoiseReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0310DD1BD93AAB00E10714 /* NoiseReading.swift */; };
 		1F0310E11BD978E700E10714 /* PulseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0310E01BD978E700E10714 /* PulseVM.swift */; };
-		1F3E480F1BE18C4B00CC973A /* NoiseRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E480E1BE18C4A00CC973A /* NoiseRecorder.swift */; settings = {ASSET_TAGS = (); }; };
-		1F3E48111BE2216D00CC973A /* LocationRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E48101BE2216D00CC973A /* LocationRecorder.swift */; settings = {ASSET_TAGS = (); }; };
 		1F3E480F1BE18C4B00CC973A /* NoiseRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E480E1BE18C4A00CC973A /* NoiseRecorder.swift */; };
+		1F3E48111BE2216D00CC973A /* LocationRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E48101BE2216D00CC973A /* LocationRecorder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -206,15 +205,7 @@
 				1F0310DF1BD978B900E10714 /* PulseVM */,
 				1F39F1B21BD8D87400B365E8 /* model */,
 				07CB96CC1BD8D5B500A58733 /* AppDelegate.swift */,
-				07CB96CE1BD8D5B500A58733 /* ViewController.swift */,
-				07CB97141BD9070E00A58733 /* ViewController2.swift */,
-				07CB97061BD8EFAE00A58733 /* WebViewController.swift */,
-				077522991BDA6F55003222CF /* HomeTableViewController.swift */,
-				077522971BDA6BC5003222CF /* HomeTableViewCell.swift */,
-				0775229B1BDA8443003222CF /* HomeTableViewCellDouble.swift */,
-				07CB96D01BD8D5B500A58733 /* Main.storyboard */,
-				077824AB1BDFD26B00BD7F85 /* AboutViewController.swift */,
-				07CB96D51BD8D5B500A58733 /* LaunchScreen.storyboard */,
+				07F7A1311BE395B400A86E8D /* UI */,
 				07CB96D81BD8D5B500A58733 /* Info.plist */,
 			);
 			path = SwarmPulse;
@@ -256,6 +247,22 @@
 				07CB96FB1BD8D69100A58733 /* speaker-820005.jpg */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		07F7A1311BE395B400A86E8D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				07CB96CE1BD8D5B500A58733 /* ViewController.swift */,
+				07CB97141BD9070E00A58733 /* ViewController2.swift */,
+				07CB97061BD8EFAE00A58733 /* WebViewController.swift */,
+				077522991BDA6F55003222CF /* HomeTableViewController.swift */,
+				077522971BDA6BC5003222CF /* HomeTableViewCell.swift */,
+				0775229B1BDA8443003222CF /* HomeTableViewCellDouble.swift */,
+				07CB96D01BD8D5B500A58733 /* Main.storyboard */,
+				077824AB1BDFD26B00BD7F85 /* AboutViewController.swift */,
+				07CB96D51BD8D5B500A58733 /* LaunchScreen.storyboard */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 		1F0310DF1BD978B900E10714 /* PulseVM */ = {
