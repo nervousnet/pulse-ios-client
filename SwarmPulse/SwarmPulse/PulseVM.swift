@@ -160,9 +160,9 @@ class PulseVM : NSObject {
         
         let sound = noiseManager.getNoise()
         //let sound: Float = 5.0
-        print("-------")
-        print(sound)
-        print("=======")
+//        print("-------")
+//        print(sound)
+//        print("=======")
 
         //let loc : [Double] = [47.0,8.3]
         let Noise = NoiseReading(

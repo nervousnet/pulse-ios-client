@@ -512,9 +512,9 @@
                                                 <rect key="frame" x="0.0" y="10" width="600" height="248"/>
                                                 <animations/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <string key="text">ETH Zurich \n Department of Humanities and Social Sciences\nProfessorship of Computational Social Science\nClausiusstrasse 50,\n8092 Zurich,\nSwitzerland</string>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                                                 <dataDetectorType key="dataDetectorTypes" address="YES"/>
@@ -523,12 +523,12 @@
                                                 <rect key="frame" x="266.5" y="243" width="67" height="17"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <animations/>
-                                        <color key="backgroundColor" red="0.26379796862602234" green="0.2637900710105896" blue="0.26379451155662537" alpha="0.75081820101351349" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="0.58999999999999997" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="Mea-Lq-GKJ" firstAttribute="centerX" secondItem="uQd-80-F0a" secondAttribute="centerX" id="96a-dl-m7y"/>
                                             <constraint firstItem="uQd-80-F0a" firstAttribute="width" secondItem="3lA-s6-c0J" secondAttribute="width" id="DEE-NN-UE6"/>
@@ -573,7 +573,7 @@
                                             </textView>
                                         </subviews>
                                         <animations/>
-                                        <color key="backgroundColor" red="0.26379796859999999" green="0.26379007100000001" blue="0.2637945116" alpha="0.75081820099999996" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="0.58999999999999997" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="cXm-Wi-9wX" firstAttribute="width" secondItem="3Cd-zx-u4v" secondAttribute="width" id="80Y-Ay-w07"/>
                                             <constraint firstAttribute="bottom" secondItem="cXm-Wi-9wX" secondAttribute="bottom" id="9Dc-dZ-1Ip"/>
