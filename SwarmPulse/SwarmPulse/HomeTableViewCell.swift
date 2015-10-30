@@ -57,12 +57,9 @@ class HomeTableViewCell: UITableViewCell {
     
 
     @IBAction func bigButtonPressed(sender: UIButton) {
-<<<<<<< HEAD
         if (nameLabel.text == "Noise"){
-=======
         if (nameLabel.text == "Sound"){
             
->>>>>>> 50ee06355fa60ceee490ba5b40e27ab4d9cef005
             VM.noiseCollection(true)
         }
         if (nameLabel.text == "Light"){
@@ -101,6 +98,7 @@ class HomeTableViewCell: UITableViewCell {
             homeTableViewcontroller.presentViewController(alertController, animated: true) {
                 // ...
             }
+            }
         }
-    }
+}
 }
