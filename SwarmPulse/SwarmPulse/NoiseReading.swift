@@ -19,7 +19,6 @@ class NoiseReading : Visual {
     
     
     init(uuid : String, soundVal : Float, timestamp : UInt64, location : [Double]) {
-        
         self.type = 1
         self.UUID = uuid
         self.soundVal = soundVal

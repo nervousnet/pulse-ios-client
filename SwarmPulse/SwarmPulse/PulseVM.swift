@@ -18,13 +18,10 @@ class PulseVM : NSObject {
     
     let defaults :NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
-    let locManager = CLLocationManager()
+    var noiseManager = NoiseRecorder()
     
-    var noiseManager: AVAudioRecorder!
+    let loca = LocationRecorder()
     
-    let url = NSURL(string: "129.132.255.27:8445")
-    //let url : String = "129.132.255.27:8445"
-    //let socketJSON = SocketIOClient(socketURL: "129.132.255.27:8445")
     let addr = "129.132.255.27"
     let port = 8445
 
@@ -33,7 +30,10 @@ class PulseVM : NSObject {
     // initializer
     override init(){
         super.init()
-        _ = self.generateUUID()
+        let guuid = self.generateUUID()
+        if guuid {
+            _ = self.generateUUID()
+        }
     }
     
     // create the share instance function
@@ -41,58 +41,7 @@ class PulseVM : NSObject {
         return _VM
     }
     
-    // initialize the location Manager
-    func initLocationManager() {
-        //locManager.delegate = self
-        locManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        locManager.requestWhenInUseAuthorization()
-    }
     
-    /*func directoryURL() -> NSURL? {
-        let fileManager = NSFileManager.defaultManager()
-        let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        let documentDirectory = urls[0] as NSURL
-        let soundURL = documentDirectory.URLByAppendingPathComponent("sound.m4a")
-        return soundURL
-    }
-    
-    var recordSettings = [
-        AVFormatIDKey: NSNumber(unsignedInt:kAudioFormatAppleLossless),
-        AVEncoderAudioQualityKey : AVAudioQuality.Max.rawValue,
-        AVEncoderBitRateKey : 320000,
-        AVNumberOfChannelsKey: 2,
-        AVSampleRateKey : 44100.0
-    ]
-    
-    func initNoiseManager() {
-        
-        let audioSession = AVAudioSession.sharedInstance()
-        do {
-            if (audioSession.respondsToSelector("requestRecordPermission:")) {
-            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            try audioSession.setActive(true)
-            AVAudioSession.sharedInstance().requestRecordPermission({(granted: Bool)-> Void in
-                if granted {
-                    print("granted")
-                    self.noiseManager.record()
-                } else {
-                    print("Permission to record not granted")
-                }
-            })
-            }
-            try noiseManager = AVAudioRecorder(URL: self.directoryURL()!,settings: recordSettings)
-            //noiseManager.delegate = self
-            //let audioFilename = getDocumentsDirectory().stringByAppendingPathComponent("recording.m4a")
-            //let audioURL = NSURL(fileURLWithPath: audioFilename)
-            
-            noiseManager.meteringEnabled = true
-            noiseManager.prepareToRecord()
-            noiseManager.record()
-        } catch let error as NSError {
-            //noiseManager = nil
-            print(error.localizedDescription)
-        }
-    }*/
     
     func pad(string : String, toSize: Int) -> String {
         var padded = string
@@ -103,10 +52,10 @@ class PulseVM : NSObject {
     }
     
     func getHUUID() -> UInt64 {
-        let generated = defaults.boolForKey("generatedUUID")
+        let generated = self.defaults.boolForKey("generatedUUID")
         
         if(generated){
-            let huuid : UInt64 = UInt64(defaults.integerForKey("huuid"))
+            let huuid : UInt64 = UInt64(self.defaults.integerForKey("huuid"))
             
             return huuid
         }else{
@@ -116,10 +65,10 @@ class PulseVM : NSObject {
     
     
     func getLUUID() -> UInt64 {
-        let generated = defaults.boolForKey("generatedUUID")
+        let generated = self.defaults.boolForKey("generatedUUID")
         
         if(generated){
-            let luuid : UInt64 = UInt64(defaults.integerForKey("luuid"))
+            let luuid : UInt64 = UInt64(self.defaults.integerForKey("luuid"))
             
             return luuid
         }else{
@@ -127,14 +76,12 @@ class PulseVM : NSObject {
         }
     }
     
+    
     func generateUUID() -> Bool {
         
-        let generated = defaults.boolForKey("generatedUUID")
+        let generated = self.defaults.boolForKey("generatedUUID")
         
-        if(generated == true){
-            
-            
-            
+        if(generated){
             //String representation of uuid
             NSLog("starting generation of uuid string")
             let huuidRaw = getHUUID()
@@ -144,7 +91,7 @@ class PulseVM : NSObject {
             let uuidString = pad(String(huuidRaw, radix: 16), toSize:16) + pad(String(luuidRaw, radix: 16), toSize:16)
             NSLog("UUID: %@", uuidString.uppercaseString)
             
-            defaults.setValue(uuidString.uppercaseString, forKey: "uuidString")
+            self.defaults.setValue(uuidString.uppercaseString, forKey: "uuidString")
             
             return false
             
@@ -155,19 +102,15 @@ class PulseVM : NSObject {
             let LUUID:Int = Int(arc4random_uniform(1234567890)+123456)
             let HUUID:Int = Int(arc4random_uniform(1234567890)+234567)
             
-            let beaconMinor :Int = Int(arc4random_uniform(7000)+200)
+            self.defaults.setBool(true, forKey: "generatedUUID")
             
-            defaults.setBool(true, forKey: "generatedUUID")
-            
-            defaults.setInteger(HUUID, forKey: "huuid")
-            defaults.setInteger(LUUID, forKey: "luuid")
-            defaults.setInteger(beaconMinor, forKey: "beaconminor")
-            
+            self.defaults.setInteger(HUUID, forKey: "huuid")
+            self.defaults.setInteger(LUUID, forKey: "luuid")
             
             return true
         }
+        
     }
-    
     
     
     // push a text to the server (messages, links etc.)
@@ -189,7 +132,7 @@ class PulseVM : NSObject {
     // push noise values to the server
     func push(noiseObj: NoiseReading) {
         let jsonString = noiseObj.getJSON()
-        print(jsonString)
+        //print(jsonString)
         var out :NSOutputStream?
         NSStream.getStreamsToHostWithName(addr, port: port, inputStream: nil, outputStream: &out)
         let outputStream = out!
@@ -210,38 +153,45 @@ class PulseVM : NSObject {
     func noiseCollection(pushOrNot: Bool) -> Float {
         let currentTime :NSDate = NSDate()
         
-        let noise = NoiseRecorder()
-        noise.record()
-        //print(noise.getDecibels())
-        let loc : [Double] = [47.0,8.3]
-            
+        self.loca.updateLocation()
+        let lat = round(10*loca.getLat())/10
+        let long = round(10*loca.getLong())/10
+        let loc : [Double] = [lat,long]
+        
+        let sound = noiseManager.getNoise()
+        //let sound: Float = 5.0
+        print("-------")
+        print(sound)
+        print("=======")
+
+        //let loc : [Double] = [47.0,8.3]
         let Noise = NoiseReading(
-            uuid: defaults.stringForKey("uuidString")!,
-            soundVal: (noise.getDecibels()+180),
+            uuid: self.defaults.stringForKey("uuidString")!,
+            soundVal: sound,//(sound+180),
             timestamp: UInt64(currentTime.timeIntervalSince1970*1000),
             location: loc
         )
         
         if pushOrNot {
-            print(noise.getDecibels()+180)
             push(Noise)
         }
         
-        return noise.getDecibels()
+        return sound
     }
     // the function is same as noiseCollection()
     // but to push text messages on the server instead
     func textCollection(txtMsg: String) {
-        //print(txtMsg)
+        print(txtMsg)
         let currentTime :NSDate = NSDate()
         
-        //locManager.startUpdatingLocation()
-        //let loc : [Double] = [locManager.location!.coordinate.latitude,locManager.location!.coordinate.longitude]
-        //locManager.stopUpdatingLocation()
-        let loc : [Double] = [47.0,8.3]
+        self.loca.updateLocation()
+        let lat = round(10*loca.getLat())/10
+        let long = round(10*loca.getLong())/10
+        let loc : [Double] = [lat,long]
+        //print(loc)
         
         let Text = TextVisual(
-            uuid: defaults.stringForKey("uuidString")!,
+            uuid: self.defaults.stringForKey("uuidString")!,
             txtMsg: txtMsg,
             timestamp: UInt64(currentTime.timeIntervalSince1970*1000),
             location: loc

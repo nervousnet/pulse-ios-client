@@ -9,10 +9,11 @@
 import Foundation
 import AVFoundation
 
-class NoiseRecorder: NSObject, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
+class NoiseRecorder: NSObject, AVAudioRecorderDelegate {
     var audioRecorder: AVAudioRecorder!
-    var audioPlayer: AVAudioPlayer?
     let audioSession = AVAudioSession.sharedInstance()
+    var levelTimer = NSTimer()
+    var soundVal: Float = 0.0
     
     var recordSettings = [
         AVFormatIDKey: NSNumber(unsignedInt:kAudioFormatAppleLossless),
@@ -24,26 +25,44 @@ class NoiseRecorder: NSObject, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     
     override init() {
         super.init()
+        //print("---------------")
         do {
-                try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-                try audioSession.setActive(true)
-        } catch let error as NSError {
-            //noiseManager = nil
-            print(error.localizedDescription)
+            if (audioSession.respondsToSelector("requestRecordPermission:")) {
+                try self.audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+                try self.audioSession.setActive(true)
+                self.audioSession.requestRecordPermission({(allowed: Bool) -> Void in
+                    dispatch_async(dispatch_get_main_queue()) {
+                        if allowed {
+                            print("Granted")
+                        } else {
+                            print("Not Granted")
+                        }
+                    }
+                })
+            }
+        } catch{
+            print("AudioSession Error")
         }
         
         do {
-            try audioRecorder = AVAudioRecorder(URL: directoryURL()!,settings: recordSettings)
-            /* Prepare the recorder and then start the recording */
-            audioRecorder.delegate = self
-            if audioRecorder.prepareToRecord(){
-                print("Successfully prepared for record.")
-        }
+            try self.audioRecorder = AVAudioRecorder(URL: directoryURL()!,settings: recordSettings)
+            //self.audioRecorder.delegate = self
+            //print(self.audioRecorder.prepareToRecord())
+            if self.audioRecorder.prepareToRecord(){
+                print("Successfully prepared for recording.")
+                self.audioRecorder.meteringEnabled = true
+                self.audioRecorder.record()
+                
+                //self.levelTimer = NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: Selector("updateNoise"), userInfo: nil, repeats: true)
+            } else {
+                print("Could not prepare for recording.")
+            }
         }catch {
+            print("AudioRecorder Error")
         }
     }
     
-    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
+    //func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
         /*print("stop")
         if flag{
             print("Successfully stopped the audio recording process")
@@ -53,25 +72,41 @@ class NoiseRecorder: NSObject, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
         } else {
             print("Stopping the audio recording failed")
         }*/
-    }
+    //}
+    
+    func startNoise() {
+        self.audioRecorder.prepareToRecord()
+        self.audioRecorder.meteringEnabled = true
+        self.audioRecorder.record()
+        //self.levelTimer = NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: Selector("updateNoise"), userInfo: nil, repeats: true)
 
-
-    func record(){
-        print(audioRecorder.record())
     }
     
-    func getDecibels() -> Float{
-        audioRecorder.meteringEnabled = true
-        audioRecorder.updateMeters()
-        let soundVal = audioRecorder.peakPowerForChannel(0)
-        audioRecorder.deleteRecording()
-        audioRecorder.meteringEnabled = false
-        return soundVal
+    func updateNoise(){
+        self.audioSession.requestRecordPermission({(allowed: Bool) -> Void in
+            dispatch_async(dispatch_get_main_queue()) {
+                if allowed {
+                    self.audioRecorder.updateMeters()
+                    self.soundVal = self.audioRecorder.peakPowerForChannel(0)
+                } else {
+                    self.soundVal = 0.0
+                }
+            }
+        })
+    }
+    
+    func getNoise() -> Float {
+        self.updateNoise()
+        return self.soundVal
+    }
+    
+    func stopNoise() {
+        self.levelTimer.invalidate()
+        self.audioRecorder.meteringEnabled = false
+        self.audioRecorder.stop()
+        self.audioRecorder.deleteRecording()
     }
 
-    func pause(){
-        self.audioRecorder.pause()
-    }
     func directoryURL() -> NSURL? {
         let fileManager = NSFileManager.defaultManager()
         let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)

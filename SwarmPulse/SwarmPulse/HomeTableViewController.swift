@@ -61,7 +61,6 @@ class HomeTableViewController: UITableViewController {
         let sharedDefaults = NSUserDefaults(suiteName: "group.ch.ethz.coss.nervous")
         if (sharedDefaults?.boolForKey("hasBeenPushed") == false){
             let sharedText = sharedDefaults?.objectForKey("stringKey") as? String
-            VM.textCollection(sharedText!)
             //VM.textCollection(sharedText!)
             sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
             sharedDefaults?.synchronize()
