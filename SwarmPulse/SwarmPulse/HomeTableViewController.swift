@@ -25,7 +25,7 @@ class HomeTableViewController: UITableViewController {
         backgroundImageView.image = UIImage(named: "Background_Graph_Mockup")
         backgroundImageView.contentMode = UIViewContentMode.ScaleAspectFill
         self.tableView.backgroundView = backgroundImageView
-        
+        appdelegate.sendPendingMessages()
         
         
         // Uncomment the following line to preserve selection between presentations

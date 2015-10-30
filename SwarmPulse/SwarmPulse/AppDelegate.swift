@@ -10,7 +10,7 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    let sharedDefaults = NSUserDefaults(suiteName: "group.ch.ethz.coss.nervous")
     var window: UIWindow?
     let VM = PulseVM.sharedInstance
     
@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        self.sendPendingMessages()
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
@@ -48,11 +49,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-            self.sendPendingMessages()
-//            let homeTableViewController = self.window?.rootViewController as! HomeTableViewController
-//            homeTableViewController.fetch(homeTableViewController.sendPendingMessages())
-        completionHandler(.NewData)
+//    func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+//        NSLog("background")
+//        self.sendPendingMessages(completionHandler)
+//        sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
+//
+////            let homeTableViewController = self.window?.rootViewController as! HomeTableViewController
+////            homeTableViewController.fetch(homeTableViewController.sendPendingMessages())
+//        
+//    }
+    
+    func fetch(completion: () -> Void) {
+        completion()
+        
     }
     
     func continuousMessageScan(interval : Int){
@@ -60,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func sendPendingMessages (){
-        let sharedDefaults = NSUserDefaults(suiteName: "group.ch.ethz.coss.nervous")
+       
         if (sharedDefaults?.boolForKey("hasBeenPushed") == false){
             let sharedText = sharedDefaults?.objectForKey("stringKey") as? String
             VM.textCollection(sharedText!)
@@ -68,6 +77,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             sharedDefaults?.synchronize()
             NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
             
+        }
+        NSLog("Still alive")
+    }
+    
+    func sendPendingMessages (completionHandler: (UIBackgroundFetchResult) -> Void){
+        if (sharedDefaults?.boolForKey("hasBeenPushed") == false){
+            let sharedText = sharedDefaults?.objectForKey("stringKey") as? String
+            VM.textCollection(sharedText!)
+            sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
+            sharedDefaults?.synchronize()
+            NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
+//            completionHandler(.NewData)
+ 
         }
         NSLog("Still alive")
     }
