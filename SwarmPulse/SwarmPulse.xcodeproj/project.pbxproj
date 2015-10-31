@@ -43,7 +43,7 @@
 		1F0310E11BD978E700E10714 /* PulseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0310E01BD978E700E10714 /* PulseVM.swift */; };
 		1F3E480F1BE18C4B00CC973A /* NoiseRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E480E1BE18C4A00CC973A /* NoiseRecorder.swift */; };
 		1F3E48111BE2216D00CC973A /* LocationRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E48101BE2216D00CC973A /* LocationRecorder.swift */; };
-		1F3E48131BE3E3DE00CC973A /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E48121BE3E3DE00CC973A /* Connection.swift */; settings = {ASSET_TAGS = (); }; };
+		1F3E48131BE3E3DE00CC973A /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E48121BE3E3DE00CC973A /* Connection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
