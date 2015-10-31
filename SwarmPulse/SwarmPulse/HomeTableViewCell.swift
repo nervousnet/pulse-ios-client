@@ -34,7 +34,8 @@ class HomeTableViewCell: UITableViewCell {
     
     func setBarTo(){
         if (abs(VM.noiseCollection(false)) < 160){
-            bar.setProgress(abs(VM.noiseCollection(false)/Float(160.0)), animated: false)
+            let val : Float = (VM.noiseCollection(false)/120)
+            bar.setProgress(val , animated: false)
             infoLabel.text = String(Int(VM.noiseCollection(false))) + " dB"
         }
         else {
@@ -57,7 +58,6 @@ class HomeTableViewCell: UITableViewCell {
     
 
     @IBAction func bigButtonPressed(sender: UIButton) {
-        if (nameLabel.text == "Noise"){
         if (nameLabel.text == "Sound"){
             
             VM.noiseCollection(true)
@@ -99,6 +99,6 @@ class HomeTableViewCell: UITableViewCell {
                 // ...
             }
             }
-        }
+        
 }
 }

@@ -161,7 +161,7 @@ class PulseVM : NSObject {
         let loc : [Double] = [lat,long]
         
         let sound = noiseManager.getNoise()
-        print(sound)
+        //print(sound)
         
         //let sound: Float = 5.0
 //        print("-------")
@@ -181,8 +181,8 @@ class PulseVM : NSObject {
                 self.push(Noise)
             }
         }
-        
-        return sound
+        return (140+sound)/2
+       
     }
     // the function is same as noiseCollection()
     // but to push text messages on the server instead
