@@ -34,9 +34,9 @@ class HomeTableViewCell: UITableViewCell {
     
     func setBarTo(){
         if (abs(VM.noiseCollection(false)) < 160){
-            let val : Float = (140+VM.noiseCollection(false))/240
+            let val : Float = (VM.noiseCollection(false)/120)
             bar.setProgress(val , animated: false)
-            infoLabel.text = String((140+Int(VM.noiseCollection(false)))/2) + " dB"
+            infoLabel.text = String(Int(VM.noiseCollection(false))) + " dB"
         }
         else {
             bar.setProgress(1, animated: true)

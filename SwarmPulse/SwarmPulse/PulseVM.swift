@@ -181,8 +181,8 @@ class PulseVM : NSObject {
                 self.push(Noise)
             }
         }
-        
-        return sound
+        return (140+sound)/2
+       
     }
     // the function is same as noiseCollection()
     // but to push text messages on the server instead
