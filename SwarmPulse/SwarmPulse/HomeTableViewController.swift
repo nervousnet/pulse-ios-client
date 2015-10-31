@@ -59,7 +59,7 @@ class HomeTableViewController: UITableViewController {
     }
     //Get the message from the NSUserDefaults and send it to the VM
     //Update the bool
-    func sendPendingMessages (){
+    func sendPendingMessages(){
         let sharedDefaults = NSUserDefaults(suiteName: "group.ch.ethz.coss.nervous")
         
         if let _ = sharedDefaults?.boolForKey("hasBeenPushed") {
