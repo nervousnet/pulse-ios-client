@@ -161,7 +161,7 @@ class PulseVM : NSObject {
         let loc : [Double] = [lat,long]
         
         var sound = noiseManager.getNoise()
-        sound = (140+sound)/2
+        sound = (120+sound)
         //print(sound)
         
         //let sound: Float = 5.0
