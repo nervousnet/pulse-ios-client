@@ -160,7 +160,8 @@ class PulseVM : NSObject {
         let long = round(10*loca.getLong())/10
         let loc : [Double] = [lat,long]
         
-        let sound = noiseManager.getNoise()
+        var sound = noiseManager.getNoise()
+        sound = (140+sound)/2
         //print(sound)
         
         //let sound: Float = 5.0
@@ -181,7 +182,7 @@ class PulseVM : NSObject {
                 self.push(Noise)
             }
         }
-        return (140+sound)/2
+        return sound
        
     }
     // the function is same as noiseCollection()
