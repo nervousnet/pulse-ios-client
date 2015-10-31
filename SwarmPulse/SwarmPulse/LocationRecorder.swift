@@ -43,7 +43,7 @@ class LocationRecorder{//:NSObject, CLLocationManagerDelegate {
             switch CLLocationManager.authorizationStatus(){
                 case .AuthorizedWhenInUse:
                     //dispatch_async(dispatch_get_main_queue()) {
-                        print("Authorized for location services")
+                        //print("Authorized for location services")
                         self.locManager.startUpdatingLocation()
                         //print("Its Here!!")
                         let locValue:CLLocationCoordinate2D = self.locManager.location!.coordinate

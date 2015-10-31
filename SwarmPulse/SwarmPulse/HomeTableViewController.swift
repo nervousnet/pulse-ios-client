@@ -104,8 +104,8 @@ class HomeTableViewController: UITableViewController {
         }
         if (indexPath.row == 1){
             let cell = tableView.dequeueReusableCellWithIdentifier("FullWidthRightIcon", forIndexPath: indexPath) as! HomeTableViewCell
-            cell.nameLabel.text  = "Light"
-            cell.infoLabel.text = "211 lux"
+            cell.nameLabel.text  = "coming soon"
+            cell.infoLabel.text = "More features"
             cell.iconImage.image = UIImage(named: "icon_light")
             cell.homeTableViewcontroller = self
             cell.bar.removeFromSuperview()
