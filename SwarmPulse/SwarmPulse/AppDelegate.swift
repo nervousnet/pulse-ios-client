@@ -84,21 +84,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSLog("Still alive")
     }
     
-    func sendPendingMessages (completionHandler: (UIBackgroundFetchResult) -> Void){
-        if (sharedDefaults?.boolForKey("hasBeenPushed") == nil){
-            sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
+    func sendPendingMessages (){
+        let sharedDefaults = NSUserDefaults(suiteName: "group.ch.ethz.coss.nervous")
+        
+        if let _ = sharedDefaults?.boolForKey("hasBeenPushed") {
+            if (sharedDefaults?.boolForKey("hasBeenPushed") == false){
+                if let sharedText = sharedDefaults?.objectForKey("stringKey") as? String{
+                    VM.textCollection(sharedText)
+                    sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
+                    sharedDefaults?.synchronize()
+                    NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
+                }
+            }
         }
-        if (sharedDefaults?.boolForKey("hasBeenPushed") == false){
-            let sharedText = sharedDefaults?.objectForKey("stringKey") as? String
-            VM.textCollection(sharedText!)
-            sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
-            sharedDefaults?.synchronize()
-            NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
-//            completionHandler(.NewData)
- 
-        }
-        NSLog("Still alive")
+        //NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
     }
+//    func sendPendingMessages (completionHandler: (UIBackgroundFetchResult) -> Void){
+//        if (sharedDefaults?.boolForKey("hasBeenPushed") == nil){
+//            sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
+//        }
+//        if (sharedDefaults?.boolForKey("hasBeenPushed") == false){
+//            let sharedText = sharedDefaults?.objectForKey("stringKey") as? String
+//            VM.textCollection(sharedText!)
+//            sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
+//            sharedDefaults?.synchronize()
+//            NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
+////            completionHandler(.NewData)
+// 
+//        }
+//        NSLog("Still alive")
+//    }
 
 }
 
