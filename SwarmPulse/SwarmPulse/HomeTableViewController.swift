@@ -62,16 +62,15 @@ class HomeTableViewController: UITableViewController {
     func sendPendingMessages (){
         let sharedDefaults = NSUserDefaults(suiteName: "group.ch.ethz.coss.nervous")
         
-        if (sharedDefaults?.boolForKey("hasBeenPushed") == nil){
-            sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
-        }
-        if (sharedDefaults?.boolForKey("hasBeenPushed") == false){
+        if let _ = sharedDefaults?.boolForKey("hasBeenPushed") {
+                 if (sharedDefaults?.boolForKey("hasBeenPushed") == false){
             let sharedText = sharedDefaults?.objectForKey("stringKey") as? String
             VM.textCollection(sharedText!)
             sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
             sharedDefaults?.synchronize()
             NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
 
+        }
         }
         //NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
     }
