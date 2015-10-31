@@ -33,7 +33,9 @@
 			<key>NSExtensionActivationRule</key>
 			<dict>
 				<key>NSExtensionActivationSupportsText</key>
-				<string></string>
+				<true/>
+				<key>NSExtensionActivationSupportsWebPageWithMaxCount</key>
+				<integer>1</integer>
 			</dict>
 		</dict>
 		<key>NSExtensionMainStoryboard</key>
