@@ -68,22 +68,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(interval), target: self, selector: Selector("sendPendingMessages"), userInfo: nil, repeats: true)
     }
     
-    func sendPendingMessages (){
-        if (sharedDefaults?.boolForKey("hasBeenPushed") == nil){
-            sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
-        }
-       
-        if (sharedDefaults?.boolForKey("hasBeenPushed") == false){
-            let sharedText = sharedDefaults?.objectForKey("stringKey") as? String
-            VM.textCollection(sharedText!)
-            sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
-            sharedDefaults?.synchronize()
-            NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
-            
-        }
-        NSLog("Still alive")
-    }
-    
+//    func sendPendingMessages (){
+//        if (sharedDefaults?.boolForKey("hasBeenPushed") == nil){
+//            sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
+//        }
+//       
+//        if (sharedDefaults?.boolForKey("hasBeenPushed") == false){
+//            let sharedText = sharedDefaults?.objectForKey("stringKey") as? String
+//            VM.textCollection(sharedText!)
+//            sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
+//            sharedDefaults?.synchronize()
+//            NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
+//            
+//        }
+//        NSLog("Still alive")
+//    }
     func sendPendingMessages (){
         let sharedDefaults = NSUserDefaults(suiteName: "group.ch.ethz.coss.nervous")
         
@@ -99,21 +98,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         //NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
     }
-//    func sendPendingMessages (completionHandler: (UIBackgroundFetchResult) -> Void){
-//        if (sharedDefaults?.boolForKey("hasBeenPushed") == nil){
-//            sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
-//        }
-//        if (sharedDefaults?.boolForKey("hasBeenPushed") == false){
-//            let sharedText = sharedDefaults?.objectForKey("stringKey") as? String
-//            VM.textCollection(sharedText!)
-//            sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
-//            sharedDefaults?.synchronize()
-//            NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
-////            completionHandler(.NewData)
-// 
-//        }
-//        NSLog("Still alive")
-//    }
+    func sendPendingMessages (completionHandler: (UIBackgroundFetchResult) -> Void){
+        if (sharedDefaults?.boolForKey("hasBeenPushed") == nil){
+            sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
+        }
+        if (sharedDefaults?.boolForKey("hasBeenPushed") == false){
+            let sharedText = sharedDefaults?.objectForKey("stringKey") as? String
+            VM.textCollection(sharedText!)
+            sharedDefaults?.setBool(true, forKey: "hasBeenPushed")
+            sharedDefaults?.synchronize()
+            NSLog(sharedDefaults?.objectForKey("stringKey") as! String!)
+//            completionHandler(.NewData)
+ 
+        }
+        NSLog("Still alive")
+    }
 
 }
 
