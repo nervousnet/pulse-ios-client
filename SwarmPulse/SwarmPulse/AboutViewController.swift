@@ -52,7 +52,7 @@ class AboutViewController: UIViewController {
     }
     */
     @IBAction func rateThisApp(sender: UIButton) {
-        
+        UIApplication.sharedApplication().openURL(NSURL(string : "http://itunes.com/apps/swarmpulse")!);
     }
 
 }

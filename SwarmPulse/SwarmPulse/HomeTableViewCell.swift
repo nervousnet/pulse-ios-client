@@ -66,7 +66,7 @@ class HomeTableViewCell: UITableViewCell {
 //            setBarTo()
         }
         if (nameLabel.text == "Send Message"){
-            let alertController = UIAlertController(title: "Message", message: "To the Pulse-Network", preferredStyle: .Alert)
+            let alertController = UIAlertController(title: "Message", message: "To the SwarmPulse Network", preferredStyle: .Alert)
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
                 // ...
