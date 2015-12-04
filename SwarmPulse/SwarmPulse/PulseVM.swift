@@ -222,6 +222,20 @@ class PulseVM : NSObject {
             }
         }
     }
+    
+    
+    
+    // access upload variables
+    func getUploadVal(dataType: String) -> Int8 {
+        switch dataType {
+            case "noise":
+                return self.noiseUploadStatus
+            case "text":
+                return self.messageUploadStatus
+            default:
+                return -1
+        }
+    }
 
 
 }
