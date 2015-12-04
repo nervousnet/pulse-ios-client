@@ -24,7 +24,11 @@ class PulseVM : NSObject {
     
     let addr = "129.132.255.27"
     let port = 8445
-
+    let delay = 5.0 * Double(NSEC_PER_SEC)
+    
+    // upload status variable
+    var noiseUploadStatus: Int8 = 0 // 0 - ready, 1 - uploading, 2 - success, 3 - disabled
+    var messageUploadStatus: Int8 = 0
     
     
     // initializer
@@ -115,33 +119,39 @@ class PulseVM : NSObject {
     
     // push a text to the server (messages, links etc.)
     func push(txtObj: TextVisual) {
+        print("Yes!")
+        self.messageUploadStatus = 1
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(self.delay))
+        
         let jsonString = txtObj.getJSON()
-        //print(jsonString)
-        /*var out :NSOutputStream?
-        NSStream.getStreamsToHostWithName(addr, port: port, inputStream: nil, outputStream: &out)
-        if out != nil {
-            let outputStream = out!
-            outputStream.open()
-            let data: NSData = jsonString.dataUsingEncoding(NSUTF8StringEncoding)!
-            var buffer = [UInt8](count:data.length, repeatedValue:0)
-            data.getBytes(&buffer);
-            
-            outputStream.write(&buffer, maxLength: data.length);
-            
-            outputStream.close()
-        }else {
-            print("Server Down!")
-        }*/
+        
         let conn = Connection.sharedInstance
         conn.connect(self.addr, port: self.port)
         conn.stringToWrite = jsonString
+        
+        self.messageUploadStatus = 2
+        self.messageUploadStatus = 3
+        dispatch_after(time, dispatch_get_main_queue(), {
+            self.messageUploadStatus = 0
+        })
     }
     // push noise values to the server
     func push(noiseObj: NoiseReading) {
+        print("Yes!")
+        self.noiseUploadStatus = 1
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(self.delay))
+        
         let jsonString = noiseObj.getJSON()
+        
         let conn = Connection.sharedInstance
         conn.connect(self.addr, port: self.port)
         conn.stringToWrite = jsonString
+            
+        self.noiseUploadStatus = 2
+        self.noiseUploadStatus = 3
+        dispatch_after(time, dispatch_get_main_queue(), {
+            self.noiseUploadStatus = 0
+        })
     }
     
     // generate noise values using the function
@@ -173,7 +183,9 @@ class PulseVM : NSObject {
         
         if pushOrNot {
             dispatch_async(dispatch_get_main_queue()) {
-                self.push(Noise)
+                if self.noiseUploadStatus == 0 {
+                    self.push(Noise)
+                }
             }
         }
         return sound
@@ -205,7 +217,9 @@ class PulseVM : NSObject {
             location: loc
         )
         dispatch_async(dispatch_get_main_queue()) {
-            self.push(Text)
+            if self.messageUploadStatus == 0 {
+                self.push(Text)
+            }
         }
     }
 
