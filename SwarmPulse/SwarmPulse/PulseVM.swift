@@ -182,6 +182,10 @@ class PulseVM : NSObject {
     // the function is same as noiseCollection()
     // but to push text messages on the server instead
     func textCollection(txtMsg: String) {
+        if txtMsg.isEmpty {
+            return
+        }
+        
         let currentTime :NSDate = NSDate()
         let loca = LocationRecorder.sharedInstance
         
@@ -189,6 +193,7 @@ class PulseVM : NSObject {
         if ifNotUpdated{
             return
         }
+        
         let lat = round(10*loca.getLat())/10
         let long = round(10*loca.getLong())/10
         let loc : [Double] = [lat,long]
