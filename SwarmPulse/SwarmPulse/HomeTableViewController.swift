@@ -125,13 +125,15 @@ class HomeTableViewController: UITableViewController {
         }
         if (indexPath.row == 3){
             let cell = tableView.dequeueReusableCellWithIdentifier("FullWidthLeftIcon", forIndexPath: indexPath) as! HomeTableViewCell
-            cell.nameLabel.text = "Send Message"
+            cell.nameLabel.text = "Message"
             cell.infoLabel.text = ""
             cell.iconImage.image = UIImage(named: "icon_message")
         
             cell.bigButton.backgroundColor = UIColor(red: (1/3), green: (1/3), blue: (1/3), alpha: 0.59)
             cell.homeTableViewcontroller = self
-            cell.bar.removeFromSuperview()
+            cell.bar.setProgress(0, animated: false)
+            cell.progressLabel.center = cell.center
+            cell.startMessageUpdate()
 
             return cell
         

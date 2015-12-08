@@ -72,24 +72,37 @@
                                             <color key="progressTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="trackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </progressView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="         " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukL-aL-3jU">
+                                            <rect key="frame" x="281" y="62.5" width="40" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <animations/>
                                     <constraints>
                                         <constraint firstItem="pRC-q5-v2t" firstAttribute="leading" secondItem="5k8-0P-LW8" secondAttribute="leadingMargin" constant="20" id="3F3-VQ-1sc"/>
+                                        <constraint firstItem="ukL-aL-3jU" firstAttribute="top" secondItem="5k8-0P-LW8" secondAttribute="topMargin" constant="67" id="5p7-GQ-txw"/>
                                         <constraint firstItem="Ato-pb-5N4" firstAttribute="leading" secondItem="HTL-IO-BVn" secondAttribute="leading" id="677-if-XLD"/>
                                         <constraint firstItem="HTL-IO-BVn" firstAttribute="top" secondItem="pRC-q5-v2t" secondAttribute="bottom" constant="-40" id="8Dg-CQ-x9s"/>
                                         <constraint firstItem="pRC-q5-v2t" firstAttribute="width" secondItem="5k8-0P-LW8" secondAttribute="height" multiplier="113:72" id="BIO-Zc-I8A"/>
+                                        <constraint firstItem="ukL-aL-3jU" firstAttribute="centerX" secondItem="pRC-q5-v2t" secondAttribute="centerX" id="Bwd-hO-Yqh"/>
                                         <constraint firstItem="pRC-q5-v2t" firstAttribute="centerY" secondItem="5k8-0P-LW8" secondAttribute="centerY" id="IDc-iE-NpP"/>
                                         <constraint firstItem="vcc-yh-DIn" firstAttribute="centerY" secondItem="pRC-q5-v2t" secondAttribute="centerY" id="JRw-9d-xJa"/>
+                                        <constraint firstItem="ukL-aL-3jU" firstAttribute="centerY" secondItem="pRC-q5-v2t" secondAttribute="centerY" id="Kk6-FD-wj6"/>
                                         <constraint firstItem="pRC-q5-v2t" firstAttribute="centerY" secondItem="5k8-0P-LW8" secondAttribute="centerY" id="MdF-Yb-3Jv"/>
                                         <constraint firstItem="Ato-pb-5N4" firstAttribute="top" secondItem="5k8-0P-LW8" secondAttribute="topMargin" constant="68" id="Nix-Il-nT0"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ukL-aL-3jU" secondAttribute="bottom" constant="41" id="Ov5-pG-MZs"/>
                                         <constraint firstItem="qtb-I5-1ei" firstAttribute="leading" secondItem="Ato-pb-5N4" secondAttribute="leading" id="PkB-RC-clK"/>
+                                        <constraint firstItem="ukL-aL-3jU" firstAttribute="centerX" secondItem="pRC-q5-v2t" secondAttribute="centerX" id="Pv1-uQ-ikd"/>
                                         <constraint firstItem="pRC-q5-v2t" firstAttribute="width" secondItem="5k8-0P-LW8" secondAttribute="width" id="XfB-N7-Ldo"/>
                                         <constraint firstItem="HTL-IO-BVn" firstAttribute="top" secondItem="Ato-pb-5N4" secondAttribute="bottom" constant="8" symbolic="YES" id="YbG-Nk-8xi"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="pRC-q5-v2t" secondAttribute="trailing" constant="366" id="acf-Wc-vaS"/>
                                         <constraint firstItem="vcc-yh-DIn" firstAttribute="trailing" secondItem="pRC-q5-v2t" secondAttribute="trailing" constant="-20" id="cCV-Jm-mOW"/>
                                         <constraint firstItem="Ato-pb-5N4" firstAttribute="centerX" secondItem="HTL-IO-BVn" secondAttribute="centerX" id="jU8-eQ-tWm"/>
                                         <constraint firstItem="vcc-yh-DIn" firstAttribute="height" secondItem="pRC-q5-v2t" secondAttribute="height" multiplier="3/4" id="jrl-aD-PCA"/>
+                                        <constraint firstItem="ukL-aL-3jU" firstAttribute="trailing" secondItem="pRC-q5-v2t" secondAttribute="trailing" id="lNp-Aj-Ll5"/>
                                         <constraint firstItem="pRC-q5-v2t" firstAttribute="leading" secondItem="HTL-IO-BVn" secondAttribute="trailing" constant="-70" id="lbf-es-0oD"/>
                                         <constraint firstItem="pRC-q5-v2t" firstAttribute="height" secondItem="5k8-0P-LW8" secondAttribute="height" id="o0e-8b-ttH"/>
                                         <constraint firstItem="HTL-IO-BVn" firstAttribute="top" secondItem="pRC-q5-v2t" secondAttribute="bottom" constant="-20" id="oAW-0B-5cv"/>
@@ -111,6 +124,10 @@
                                             <exclude reference="Nix-Il-nT0"/>
                                             <exclude reference="YbG-Nk-8xi"/>
                                             <exclude reference="oAW-0B-5cv"/>
+                                            <exclude reference="5p7-GQ-txw"/>
+                                            <exclude reference="Bwd-hO-Yqh"/>
+                                            <exclude reference="Ov5-pG-MZs"/>
+                                            <exclude reference="lNp-Aj-Ll5"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -133,6 +150,7 @@
                                     <outlet property="iconImage" destination="vcc-yh-DIn" id="8CY-UW-VDF"/>
                                     <outlet property="infoLabel" destination="Ato-pb-5N4" id="Zau-cS-YH9"/>
                                     <outlet property="nameLabel" destination="HTL-IO-BVn" id="JiC-vZ-Vha"/>
+                                    <outlet property="progressLabel" destination="ukL-aL-3jU" id="Tqj-Qk-QCd"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FullWidthLeftIcon" rowHeight="145" id="4vw-Nm-eBR" customClass="HomeTableViewCell" customModule="SwarmPulse" customModuleProvider="target">
@@ -145,7 +163,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9d1-Pv-I9N">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="144.5"/>
                                             <animations/>
-                                            <color key="backgroundColor" red="1" green="0.46841417959999998" blue="0.05112755595" alpha="0.9043760557432432" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="1" green="0.46666666666666667" blue="0.050980392156862744" alpha="0.9043760557432432" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="9d1-Pv-I9N" secondAttribute="height" id="peM-jT-QfY"/>
                                             </constraints>
@@ -190,12 +208,20 @@
                                             <color key="progressTintColor" white="1" alpha="0.38793285472972971" colorSpace="calibratedWhite"/>
                                             <color key="trackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </progressView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="        " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rof-Au-UGK">
+                                            <rect key="frame" x="380" y="75.5" width="59" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <animations/>
                                     <constraints>
                                         <constraint firstItem="6hc-m5-qq8" firstAttribute="top" secondItem="0qk-oB-rWf" secondAttribute="bottom" constant="8.5" id="1Hf-0w-Liy"/>
                                         <constraint firstItem="9d1-Pv-I9N" firstAttribute="width" secondItem="gdQ-n4-Uik" secondAttribute="height" multiplier="113:72" id="2Ra-5y-fpa"/>
                                         <constraint firstItem="0qk-oB-rWf" firstAttribute="centerX" secondItem="6hc-m5-qq8" secondAttribute="centerX" id="3VO-9i-Ggb"/>
+                                        <constraint firstItem="Rof-Au-UGK" firstAttribute="leading" secondItem="ezk-PQ-TKQ" secondAttribute="leading" id="5nJ-67-wvY"/>
                                         <constraint firstItem="ezk-PQ-TKQ" firstAttribute="centerY" secondItem="6hc-m5-qq8" secondAttribute="centerY" id="80w-21-DTJ"/>
                                         <constraint firstItem="9d1-Pv-I9N" firstAttribute="centerY" secondItem="gdQ-n4-Uik" secondAttribute="centerY" id="Co3-WT-gu5"/>
                                         <constraint firstItem="ezk-PQ-TKQ" firstAttribute="trailing" secondItem="0qk-oB-rWf" secondAttribute="trailing" id="CxH-RM-v8d"/>
@@ -205,6 +231,7 @@
                                         <constraint firstItem="9d1-Pv-I9N" firstAttribute="width" secondItem="gdQ-n4-Uik" secondAttribute="width" id="RaW-mh-1Ys"/>
                                         <constraint firstItem="9d1-Pv-I9N" firstAttribute="centerY" secondItem="gdQ-n4-Uik" secondAttribute="centerY" id="RpI-2U-DMp"/>
                                         <constraint firstItem="6hc-m5-qq8" firstAttribute="trailing" secondItem="9d1-Pv-I9N" secondAttribute="trailing" constant="-20" id="ZWn-3Q-VsQ"/>
+                                        <constraint firstItem="6hc-m5-qq8" firstAttribute="top" secondItem="Rof-Au-UGK" secondAttribute="bottom" constant="8" id="ZiS-vP-Y0V"/>
                                         <constraint firstItem="6hc-m5-qq8" firstAttribute="leading" secondItem="ezk-PQ-TKQ" secondAttribute="trailing" constant="8" id="ciT-n1-gLh"/>
                                         <constraint firstItem="vyL-L4-Iuq" firstAttribute="height" secondItem="9d1-Pv-I9N" secondAttribute="height" multiplier="3/4" id="crG-rW-TXp"/>
                                         <constraint firstItem="9d1-Pv-I9N" firstAttribute="height" secondItem="gdQ-n4-Uik" secondAttribute="height" id="hHp-xa-vfu"/>
@@ -237,6 +264,7 @@
                                     <outlet property="iconImage" destination="vyL-L4-Iuq" id="HB5-n4-m2L"/>
                                     <outlet property="infoLabel" destination="0qk-oB-rWf" id="uD1-wN-HWq"/>
                                     <outlet property="nameLabel" destination="6hc-m5-qq8" id="QAo-zG-tgd"/>
+                                    <outlet property="progressLabel" destination="Rof-Au-UGK" id="yiR-vY-VY3"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SplitWidthTwoIcons" id="Pnk-TH-gnj" customClass="HomeTableViewCellDouble" customModule="SwarmPulse" customModuleProvider="target">
