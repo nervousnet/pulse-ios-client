@@ -50,6 +50,6 @@ class NoiseReading : Visual {
         
         let string7 = "\"volatility\"" + ":" + (NSString(format: "%d", self.volatility) as String)
         
-        return "{" + string1 + "," + string2 + "," + string3 + "," + string4 + "," + string5 + "," + string6 + string7 + "}"
+        return "{" + string1 + "," + string2 + "," + string3 + "," + string4 + "," + string5 + "," + string6 + "," + string7 + "}"
     }
 }

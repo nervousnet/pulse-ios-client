@@ -146,6 +146,7 @@ class PulseVM : NSObject {
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(self.delay))
         
         let jsonString = noiseObj.getJSON()
+        print(jsonString)
         
         let conn = Connection.sharedInstance
         conn.connect(self.addr, port: self.port)
