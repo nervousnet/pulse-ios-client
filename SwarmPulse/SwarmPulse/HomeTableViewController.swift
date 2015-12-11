@@ -82,7 +82,7 @@ class HomeTableViewController: UITableViewController {
     }
     //The number of rows. Columns are achieved to the hometableviewcelldouble
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     //Change return divisor in order to adjust number of rows shown at one time
@@ -137,6 +137,12 @@ class HomeTableViewController: UITableViewController {
 
             return cell
         
+        }
+        if (indexPath.row == 4){
+            let cell = tableView.dequeueReusableCellWithIdentifier("Settings", forIndexPath: indexPath) as! SettingsTableViewCell
+            cell.backgroundColor = UIColor(red: (1), green: (119/255), blue: (13/255), alpha: 0.9)
+            
+            return cell
         }
         else {
             let cell = tableView.dequeueReusableCellWithIdentifier("FullWidthRightIcon", forIndexPath: indexPath) as! HomeTableViewCell

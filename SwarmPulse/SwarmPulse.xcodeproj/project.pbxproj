@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0770B7781C1B0EFC00A82F07 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0770B7771C1B0EFC00A82F07 /* SettingsTableViewCell.swift */; };
 		077522981BDA6BC5003222CF /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077522971BDA6BC5003222CF /* HomeTableViewCell.swift */; };
 		0775229A1BDA6F55003222CF /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077522991BDA6F55003222CF /* HomeTableViewController.swift */; };
 		0775229C1BDA8443003222CF /* HomeTableViewCellDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0775229B1BDA8443003222CF /* HomeTableViewCellDouble.swift */; };
@@ -85,6 +86,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0770B7771C1B0EFC00A82F07 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		077522971BDA6BC5003222CF /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		077522991BDA6F55003222CF /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		0775229B1BDA8443003222CF /* HomeTableViewCellDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCellDouble.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				07CB96D01BD8D5B500A58733 /* Main.storyboard */,
 				077824AB1BDFD26B00BD7F85 /* AboutViewController.swift */,
 				07CB96D51BD8D5B500A58733 /* LaunchScreen.storyboard */,
+				0770B7771C1B0EFC00A82F07 /* SettingsTableViewCell.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				07CB97151BD9070E00A58733 /* ViewController2.swift in Sources */,
 				07CB96CD1BD8D5B500A58733 /* AppDelegate.swift in Sources */,
 				077522981BDA6BC5003222CF /* HomeTableViewCell.swift in Sources */,
+				0770B7781C1B0EFC00A82F07 /* SettingsTableViewCell.swift in Sources */,
 				1F3E48131BE3E3DE00CC973A /* Connection.swift in Sources */,
 				1F0310DE1BD93AAB00E10714 /* NoiseReading.swift in Sources */,
 				1F0310DA1BD93A0200E10714 /* TextVisual.swift in Sources */,
