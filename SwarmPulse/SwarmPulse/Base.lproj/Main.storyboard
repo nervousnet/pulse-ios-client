@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FullWidthRightIcon" rowHeight="145" id="QFU-Vc-9Wc" customClass="HomeTableViewCell" customModule="SwarmPulse" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FullWidthRightIcon" rowHeight="145" id="QFU-Vc-9Wc" customClass="HomeTableViewCell" customModule="SwarmPulse" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="600" height="145"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QFU-Vc-9Wc" id="5k8-0P-LW8">
@@ -144,7 +144,7 @@
                                     <outlet property="progressLabel" destination="ukL-aL-3jU" id="Tqj-Qk-QCd"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FullWidthLeftIcon" rowHeight="145" id="4vw-Nm-eBR" customClass="HomeTableViewCell" customModule="SwarmPulse" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FullWidthLeftIcon" rowHeight="145" id="4vw-Nm-eBR" customClass="HomeTableViewCell" customModule="SwarmPulse" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="173" width="600" height="145"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4vw-Nm-eBR" id="gdQ-n4-Uik">
@@ -250,7 +250,7 @@
                                     <outlet property="progressLabel" destination="Rof-Au-UGK" id="yiR-vY-VY3"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SplitWidthTwoIcons" id="Pnk-TH-gnj" customClass="HomeTableViewCellDouble" customModule="SwarmPulse" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SplitWidthTwoIcons" id="Pnk-TH-gnj" customClass="HomeTableViewCellDouble" customModule="SwarmPulse" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="318" width="600" height="145"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pnk-TH-gnj" id="OXI-BD-0xx">
@@ -339,7 +339,7 @@
                                     <outlet property="rightLabel" destination="aGx-Ut-Tqg" id="PGh-J4-kWl"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Settings" id="EsO-WJ-hr0" customClass="SettingsTableViewCell" customModule="SwarmPulse" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Settings" id="EsO-WJ-hr0" customClass="SettingsTableViewCell" customModule="SwarmPulse" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="463" width="600" height="145"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EsO-WJ-hr0" id="q8c-wF-lJV">
