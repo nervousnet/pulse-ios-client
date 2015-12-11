@@ -16,16 +16,18 @@ class TextVisual : Visual {
     var timestamp : UInt64
     var UUID : String
     var location : [Double]
+    var volatility : Int
     let VM = PulseVM.sharedInstance
     
     
-    init(uuid : String, txtMsg : String, timestamp : UInt64, location : [Double]) {
+    init(uuid : String, txtMsg : String, timestamp : UInt64, location : [Double], volatility : Int) {
         
         self.type = 2
         self.UUID = uuid
         self.txtMsg = txtMsg
         self.timestamp = timestamp
         self.location = location
+        self.volatility = volatility
     }
     
     func getJSON() -> String {
@@ -48,7 +50,9 @@ class TextVisual : Visual {
         
         let string6 = "\"uuid\"" + ":" + "\"" + self.UUID + "\""
         
-        return "{" + string1 + "," + string2 + "," + string3 + "," + string4 + "," + string5 + "," + string6 + "}"
+        let string7 = "\"volatility\"" + ":" + (NSString(format: "%d", self.volatility) as String)
+        
+        return "{" + string1 + "," + string2 + "," + string3 + "," + string4 + "," + string5 + "," + string6 + "," + string7 + "}"
     }
     
 }

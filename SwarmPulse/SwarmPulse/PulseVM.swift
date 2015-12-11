@@ -30,6 +30,12 @@ class PulseVM : NSObject {
     var noiseUploadStatus: Int8 = 0 // 0 - ready, 1 - uploading, 2 - success, 3 - disabled
     var messageUploadStatus: Int8 = 0
     
+    // volatility variable
+    // -2 = Sticky / important data never clear from map and database, (not used)
+    // -1 = never erase from database or Forever option selected, is default,
+    // 0 = do not store in database,
+    // 1 or more seconds = seconds to keep data in database (in seconds not milliseconds)
+    var volatility: Int = 0
     
     // initializer
     override init(){
@@ -119,7 +125,6 @@ class PulseVM : NSObject {
     
     // push a text to the server (messages, links etc.)
     func push(txtObj: TextVisual) {
-        print("Yes!")
         self.messageUploadStatus = 1
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(self.delay))
         
@@ -137,11 +142,11 @@ class PulseVM : NSObject {
     }
     // push noise values to the server
     func push(noiseObj: NoiseReading) {
-        print("Yes!")
         self.noiseUploadStatus = 1
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(self.delay))
         
         let jsonString = noiseObj.getJSON()
+        print(jsonString)
         
         let conn = Connection.sharedInstance
         conn.connect(self.addr, port: self.port)
@@ -178,7 +183,8 @@ class PulseVM : NSObject {
             uuid: self.defaults.stringForKey("uuidString")!,
             soundVal: sound,//(sound+180),
             timestamp: UInt64(currentTime.timeIntervalSince1970*1000),
-            location: loc
+            location: loc,
+            volatility: self.volatility
         )
         
         if pushOrNot {
@@ -214,7 +220,8 @@ class PulseVM : NSObject {
             uuid: self.defaults.stringForKey("uuidString")!,
             txtMsg: txtMsg,
             timestamp: UInt64(currentTime.timeIntervalSince1970*1000),
-            location: loc
+            location: loc,
+            volatility: self.volatility
         )
         dispatch_async(dispatch_get_main_queue()) {
             if self.messageUploadStatus == 0 {
@@ -236,7 +243,11 @@ class PulseVM : NSObject {
                 return -1
         }
     }
-
+    
+    // set the volatility variable
+    func setVolatilityVar(vol : Int = 0) {
+        self.volatility = vol
+    }
 
 }
 
