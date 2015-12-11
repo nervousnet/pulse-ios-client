@@ -14,4 +14,5 @@ protocol Visual {
     var location : [Double]    { get }
     var timestamp : UInt64 { get set }
     var UUID : String {get set}
+    var volatility: Int {get set}
 }

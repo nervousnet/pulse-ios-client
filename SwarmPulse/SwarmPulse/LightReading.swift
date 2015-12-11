@@ -16,15 +16,17 @@ class LightReading : Visual {
     var timestamp : UInt64
     var UUID : String
     var location : [Double]
+    var volatility : Int
     
     
-    init(uuid : String, lightVal : Double, timestamp : UInt64, location : [Double]) {
+    init(uuid : String, lightVal : Double, timestamp : UInt64, location : [Double], volatility : Int) {
         
         self.type = 0
         self.UUID = uuid
         self.lightVal = lightVal
         self.timestamp = timestamp
         self.location = location
+        self.volatility = volatility
     }
     
     func getJSON() -> String {
@@ -47,7 +49,9 @@ class LightReading : Visual {
         
         let string6 = "\"uuid\"" + ":" + "\"" + UUID + "\""
         
-        return "{" + string1 + "," + string2 + "," + string3 + "," + string4 + "," + string5 + "," + string6 + "}"
+        let string7 = "\"volatility\"" + ":" + (NSString(format: "%d", self.volatility) as String)
+        
+        return "{" + string1 + "," + string2 + "," + string3 + "," + string4 + "," + string5 + "," + string6 + string7 + "}"
     }
     
 }

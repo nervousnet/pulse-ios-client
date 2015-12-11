@@ -119,7 +119,6 @@ class PulseVM : NSObject {
     
     // push a text to the server (messages, links etc.)
     func push(txtObj: TextVisual) {
-        print("Yes!")
         self.messageUploadStatus = 1
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(self.delay))
         
@@ -137,7 +136,6 @@ class PulseVM : NSObject {
     }
     // push noise values to the server
     func push(noiseObj: NoiseReading) {
-        print("Yes!")
         self.noiseUploadStatus = 1
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(self.delay))
         
@@ -169,6 +167,7 @@ class PulseVM : NSObject {
         let lat = round(10*loca.getLat())/10
         let long = round(10*loca.getLong())/10
         let loc : [Double] = [lat,long]
+        let vol : Int = 0
         
         var sound = noiseManager.getNoise()
         sound = (120+sound)
@@ -178,7 +177,8 @@ class PulseVM : NSObject {
             uuid: self.defaults.stringForKey("uuidString")!,
             soundVal: sound,//(sound+180),
             timestamp: UInt64(currentTime.timeIntervalSince1970*1000),
-            location: loc
+            location: loc,
+            volatility: vol
         )
         
         if pushOrNot {
@@ -209,12 +209,14 @@ class PulseVM : NSObject {
         let lat = round(10*loca.getLat())/10
         let long = round(10*loca.getLong())/10
         let loc : [Double] = [lat,long]
+        let vol : Int = -1
         
         let Text = TextVisual(
             uuid: self.defaults.stringForKey("uuidString")!,
             txtMsg: txtMsg,
             timestamp: UInt64(currentTime.timeIntervalSince1970*1000),
-            location: loc
+            location: loc,
+            volatility: vol
         )
         dispatch_async(dispatch_get_main_queue()) {
             if self.messageUploadStatus == 0 {

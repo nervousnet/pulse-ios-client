@@ -16,14 +16,16 @@ class NoiseReading : Visual {
     var timestamp : UInt64
     var UUID : String
     var location : [Double]
+    var volatility : Int
     
     
-    init(uuid : String, soundVal : Float, timestamp : UInt64, location : [Double]) {
+    init(uuid : String, soundVal : Float, timestamp : UInt64, location : [Double], volatility : Int) {
         self.type = 1
         self.UUID = uuid
         self.soundVal = soundVal
         self.timestamp = timestamp
         self.location = location
+        self.volatility = volatility
     }
     
     func getJSON() -> String {
@@ -46,8 +48,8 @@ class NoiseReading : Visual {
         
         let string6 = "\"uuid\"" + ":" + "\"" + UUID + "\""
         
-        return "{" + string1 + "," + string2 + "," + string3 + "," + string4 + "," + string5 + "," + string6 + "}"
+        let string7 = "\"volatility\"" + ":" + (NSString(format: "%d", self.volatility) as String)
+        
+        return "{" + string1 + "," + string2 + "," + string3 + "," + string4 + "," + string5 + "," + string6 + string7 + "}"
     }
-
-    
 }
