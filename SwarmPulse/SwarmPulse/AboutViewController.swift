@@ -19,7 +19,7 @@ class AboutViewController: UIViewController {
         super.viewDidLoad()
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 10
-        let attrString = NSMutableAttributedString(string: "ETH Zurich\nDepartment of Humanities and Social Sciences\nProfessorship of Computational Social Science\nClausiusstrasse 50,\n8092 Zurich,\nSwitzerland")
+        let attrString = NSMutableAttributedString(string: "ETH Zurich\nDepartment of Humanities and Social Sciences\nProfessorship of Computational Social Science\nClausiusstrasse 50,\n8092 Zurich,\nSwitzerland\n\nDeveloped by:\n Lewin Könemann and Siddhartha")
         attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
         longText.attributedText = attrString
         
