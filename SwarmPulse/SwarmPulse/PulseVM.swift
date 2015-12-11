@@ -30,6 +30,12 @@ class PulseVM : NSObject {
     var noiseUploadStatus: Int8 = 0 // 0 - ready, 1 - uploading, 2 - success, 3 - disabled
     var messageUploadStatus: Int8 = 0
     
+    // volatility variable
+    // -2 = Sticky / important data never clear from map and database, (not used)
+    // -1 = never erase from database or Forever option selected, is default,
+    // 0 = do not store in database,
+    // 1 or more seconds = seconds to keep data in database (in seconds not milliseconds)
+    var volatility: Int = 0
     
     // initializer
     override init(){
@@ -167,7 +173,6 @@ class PulseVM : NSObject {
         let lat = round(10*loca.getLat())/10
         let long = round(10*loca.getLong())/10
         let loc : [Double] = [lat,long]
-        let vol : Int = 0
         
         var sound = noiseManager.getNoise()
         sound = (120+sound)
@@ -178,7 +183,7 @@ class PulseVM : NSObject {
             soundVal: sound,//(sound+180),
             timestamp: UInt64(currentTime.timeIntervalSince1970*1000),
             location: loc,
-            volatility: vol
+            volatility: self.volatility
         )
         
         if pushOrNot {
@@ -209,14 +214,13 @@ class PulseVM : NSObject {
         let lat = round(10*loca.getLat())/10
         let long = round(10*loca.getLong())/10
         let loc : [Double] = [lat,long]
-        let vol : Int = -1
         
         let Text = TextVisual(
             uuid: self.defaults.stringForKey("uuidString")!,
             txtMsg: txtMsg,
             timestamp: UInt64(currentTime.timeIntervalSince1970*1000),
             location: loc,
-            volatility: vol
+            volatility: self.volatility
         )
         dispatch_async(dispatch_get_main_queue()) {
             if self.messageUploadStatus == 0 {
@@ -238,7 +242,11 @@ class PulseVM : NSObject {
                 return -1
         }
     }
-
+    
+    // set the volatility variable
+    func setVolatilityVar(vol : Int = 0) {
+        self.volatility = vol
+    }
 
 }
 

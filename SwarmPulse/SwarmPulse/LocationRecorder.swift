@@ -45,12 +45,16 @@ class LocationRecorder{//:NSObject, CLLocationManagerDelegate {
                     //dispatch_async(dispatch_get_main_queue()) {
                         //print("Authorized for location services")
                         self.locManager.startUpdatingLocation()
-                        let locValue:CLLocationCoordinate2D = self.locManager.location!.coordinate
-                        self.lat = locValue.latitude
-                        self.long = locValue.longitude
-                        //print("locations = \(self.lat) \(self.long)")
-                        self.locManager.stopUpdatingLocation()
-                    //}
+                        if let locValue:CLLocationCoordinate2D = self.locManager.location!.coordinate {
+                            self.lat = locValue.latitude
+                            self.long = locValue.longitude
+                            //print("locations = \(self.lat) \(self.long)")
+                            self.locManager.stopUpdatingLocation()
+                            //}
+                        } else {
+                            self.lat = 3.0
+                            self.long = 0.25
+                        }
                     return false
                 default :
                     print("Not Authorized for location services")
