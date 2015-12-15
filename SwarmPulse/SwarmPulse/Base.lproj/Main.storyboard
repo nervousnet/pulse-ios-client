@@ -354,13 +354,15 @@
                                         </label>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C5U-by-lZg">
                                             <rect key="frame" x="134" y="65" width="51" height="31"/>
-                                            <color key="tintColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="onTintColor" red="0.89411764705882346" green="0.89411764705882346" blue="0.89411764705882346" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="onTintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="storeswitch:" destination="EsO-WJ-hr0" eventType="valueChanged" id="1wJ-Hc-mZA"/>
+                                            </connections>
                                         </switch>
                                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mly-7Q-77a">
                                             <rect key="frame" x="292" y="0.0" width="300" height="145"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </pickerView>
                                     </subviews>
                                     <constraints>

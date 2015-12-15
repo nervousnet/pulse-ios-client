@@ -57,7 +57,7 @@ class LocationRecorder{//:NSObject, CLLocationManagerDelegate {
                         }
                     return false
                 default :
-                    print("Not Authorized for location services")
+                    //print("Not Authorized for location services")
                     //dispatch_async(dispatch_get_main_queue()) {
                         self.locManager.requestWhenInUseAuthorization()
                     //}
