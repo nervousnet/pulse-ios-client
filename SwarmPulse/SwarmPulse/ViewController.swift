@@ -11,14 +11,14 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet var noiseLable: UILabel!
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
 
     override func viewDidLoad() {
         setNeedsStatusBarAppearanceUpdate()
         super.viewDidLoad()
-        _ = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("updateNoiseLabel"), userInfo: nil, repeats: true)
+        _ = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: Selector("updateNoiseLabel"), userInfo: nil, repeats: true)
         
         // Do any additional setup after loading the view, typically from a nib.
     }

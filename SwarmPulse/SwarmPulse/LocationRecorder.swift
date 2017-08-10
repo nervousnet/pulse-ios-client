@@ -41,7 +41,7 @@ class LocationRecorder{//:NSObject, CLLocationManagerDelegate {
     func updateLocation() -> Bool{
         if CLLocationManager.locationServicesEnabled() {
             switch CLLocationManager.authorizationStatus(){
-                case .AuthorizedWhenInUse:
+                case .authorizedWhenInUse:
                     //dispatch_async(dispatch_get_main_queue()) {
                         //print("Authorized for location services")
                         self.locManager.startUpdatingLocation()

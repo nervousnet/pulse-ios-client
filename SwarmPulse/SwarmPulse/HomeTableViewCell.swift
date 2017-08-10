@@ -17,9 +17,9 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet var bar: UIProgressView!
     @IBOutlet var progressLabel: UILabel!
     let VM = PulseVM.sharedInstance
-    let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let appdelegate = UIApplication.shared.delegate as! AppDelegate
     var homeTableViewcontroller: HomeTableViewController = HomeTableViewController()
-    var buttonColor = UIColor.whiteColor()
+    var buttonColor = UIColor.white
 
     
     override func awakeFromNib() {
@@ -29,7 +29,7 @@ class HomeTableViewCell: UITableViewCell {
     }
     
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
@@ -46,14 +46,14 @@ class HomeTableViewCell: UITableViewCell {
             infoLabel.text = ">160 dB"
         }
         if (VM.getUploadVal("noise") == 0){
-            bigButton.enabled = true
+            bigButton.isEnabled = true
             progressLabel.text = "Ready"
             bigButton.backgroundColor = buttonColor
             
         }
         if (VM.getUploadVal("noise") == 1){
             bigButton.alpha = 1
-            bigButton.enabled = false
+            bigButton.isEnabled = false
             progressLabel.text = "Uploading"
             
         }
@@ -61,7 +61,7 @@ class HomeTableViewCell: UITableViewCell {
             progressLabel.text = "Value Sent"
         }
         if (VM.getUploadVal("noise") == 3){
-            bigButton.enabled = false
+            bigButton.isEnabled = false
             progressLabel.text = "Wait"
         }
         
@@ -69,14 +69,14 @@ class HomeTableViewCell: UITableViewCell {
     func updateMessageLabel(){
         
         if (VM.getUploadVal("text") == 0){
-            bigButton.enabled = true
+            bigButton.isEnabled = true
             progressLabel.text = "Ready"
             bigButton.backgroundColor = buttonColor
             
         }
         if (VM.getUploadVal("text") == 1){
             bigButton.alpha = 1
-            bigButton.enabled = false
+            bigButton.isEnabled = false
             progressLabel.text = "Uploading"
             
         }
@@ -84,7 +84,7 @@ class HomeTableViewCell: UITableViewCell {
             progressLabel.text = "Message Sent"
         }
         if (VM.getUploadVal("text") == 3){
-            bigButton.enabled = false
+            bigButton.isEnabled = false
             progressLabel.text = "Wait"
         }
         progressLabel.sizeToFit()
@@ -93,7 +93,7 @@ class HomeTableViewCell: UITableViewCell {
 
     
     
-    func setBarTo(value:Float){
+    func setBarTo(_ value:Float){
         //Set progressbar to value between 0 and 1
         //bar.progress = value
         bar.setProgress(value, animated: true)
@@ -101,7 +101,7 @@ class HomeTableViewCell: UITableViewCell {
     
     func startBar(){
         buttonColor = bigButton.backgroundColor!
-        _ = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("setBarTo"), userInfo: nil, repeats: true)
+        _ = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: Selector("setBarTo"), userInfo: nil, repeats: true)
     }
     
     func startMessageUpdate(){
@@ -109,14 +109,14 @@ class HomeTableViewCell: UITableViewCell {
         progressLabel.sizeToFit()
         
         progressLabel.translatesAutoresizingMaskIntoConstraints = true
-        progressLabel.center = CGPointMake(self.bounds.midX, self.bounds.midY)
-        progressLabel.autoresizingMask = [UIViewAutoresizing.FlexibleLeftMargin, UIViewAutoresizing.FlexibleRightMargin, UIViewAutoresizing.FlexibleTopMargin, UIViewAutoresizing.FlexibleBottomMargin]
+        progressLabel.center = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
+        progressLabel.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleRightMargin, UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleBottomMargin]
         buttonColor = bigButton.backgroundColor!
-        _ = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("updateMessageLabel"), userInfo: nil, repeats: true)
+        _ = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: Selector("updateMessageLabel"), userInfo: nil, repeats: true)
     }
 
     
-    func onlySpace ( string : String) -> Bool{
+    func onlySpace ( _ string : String) -> Bool{
         var answer:Bool = true
         for character in string.characters{
             if (character != " "){
@@ -128,7 +128,7 @@ class HomeTableViewCell: UITableViewCell {
     }
     
 
-    @IBAction func bigButtonPressed(sender: UIButton) {
+    @IBAction func bigButtonPressed(_ sender: UIButton) {
         NSLog("i work")
         if (progressLabel.text=="Ready" ){
         if (nameLabel.text == "Sound"){
@@ -139,18 +139,18 @@ class HomeTableViewCell: UITableViewCell {
 //            setBarTo()
         }
         if (nameLabel.text == "Message"){
-            let alertController = UIAlertController(title: "Message", message: "To the SwarmPulse Network", preferredStyle: .Alert)
+            let alertController = UIAlertController(title: "Message", message: "To the SwarmPulse Network", preferredStyle: .alert)
             
-            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
                 // ...
             }
             alertController.addAction(cancelAction)
             
-            let SendAction = UIAlertAction(title: "Send", style: .Default) { (action) in
+            let SendAction = UIAlertAction(title: "Send", style: .default) { (action) in
                 //self.infoLabel.text = alertController.textFields![0].text
-                let sharedDefaults = NSUserDefaults(suiteName: "group.ch.ethz.coss.nervous")
-                sharedDefaults?.setObject(alertController.textFields![0].text, forKey: "stringKey")
-                    sharedDefaults?.setBool(false, forKey: "hasBeenPushed")
+                let sharedDefaults = UserDefaults(suiteName: "group.ch.ethz.coss.nervous")
+                sharedDefaults?.set(alertController.textFields![0].text, forKey: "stringKey")
+                    sharedDefaults?.set(false, forKey: "hasBeenPushed")
                     sharedDefaults?.synchronize()
                 
                 //self.homeTableViewcontroller.sendPendingMessages()
@@ -159,16 +159,16 @@ class HomeTableViewCell: UITableViewCell {
                 
             }
             alertController.addAction(SendAction)
-            SendAction.enabled = false
-            alertController.addTextFieldWithConfigurationHandler { (textField) in
+            SendAction.isEnabled = false
+            alertController.addTextField { (textField) in
                 textField.placeholder = "Message"
                 
-                NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidChangeNotification, object: textField, queue: NSOperationQueue.mainQueue()) { (notification) in
-                    SendAction.enabled = ((textField.text != "") && (false == self.onlySpace(textField.text!)))
+                NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main) { (notification) in
+                    SendAction.isEnabled = ((textField.text != "") && (false == self.onlySpace(textField.text!)))
                 }
             }
             
-            homeTableViewcontroller.presentViewController(alertController, animated: true) {
+            homeTableViewcontroller.present(alertController, animated: true) {
                 // ...
             }
             }

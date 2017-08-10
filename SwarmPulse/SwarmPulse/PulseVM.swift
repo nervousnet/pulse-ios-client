@@ -16,7 +16,7 @@ private let _VM = PulseVM()
 
 class PulseVM : NSObject {
     
-    let defaults :NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    let defaults :UserDefaults = UserDefaults.standard
     
     //var noiseManager = NoiseRecorder()
     
@@ -53,7 +53,7 @@ class PulseVM : NSObject {
     
     
     
-    func pad(string : String, toSize: Int) -> String {
+    func pad(_ string : String, toSize: Int) -> String {
         var padded = string
         for _ in 0..<toSize - string.characters.count {
             padded = "0" + padded
@@ -62,10 +62,10 @@ class PulseVM : NSObject {
     }
     
     func getHUUID() -> UInt64 {
-        let generated = self.defaults.boolForKey("generatedUUID")
+        let generated = self.defaults.bool(forKey: "generatedUUID")
         
         if(generated){
-            let huuid : UInt64 = UInt64(self.defaults.integerForKey("huuid"))
+            let huuid : UInt64 = UInt64(self.defaults.integer(forKey: "huuid"))
             
             return huuid
         }else{
@@ -75,10 +75,10 @@ class PulseVM : NSObject {
     
     
     func getLUUID() -> UInt64 {
-        let generated = self.defaults.boolForKey("generatedUUID")
+        let generated = self.defaults.bool(forKey: "generatedUUID")
         
         if(generated){
-            let luuid : UInt64 = UInt64(self.defaults.integerForKey("luuid"))
+            let luuid : UInt64 = UInt64(self.defaults.integer(forKey: "luuid"))
             
             return luuid
         }else{
@@ -89,7 +89,7 @@ class PulseVM : NSObject {
     
     func generateUUID() -> Bool {
         
-        let generated = self.defaults.boolForKey("generatedUUID")
+        let generated = self.defaults.bool(forKey: "generatedUUID")
         
         if(generated){
             //String representation of uuid
@@ -99,9 +99,9 @@ class PulseVM : NSObject {
             
             
             let uuidString = pad(String(huuidRaw, radix: 16), toSize:16) + pad(String(luuidRaw, radix: 16), toSize:16)
-            NSLog("UUID: %@", uuidString.uppercaseString)
+            NSLog("UUID: %@", uuidString.uppercased())
             
-            self.defaults.setValue(uuidString.uppercaseString, forKey: "uuidString")
+            self.defaults.setValue(uuidString.uppercased(), forKey: "uuidString")
             
             return false
             
@@ -112,10 +112,10 @@ class PulseVM : NSObject {
             let LUUID:Int = Int(arc4random_uniform(1234567890)+123456)
             let HUUID:Int = Int(arc4random_uniform(1234567890)+234567)
             
-            self.defaults.setBool(true, forKey: "generatedUUID")
+            self.defaults.set(true, forKey: "generatedUUID")
             
-            self.defaults.setInteger(HUUID, forKey: "huuid")
-            self.defaults.setInteger(LUUID, forKey: "luuid")
+            self.defaults.set(HUUID, forKey: "huuid")
+            self.defaults.set(LUUID, forKey: "luuid")
             
             return true
         }
@@ -124,9 +124,9 @@ class PulseVM : NSObject {
     
     
     // push a text to the server (messages, links etc.)
-    func push(txtObj: TextVisual) {
+    func push(_ txtObj: TextVisual) {
         self.messageUploadStatus = 1
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(self.delay))
+        let time = DispatchTime.now() + Double(Int64(self.delay)) / Double(NSEC_PER_SEC)
         
         let jsonString = txtObj.getJSON()
         
@@ -136,14 +136,14 @@ class PulseVM : NSObject {
         
         self.messageUploadStatus = 2
         self.messageUploadStatus = 3
-        dispatch_after(time, dispatch_get_main_queue(), {
+        DispatchQueue.main.asyncAfter(deadline: time, execute: {
             self.messageUploadStatus = 0
         })
     }
     // push noise values to the server
-    func push(noiseObj: NoiseReading) {
+    func push(_ noiseObj: NoiseReading) {
         self.noiseUploadStatus = 1
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(self.delay))
+        let time = DispatchTime.now() + Double(Int64(self.delay)) / Double(NSEC_PER_SEC)
         
         let jsonString = noiseObj.getJSON()
         print(jsonString)
@@ -154,7 +154,7 @@ class PulseVM : NSObject {
             
         self.noiseUploadStatus = 2
         self.noiseUploadStatus = 3
-        dispatch_after(time, dispatch_get_main_queue(), {
+        DispatchQueue.main.asyncAfter(deadline: time, execute: {
             self.noiseUploadStatus = 0
         })
     }
@@ -162,8 +162,8 @@ class PulseVM : NSObject {
     // generate noise values using the function
     // the function should be called everytime a button is pressed
     // the function will generate the data dand push it to to the server
-    func noiseCollection(pushOrNot: Bool) -> Float {
-        let currentTime :NSDate = NSDate()
+    func noiseCollection(_ pushOrNot: Bool) -> Float {
+        let currentTime :Date = Date()
         let noiseManager = NoiseRecorder.sharedInstance
         let loca = LocationRecorder.sharedInstance
         
@@ -180,7 +180,7 @@ class PulseVM : NSObject {
         //print(sound)
 
         let Noise = NoiseReading(
-            uuid: self.defaults.stringForKey("uuidString")!,
+            uuid: self.defaults.string(forKey: "uuidString")!,
             soundVal: sound,//(sound+180),
             timestamp: UInt64(currentTime.timeIntervalSince1970*1000),
             location: loc,
@@ -188,7 +188,7 @@ class PulseVM : NSObject {
         )
         
         if pushOrNot {
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 if self.noiseUploadStatus == 0 {
                     self.push(Noise)
                 }
@@ -199,12 +199,12 @@ class PulseVM : NSObject {
     }
     // the function is same as noiseCollection()
     // but to push text messages on the server instead
-    func textCollection(txtMsg: String) {
+    func textCollection(_ txtMsg: String) {
         if txtMsg.isEmpty {
             return
         }
         
-        let currentTime :NSDate = NSDate()
+        let currentTime :Date = Date()
         let loca = LocationRecorder.sharedInstance
         
         let ifNotUpdated = loca.updateLocation()
@@ -217,13 +217,13 @@ class PulseVM : NSObject {
         let loc : [Double] = [lat,long]
         
         let Text = TextVisual(
-            uuid: self.defaults.stringForKey("uuidString")!,
+            uuid: self.defaults.string(forKey: "uuidString")!,
             txtMsg: txtMsg,
             timestamp: UInt64(currentTime.timeIntervalSince1970*1000),
             location: loc,
             volatility: self.volatility
         )
-        dispatch_async(dispatch_get_main_queue()) {
+        DispatchQueue.main.async {
             if self.messageUploadStatus == 0 {
                 self.push(Text)
             }
@@ -233,7 +233,7 @@ class PulseVM : NSObject {
     
     
     // access upload variables
-    func getUploadVal(dataType: String) -> Int8 {
+    func getUploadVal(_ dataType: String) -> Int8 {
         switch dataType {
             case "noise":
                 return self.noiseUploadStatus
@@ -245,7 +245,7 @@ class PulseVM : NSObject {
     }
     
     // set the volatility variable
-    func setVolatilityVar(vol : Int = 0) {
+    func setVolatilityVar(_ vol : Int = 0) {
         self.volatility = vol
     }
 

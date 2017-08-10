@@ -11,8 +11,8 @@ import UIKit
 class AboutViewController: UIViewController {
     
     @IBOutlet var longText: UITextView!
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
 
     override func viewDidLoad() {
@@ -23,15 +23,15 @@ class AboutViewController: UIViewController {
         attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
         longText.attributedText = attrString
         
-        longText.textAlignment = NSTextAlignment.Center
-        longText.font = UIFont.systemFontOfSize(14)
+        longText.textAlignment = NSTextAlignment.center
+        longText.font = UIFont.systemFont(ofSize: 14)
         
         if #available(iOS 8.2, *) {
-            longText.font = UIFont.systemFontOfSize(14, weight: UIFontWeightLight)
+            longText.font = UIFont.systemFont(ofSize: 14, weight: UIFontWeightLight)
         } else {
             // Fallback on earlier versions
         }
-        longText.textColor = UIColor.whiteColor()
+        longText.textColor = UIColor.white
         
         // Do any additional setup after loading the view.
     }
@@ -51,8 +51,8 @@ class AboutViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    @IBAction func rateThisApp(sender: UIButton) {
-        UIApplication.sharedApplication().openURL(NSURL(string : "http://itunes.com/apps/swarmpulse")!);
+    @IBAction func rateThisApp(_ sender: UIButton) {
+        UIApplication.shared.openURL(URL(string : "http://itunes.com/apps/swarmpulse")!);
     }
 
 }

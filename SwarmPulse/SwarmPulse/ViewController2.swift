@@ -13,22 +13,22 @@ class ViewController2: UIViewController {
     
     @IBOutlet var noiseLabel: UILabel!
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
     
     override func viewDidLoad() {
         setNeedsStatusBarAppearanceUpdate()
         super.viewDidLoad()
-        _ = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("updateLabel"), userInfo: nil, repeats: true)
+        _ = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: Selector("updateLabel"), userInfo: nil, repeats: true)
         
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let sharedDefaults = NSUserDefaults(suiteName: "group.ch.ethz.coss.nervous")
-        lightLabel.text = sharedDefaults?.objectForKey("stringKey") as? String
+        let sharedDefaults = UserDefaults(suiteName: "group.ch.ethz.coss.nervous")
+        lightLabel.text = sharedDefaults?.object(forKey: "stringKey") as? String
         
         
         

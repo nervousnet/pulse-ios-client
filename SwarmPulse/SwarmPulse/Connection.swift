@@ -10,10 +10,10 @@ import Foundation
 
 private let _CONN = Connection()
 
-class Connection: NSObject, NSStreamDelegate {
+class Connection: NSObject, StreamDelegate {
     var host:String?
     var port:Int?
-    var outputStream: NSOutputStream?
+    var outputStream: OutputStream?
     var stringToWrite: String = ""
     var previousString: String = ""
     
@@ -21,12 +21,12 @@ class Connection: NSObject, NSStreamDelegate {
         return _CONN
     }
     
-    func connect(host: String, port: Int) {
+    func connect(_ host: String, port: Int) {
         
         self.host = host
         self.port = port
         
-        NSStream.getStreamsToHostWithName(host, port: port, inputStream: nil, outputStream: &outputStream)
+        Stream.getStreamsToHost(withName: host, port: port, inputStream: nil, outputStream: &outputStream)
         
         if outputStream != nil {
             
@@ -34,7 +34,7 @@ class Connection: NSObject, NSStreamDelegate {
             outputStream!.delegate = self
             
             // Schedule
-            outputStream!.scheduleInRunLoop(.mainRunLoop(), forMode: NSDefaultRunLoopMode)
+            outputStream!.schedule(in: .main, forMode: RunLoopMode.defaultRunLoopMode)
             
             print("Start open()")
             
@@ -45,22 +45,22 @@ class Connection: NSObject, NSStreamDelegate {
         }
     }
     
-    func stream(aStream: NSStream, handleEvent eventCode: NSStreamEvent) {
+    func stream(_ aStream: Stream, handle eventCode: Stream.Event) {
         if aStream === outputStream {
             switch eventCode {
-            case NSStreamEvent.ErrorOccurred:
+            case Stream.Event.errorOccurred:
                 print("output: ErrorOccurred: \(aStream.streamError?.description)")
-            case NSStreamEvent.OpenCompleted:
+            case Stream.Event.openCompleted:
                 print("output: OpenCompleted")
-            case NSStreamEvent.HasSpaceAvailable:
+            case Stream.Event.hasSpaceAvailable:
                 //print("output: HasSpaceAvailable")
                 // Here you can write() to `outputStream`
                 if self.ifWrite() {
                     //print(self.stringToWrite)
-                    let data: NSData = self.stringToWrite.dataUsingEncoding(NSUTF8StringEncoding)!
-                    var buffer = [UInt8](count:data.length, repeatedValue:0)
-                    data.getBytes(&buffer);
-                    self.outputStream!.write(&buffer, maxLength: data.length);
+                    let data: Data = self.stringToWrite.data(using: String.Encoding.utf8)!
+                    var buffer = [UInt8](repeating: 0, count: data.count)
+                    (data as NSData).getBytes(&buffer);
+                    self.outputStream!.write(&buffer, maxLength: data.count);
                     self.previousString = self.stringToWrite
                     self.outputStream!.close()
                 }

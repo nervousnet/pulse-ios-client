@@ -383,6 +383,7 @@
 					07B861991BD9293400641165 = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = 5R8S596684;
+						LastSwiftMigration = 0830;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -392,6 +393,7 @@
 					07CB96C81BD8D5B500A58733 = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = 5R8S596684;
+						LastSwiftMigration = 0830;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -403,10 +405,12 @@
 					};
 					07CB96DC1BD8D5B600A58733 = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0830;
 						TestTargetID = 07CB96C81BD8D5B500A58733;
 					};
 					07CB96E71BD8D5B600A58733 = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0830;
 						TestTargetID = 07CB96C81BD8D5B500A58733;
 					};
 				};
@@ -590,6 +594,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -606,6 +611,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -706,6 +712,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ch.ethz.coss.nervous.SwarmPulse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -723,6 +730,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ch.ethz.coss.nervous.SwarmPulse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -734,6 +742,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.ethz.coss.nervous.SwarmPulseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwarmPulse.app/SwarmPulse";
 			};
 			name = Debug;
@@ -746,6 +755,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.ethz.coss.nervous.SwarmPulseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwarmPulse.app/SwarmPulse";
 			};
 			name = Release;
@@ -757,6 +767,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.ethz.coss.nervous.SwarmPulseUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = SwarmPulse;
 				USES_XCTRUNNER = YES;
 			};
@@ -769,6 +780,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.ethz.coss.nervous.SwarmPulseUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = SwarmPulse;
 				USES_XCTRUNNER = YES;
 			};

@@ -25,20 +25,20 @@ class HomeTableViewCellDouble: UITableViewCell {
         super.awakeFromNib()
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
-    @IBAction func leftPress(sender: UIButton) {
-        let  targetVC : UIViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier(leftLabel.text!)
-        homeTableViewcontroller.presentViewController(targetVC, animated: true, completion: nil)
+    @IBAction func leftPress(_ sender: UIButton) {
+        let  targetVC : UIViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: leftLabel.text!)
+        homeTableViewcontroller.present(targetVC, animated: true, completion: nil)
         
     }
 
-    @IBAction func rightPress(sender: UIButton) {
-            let  targetVC : UIViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier(rightLabel.text!)
-            homeTableViewcontroller.presentViewController(targetVC, animated: true, completion: nil)
+    @IBAction func rightPress(_ sender: UIButton) {
+            let  targetVC : UIViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: rightLabel.text!)
+            homeTableViewcontroller.present(targetVC, animated: true, completion: nil)
         
     }
 }

@@ -14,12 +14,12 @@ private let _NOISE = NoiseRecorder()
 class NoiseRecorder: NSObject, AVAudioRecorderDelegate {
     var audioRecorder: AVAudioRecorder!
     let audioSession = AVAudioSession.sharedInstance()
-    var levelTimer = NSTimer()
+    var levelTimer = Timer()
     var soundVal: Float = 0.0
     
     var recordSettings = [
-        AVFormatIDKey: NSNumber(unsignedInt:kAudioFormatAppleLossless),
-        AVEncoderAudioQualityKey : AVAudioQuality.Max.rawValue,
+        AVFormatIDKey: NSNumber(value: kAudioFormatAppleLossless as UInt32),
+        AVEncoderAudioQualityKey : AVAudioQuality.max.rawValue,
         //AVEncoderBitRateKey : 320000,
         AVNumberOfChannelsKey: 2,
         AVSampleRateKey : 44100.0
@@ -29,11 +29,11 @@ class NoiseRecorder: NSObject, AVAudioRecorderDelegate {
         super.init()
         //print("---------------")
         do {
-            if (audioSession.respondsToSelector("requestRecordPermission:")) {
+            if (audioSession.responds(to: "requestRecordPermission:")) {
                 try self.audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
                 try self.audioSession.setActive(true)
                 self.audioSession.requestRecordPermission({(allowed: Bool) -> Void in
-                    dispatch_async(dispatch_get_main_queue()) {
+                    DispatchQueue.main.async {
                         if allowed {
                             print("Granted")
                         } else {
@@ -47,12 +47,12 @@ class NoiseRecorder: NSObject, AVAudioRecorderDelegate {
         }
         
         do {
-            try self.audioRecorder = AVAudioRecorder(URL: directoryURL()!,settings: recordSettings)
+            try self.audioRecorder = AVAudioRecorder(url: directoryURL()!,settings: recordSettings)
             //self.audioRecorder.delegate = self
             //print(self.audioRecorder.prepareToRecord())
             if self.audioRecorder.prepareToRecord(){
                 print("Successfully prepared for recording.")
-                self.audioRecorder.meteringEnabled = true
+                self.audioRecorder.isMeteringEnabled = true
                 self.audioRecorder.record()
                 
                 //self.levelTimer = NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: Selector("updateNoise"), userInfo: nil, repeats: true)
@@ -82,7 +82,7 @@ class NoiseRecorder: NSObject, AVAudioRecorderDelegate {
     
     func startNoise() {
         self.audioRecorder.prepareToRecord()
-        self.audioRecorder.meteringEnabled = true
+        self.audioRecorder.isMeteringEnabled = true
         self.audioRecorder.record()
         //self.levelTimer = NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: Selector("updateNoise"), userInfo: nil, repeats: true)
 
@@ -94,7 +94,7 @@ class NoiseRecorder: NSObject, AVAudioRecorderDelegate {
         self.audioSession.requestRecordPermission({(allowed: Bool) -> Void in
                 if allowed {
                     self.audioRecorder.updateMeters()
-                    self.soundVal = self.audioRecorder.peakPowerForChannel(0)
+                    self.soundVal = self.audioRecorder.peakPower(forChannel: 0)
                     //NSLog(String(self.soundVal))
                 } else {
                     self.soundVal = 0.0
@@ -110,16 +110,16 @@ class NoiseRecorder: NSObject, AVAudioRecorderDelegate {
     
     func stopNoise() {
         self.levelTimer.invalidate()
-        self.audioRecorder.meteringEnabled = false
+        self.audioRecorder.isMeteringEnabled = false
         self.audioRecorder.stop()
         self.audioRecorder.deleteRecording()
     }
 
-    func directoryURL() -> NSURL? {
-        let fileManager = NSFileManager.defaultManager()
-        let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        let documentDirectory = urls[0] as NSURL
-        let soundURL = documentDirectory.URLByAppendingPathComponent("sound.m4a")
+    func directoryURL() -> URL? {
+        let fileManager = FileManager.default
+        let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentDirectory = urls[0] as URL
+        let soundURL = documentDirectory.appendingPathComponent("sound.m4a")
         return soundURL
     }
 }

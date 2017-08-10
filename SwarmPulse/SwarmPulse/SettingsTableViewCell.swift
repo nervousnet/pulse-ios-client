@@ -7,6 +7,30 @@
 //
 
 import UIKit
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l <= r
+  default:
+    return !(rhs < lhs)
+  }
+}
+
 
 class SettingsTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerViewDelegate {
 
@@ -30,15 +54,15 @@ class SettingsTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerVi
         }
         else if (VM.volatility >= pickerSeconds.first! && VM.volatility <= pickerSeconds.last){
             controlSwitch.setOn(true, animated: true)
-            pickerView.selectRow(pickerSeconds.indexOf(VM.volatility)! , inComponent: 0, animated: true)
+            pickerView.selectRow(pickerSeconds.index(of: VM.volatility)! , inComponent: 0, animated: true)
         }
         else if (VM.volatility == -1) {
             controlSwitch.setOn(true, animated: true)
-            pickerView.selectRow(pickerData.indexOf("forever")! , inComponent: 0, animated: true)
+            pickerView.selectRow(pickerData.index(of: "forever")! , inComponent: 0, animated: true)
         }
 //        storeswitch(controlSwitch)
         
-        _ = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("repeater"), userInfo: nil, repeats: true)
+        _ = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: Selector("repeater"), userInfo: nil, repeats: true)
 
         
         // Initialization code
@@ -48,33 +72,33 @@ class SettingsTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerVi
         NSLog(String(VM.volatility))
     }
     // The number of columns of data
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     // The number of rows of data
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerData.count
     }
     
     // The data to return for the row and component (column) that's being passed in
-    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         
-        if (controlSwitch.on) {
-            return NSAttributedString(string: pickerData[row], attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
+        if (controlSwitch.isOn) {
+            return NSAttributedString(string: pickerData[row], attributes: [NSForegroundColorAttributeName:UIColor.white])
         }
-        else if (!controlSwitch.on){
-            return NSAttributedString(string: pickerData[row], attributes: [NSForegroundColorAttributeName:UIColor.darkGrayColor()])
+        else if (!controlSwitch.isOn){
+            return NSAttributedString(string: pickerData[row], attributes: [NSForegroundColorAttributeName:UIColor.darkGray])
         }
         else {
-            return NSAttributedString(string: pickerData[row], attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
+            return NSAttributedString(string: pickerData[row], attributes: [NSForegroundColorAttributeName:UIColor.white])
         }
         
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch row{
-        case pickerData.indexOf("forever")!:
+        case pickerData.index(of: "forever")!:
             VM.setVolatilityVar(-1)
         default:
             VM.setVolatilityVar(pickerSeconds[row])
@@ -83,21 +107,21 @@ class SettingsTableViewCell: UITableViewCell, UIPickerViewDataSource, UIPickerVi
         
     }
     
-    @IBAction func storeswitch(sender: UISwitch) {
-        NSLog(String(pickerView.selectedRowInComponent(0)))
-        if (sender.on) {
-            pickerView.userInteractionEnabled = true
-            switch pickerView.selectedRowInComponent(0){
-            case pickerData.indexOf("forever")!:
+    @IBAction func storeswitch(_ sender: UISwitch) {
+        NSLog(String(pickerView.selectedRow(inComponent: 0)))
+        if (sender.isOn) {
+            pickerView.isUserInteractionEnabled = true
+            switch pickerView.selectedRow(inComponent: 0){
+            case pickerData.index(of: "forever")!:
                 VM.setVolatilityVar(-1)
-            default: VM.setVolatilityVar(pickerSeconds[pickerView.selectedRowInComponent(0)])
+            default: VM.setVolatilityVar(pickerSeconds[pickerView.selectedRow(inComponent: 0)])
             }
 
         }
         else {
             VM.setVolatilityVar(0)
             NSLog("turned off")
-            pickerView.userInteractionEnabled = false
+            pickerView.isUserInteractionEnabled = false
             
         }
         pickerView.reloadAllComponents()

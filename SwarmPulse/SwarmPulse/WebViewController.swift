@@ -12,8 +12,8 @@ class WebViewController: UIViewController {
     
     @IBOutlet var webView: UIWebView!
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
     
     override func viewDidLoad() {
@@ -21,8 +21,8 @@ class WebViewController: UIViewController {
         setNeedsStatusBarAppearanceUpdate()
         
         let url = "http://pulse.inn.ac/"
-        let requestURL = NSURL(string:url)
-        let request = NSURLRequest(URL: requestURL!)
+        let requestURL = URL(string:url)
+        let request = URLRequest(url: requestURL!)
         webView.loadRequest(request)
 //        UIApplication.sharedApplication().openURL(NSURL(string: "http://pulse.inn.ac/")!)
         
