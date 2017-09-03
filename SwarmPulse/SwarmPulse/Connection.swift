@@ -49,7 +49,7 @@ class Connection: NSObject, StreamDelegate {
         if aStream === outputStream {
             switch eventCode {
             case Stream.Event.errorOccurred:
-                print("output: ErrorOccurred: \(aStream.streamError?.description)")
+                print("output: ErrorOccurred: astream Error")
             case Stream.Event.openCompleted:
                 print("output: OpenCompleted")
             case Stream.Event.hasSpaceAvailable:

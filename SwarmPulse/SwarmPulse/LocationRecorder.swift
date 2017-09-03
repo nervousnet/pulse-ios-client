@@ -45,7 +45,7 @@ class LocationRecorder{//:NSObject, CLLocationManagerDelegate {
                     //dispatch_async(dispatch_get_main_queue()) {
                         //print("Authorized for location services")
                         self.locManager.startUpdatingLocation()
-                        if let locValue:CLLocationCoordinate2D = self.locManager.location!.coordinate {
+                        if let locValue:CLLocationCoordinate2D = self.locManager.location?.coordinate {
                             self.lat = locValue.latitude
                             self.long = locValue.longitude
                             //print("locations = \(self.lat) \(self.long)")

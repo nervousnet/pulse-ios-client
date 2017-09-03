@@ -68,6 +68,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ = Timer.scheduledTimer(timeInterval: TimeInterval(interval), target: self, selector: Selector("sendPendingMessages"), userInfo: nil, repeats: true)
     }
     
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        let urlScheme = url.scheme //[URL_scheme]
+        let host = url.host //red
+        print("HelloHelloHello" + host!)
+        return true
+    }
+    
+    
 //    func sendPendingMessages (){
 //        if (sharedDefaults?.boolForKey("hasBeenPushed") == nil){
 //            sharedDefaults?.setBool(true, forKey: "hasBeenPushed")

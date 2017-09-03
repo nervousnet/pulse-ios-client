@@ -23,7 +23,7 @@ class NoiseRecorder: NSObject, AVAudioRecorderDelegate {
         //AVEncoderBitRateKey : 320000,
         AVNumberOfChannelsKey: 2,
         AVSampleRateKey : 44100.0
-    ]
+    ] as [String : Any]
     
     override init() {
         super.init()
